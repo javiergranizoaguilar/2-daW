@@ -1,0 +1,43 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif; /* Placeholder font */
+}
+img{
+    width: 100%;
+}
+header {
+    /* Use position absolute for the navbar to float over the hero image */
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    padding: 15px 50px;
+    /* Background for the nav area itself */
+    background-color: rgba(5, 113, 163); 
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header > img { /* Logo image styling */
+    width: 10%; 
+    height: 20%;
+    margin-right: 10px;
+}
+
+header nav { /* The second 'nav' which holds the links */
+    display: flex;
+    gap: 60px;
+}
+
+header nav a {
+    text-decoration: none;
+    font-size: 14px;
+    padding: 5px 0;
+}
