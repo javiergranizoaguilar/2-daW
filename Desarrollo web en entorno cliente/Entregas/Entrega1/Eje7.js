@@ -55,3 +55,15 @@ function move(f, e, num) {
     return aux;
 
 }
+function move2(first, end, num) {
+    let num1=[...num];
+    let aux = []
+    aux.push(num1[first]);
+    aux.push(num1[end]);
+    num1[first]=aux[1];
+    num1[end]=aux[0];
+}
+
+// [0,1,2,3,4,5]
+// inicial = 2 final = 4
+// [0,1,4,3,2,5]
