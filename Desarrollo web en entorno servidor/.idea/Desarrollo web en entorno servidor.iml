@@ -4,5 +4,14 @@
     <content url="file://$MODULE_DIR$" />
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module" module-name="eje14" />
+    <orderEntry type="module" module-name="eje15" />
+    <orderEntry type="module" module-name="eje16" />
+    <orderEntry type="module" module-name="eje17" />
+    <orderEntry type="module" module-name="eje19" />
+    <orderEntry type="module" module-name="eje18" />
+    <orderEntry type="module" module-name="eje20" />
+    <orderEntry type="module" module-name="eje21" />
+    <orderEntry type="module" module-name="eje22" />
   </component>
 </module>

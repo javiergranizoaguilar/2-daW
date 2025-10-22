@@ -2,7 +2,12 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/eje10/.idea/eje10.iml" filepath="$PROJECT_DIR$/eje10/.idea/eje10.iml" />
+      <module fileurl="file://$PROJECT_DIR$/eje12/.idea/eje12.iml" filepath="$PROJECT_DIR$/eje12/.idea/eje12.iml" />
       <module fileurl="file://$PROJECT_DIR$/eje7/.idea/eje7.iml" filepath="$PROJECT_DIR$/eje7/.idea/eje7.iml" />
+      <module fileurl="file://$PROJECT_DIR$/eje8/.idea/eje8.iml" filepath="$PROJECT_DIR$/eje8/.idea/eje8.iml" />
+      <module fileurl="file://$PROJECT_DIR$/eje9/.idea/eje9.iml" filepath="$PROJECT_DIR$/eje9/.idea/eje9.iml" />
+      <module fileurl="file://$PROJECT_DIR$/eje11/.idea/ejej11.iml" filepath="$PROJECT_DIR$/eje11/.idea/ejej11.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/relacionEjesT2.iml" filepath="$PROJECT_DIR$/.idea/relacionEjesT2.iml" />
     </modules>
   </component>
