@@ -38,18 +38,19 @@
 
         <section>
             <h2>Opinion</h2>
-            <fieldset>
-                <legend>User Data</legend>
+            <form action="" method="">
+                <fieldset>
+                    <legend>User Data</legend>
 
-                <form>
-                    <p>Username</p>
+
+                    <label for="usuario">Username</label>
                     <input type="text" placeholder="Username" aria-describedby="Username">
-                    
-                    <p>Email</p>
+
+                    <label for="email">Email</label>
                     <input type="email" placeholder="Email" value="digimon@digiman.com" aria-describedby="Email">
-                    
-                    <p>Edad</p>
-                    <input type="text" placeholder="Edad" aria-describedby="Edad">
+
+                    <label for="Edad">Edad</label>
+                    <input type="number" placeholder="Edad" aria-describedby="Edad">
 
                     <p>Platform</p>
                     <input type="radio" id="pc" name="platform" checked aria-describedby="PC">
@@ -58,11 +59,9 @@
                     <label for="ps5">PS5</label>
                     <input type="radio" id="xbox" name="platform" aria-describedby="XBOX">
                     <label for="xbox">XBox X</label>
-                </form>
-            </fieldset>
-            <fieldset>
-                <legend>Assessment</legend>
-                <form>
+                </fieldset>
+                <fieldset>
+                    <legend>Assessment</legend>
                     <p>Note</p>
                     <select>
                         <option selected checked aria-describedby="Perfect">Perfect</option>
@@ -72,8 +71,8 @@
                     <p>Comment</p>
                     <textarea placeholder="Write your opinion..." checked aria-describedby="Comment"></textarea>
                     <button checked aria-describedby="Send">Send</button>
-                </form>
-            </fieldset>
+                </fieldset>
+            </form>
         </section>
     </main>
     <footer>
