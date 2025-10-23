@@ -16,5 +16,12 @@ function numerosPrimosRelativos($number1,$number2)
     return $aux==1?"Son Primos relativos":"No son primos relativos";
 
 }
-echo numerosPrimosRelativos(4,3);
+function validacion(){
+    do {
+        $aux = readline('Dame el numero');
+        if(!is_numeric($aux)){echo "no as puesto un numero valido \n";}
+    }while (!is_numeric($aux));
+    return $aux;
+}
+echo numerosPrimosRelativos(validacion(),validacion());
 ?>

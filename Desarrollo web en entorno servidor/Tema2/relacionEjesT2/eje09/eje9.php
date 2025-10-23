@@ -1,7 +1,7 @@
 <?php
 
-$var=100;
-$var2=45;
+$var=validacion();
+$var2=validacion();
 echo minimoComunMultiplo($var,$var2);
 
 
@@ -21,6 +21,12 @@ function minimoComunMultiplo($number1,$number2)
         }
     }
     return $aux;
-
+}
+function validacion(){
+    do {
+        $aux = readline('Dame el numero');
+        if(!is_numeric($aux)){echo "no as puesto un numero valido \n";}
+    }while (!is_numeric($aux));
+    return $aux;
 }
 ?>

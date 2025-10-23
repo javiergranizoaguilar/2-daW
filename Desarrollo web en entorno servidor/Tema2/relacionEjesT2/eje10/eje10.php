@@ -1,6 +1,6 @@
 <?php
 
-echo fibonacci(4);
+echo fibonacci(validacion());
 function fibonacci($nesimo){
     $Par=0;
     $Impar=1;
@@ -10,5 +10,11 @@ function fibonacci($nesimo){
     }
     return $Par<$Impar?$Impar:$Par;
 }
-
+function validacion(){
+    do {
+        $aux = readline('Dame el numero');
+        if(!is_numeric($aux)){echo "no as puesto un numero valido \n";}
+    }while (!is_numeric($aux));
+    return $aux;
+}
 ?>

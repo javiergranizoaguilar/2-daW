@@ -17,4 +17,5 @@ function reverso($palabra)
     return ($palabra===$pAux);
 }
 
+
 ?>

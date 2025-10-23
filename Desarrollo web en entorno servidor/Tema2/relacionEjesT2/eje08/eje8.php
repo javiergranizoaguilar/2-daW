@@ -1,5 +1,5 @@
 <?php
-$var=234;
+$var=validacion();
 echo sumaDigitos($var);
 function sumaDigitos($number)
 {
@@ -9,6 +9,13 @@ function sumaDigitos($number)
         $aux+=(int)substr($number,$i,1);
 
     }
+    return $aux;
+}
+function validacion(){
+    do {
+        $aux = readline('Dame el numero');
+        if(!is_numeric($aux)){echo "no as puesto un numero valido \n";}
+    }while (!is_numeric($aux));
     return $aux;
 }
 ?>

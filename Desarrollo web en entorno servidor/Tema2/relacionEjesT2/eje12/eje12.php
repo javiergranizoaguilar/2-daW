@@ -1,5 +1,5 @@
 <?php
-if (reverso(404)){
+if (reverso(validacion())){
     echo "si";
 }
 else{
@@ -13,5 +13,11 @@ function reverso($palabra)
     }
     return $palabra==$pAux;
 }
-
+function validacion(){
+    do {
+        $aux = readline('Dame el numero');
+        if(!is_numeric($aux)){echo "no as puesto un numero valido \n";}
+    }while (!is_numeric($aux));
+    return $aux;
+}
 ?>

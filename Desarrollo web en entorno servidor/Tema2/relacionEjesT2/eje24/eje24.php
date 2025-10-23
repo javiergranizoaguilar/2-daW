@@ -10,7 +10,7 @@ function calcularDescuentos($numero,$descuento){
         'estudiante'=>calculo($numero,DESCUENTO_ESTUDIANTES),
         'jubilado'=>calculo($numero,DESCUENTO_JUBILADO) ,
         'vip'=>calculo($numero,DESCUENTO_VIP),
-        default=>$aux="No as puesto un descuento valido tu precio es $numero"
+        default=>"No as puesto un descuento valido tu precio es $numero"
     };
 
 }
