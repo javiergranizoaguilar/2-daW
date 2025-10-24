@@ -19,26 +19,27 @@
         </nav>
     </header>
     <main>
-        <img src="./digimon-story-time-stranger-4366754.webp" alt="Digimon Story Time Stranger Portada">
-        <section>
-            <h2>Digimon Story Time Stranger: An Epic Story of Connection</h2>
-            <p>Take on a mission to uncover the mystery of the worlds collapse, where chance encounters with unique
-                characters will shape your journey across time and parallel worlds - and change fate itself.</p>
+        <section id="displace">
+            <img src="./digimon-story-time-stranger-4366754.webp" alt="Digimon Story Time Stranger Portada">
+            <div class="displaceText">
+                <h2>Digimon Story Time Stranger: An Epic Story of Connection</h2>
+                <p>Take on a mission to uncover the mystery of the worlds collapse, where chance encounters with unique
+                    characters will shape your journey across time and parallel worlds - and change fate itself.</p>
+            </div>
         </section>
-
-        <section>
+        <section id="about">
             <img src="./DSTS_PreorderTrailer_Thumbnail.png" alt="Digimon Story Time Stranger Release Date Trailer">
-
-            <h3>Adventure Between Worlds and Time</h3>
-            <p>Journey between the parallel human world and the Digital World: Iliad where Digimon reside.</p>
-            <p>See the Digital World and its intricately detailed realms like never before, with interactive
-                elements and special quests to explore.</p>
-            <button>Join Now!</button>
+            <div class="aboutText">
+                <h3>Adventure Between Worlds and Time</h3>
+                <p>Journey between the parallel human world and the Digital World: Iliad where Digimon reside.</p>
+                <p>See the Digital World and its intricately detailed realms like never before, with interactive
+                    elements and special quests to explore.</p>
+                <a href="">Join Now!</a>
+            </div>
         </section>
-
-        <section>
+        <section id="opinion">
             <h2>Opinion</h2>
-            <form action="" method="">
+            <form action="" method="" class="opinionForms">
                 <fieldset>
                     <legend>User Data</legend>
 
@@ -51,24 +52,26 @@
 
                     <label for="Edad">Edad</label>
                     <input type="number" placeholder="Edad" aria-describedby="Edad">
-
-                    <p>Platform</p>
-                    <input type="radio" id="pc" name="platform" checked aria-describedby="PC">
-                    <label for="pc">PC</label>
-                    <input type="radio" id="ps5" name="platform" aria-describedby="PS5">
-                    <label for="ps5">PS5</label>
-                    <input type="radio" id="xbox" name="platform" aria-describedby="XBOX">
-                    <label for="xbox">XBox X</label>
+                    
+                    <label>Platform</label>
+                    <div>
+                        <input type="radio" id="pc" name="platform" checked aria-describedby="PC">
+                        <label for="pc">PC</label>
+                        <input type="radio" id="ps5" name="platform" aria-describedby="PS5">
+                        <label for="ps5">PS5</label>
+                        <input type="radio" id="xbox" name="platform" aria-describedby="XBOX">
+                        <label for="xbox">XBox X</label>
+                    </div>
                 </fieldset>
                 <fieldset>
                     <legend>Assessment</legend>
-                    <p>Note</p>
+                    <label>Note</label>
                     <select>
                         <option selected checked aria-describedby="Perfect">Perfect</option>
                         <option aria-describedby="Good">Good</option>
                         <option aria-describedby="Fair">Fair</option>
                     </select>
-                    <p>Comment</p>
+                    <label>Comment</label>
                     <textarea placeholder="Write your opinion..." checked aria-describedby="Comment"></textarea>
                     <button checked aria-describedby="Send">Send</button>
                 </fieldset>

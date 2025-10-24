@@ -2,11 +2,14 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Roboto', sans-serif; /* Placeholder font */
+    font-family: 'Roboto', sans-serif;
+    /* Placeholder font */
 }
-img{
+
+img {
     width: 100%;
 }
+
 header {
     /* Use position absolute for the navbar to float over the hero image */
     position: absolute;
@@ -16,22 +19,23 @@ header {
     z-index: 100;
     padding: 15px 50px;
     /* Background for the nav area itself */
-    background-color: rgba(5, 113, 163); 
+    background-color: rgba(5, 113, 163);
 }
 
-header{
+header {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-header > img { /* Logo image styling */
-    width: 10%; 
+header>img {
+    /* Logo image styling */
+    width: 10%;
     height: 20%;
     margin-right: 10px;
 }
 
-header nav { /* The second 'nav' which holds the links */
+header nav {
     display: flex;
     gap: 60px;
 }
@@ -40,4 +44,147 @@ header nav a {
     text-decoration: none;
     font-size: 14px;
     padding: 5px 0;
+    color: white;
+    font-weight: bolder;
+    font-size: 20px;
+}
+
+#displace {
+    position: relative;
+    /* permite que los hijos se redistribullan siempre que tengan position: absolute */
+}
+
+.displaceText {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    /* Estilos de la barra de texto en la parte inferior */
+    background-color: rgba(5, 113, 163, 0.75);
+    /* Fondo oscuro semitransparente */
+    padding: 30px 50px;
+    text-align: center;
+}
+
+.displaceText h2 {
+    color: white;
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+.displaceText p {
+    color: white;
+    font-size: 1.1em;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+#displace img {
+    display: block;
+    height: 100vh;
+}
+
+#about {
+    display: flex;
+    justify-content: space-around;
+    padding: 60px;
+}
+
+#about img {
+    width: 40vw;
+    border-radius: 30px;
+}
+
+.aboutText {
+    max-width: 40vw;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.aboutText p {
+    text-align: center;
+}
+
+.aboutText h3 {
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.aboutText p {
+    font-size: 20px;
+}
+
+.aboutText a {
+    background-color: rgba(5, 113, 163);
+    padding: 25px 60px;
+    border-radius: 25px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#opinion {
+    padding: 40px 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(5, 113, 163);
+}
+
+.opinionForms {
+    display: flex;
+
+}
+
+.opinionForms fieldset {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin: 1vh 2vw;
+    font-weight: bolder;
+    border-radius: 15px;
+    width: 20vw;
+}
+
+.opinionForms fieldset>* {
+    margin: 10px 20px;
+
+}
+
+.opinionForms fieldset legend {
+    color: black;
+    font-size: 40px;
+}
+
+.opinionForms fieldset input,
+select {
+    padding: 10px;
+    border-radius: 15px;
+    background-color: rgb(149, 181, 196);
+}
+
+.opinionForms fieldset textarea {
+    padding: 10px;
+    border-radius: 15px;
+    height: 200px;
+    background-color: rgb(149, 181, 196);
+}
+
+.opinionForms fieldset button {
+    padding: 20px;
+    max-width: 10vw;
+    color: black;
+    border-radius: 15px;
+    background-color: rgb(149, 181, 196);
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    font-weight: bolder;
+    font-size: 20px;
+    padding: 20px 0;
 }
