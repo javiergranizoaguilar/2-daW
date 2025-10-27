@@ -43,7 +43,6 @@ function move(f, e, num) {
     for (let x = (parseInt(f) + 1); x < e; x++) {
         aux[x] = num1[x]
     }
-    
     num1.unshift(num1[9]);
     for (let x = 0; x <= f; x++) {
         aux[x] = num1[x]
