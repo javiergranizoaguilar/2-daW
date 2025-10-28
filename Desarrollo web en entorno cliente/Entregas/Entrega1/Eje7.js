@@ -52,7 +52,6 @@ function move(f, e, num) {
     }
     aux[e] = num[f];
     return aux;
-
 }
 function move2(first, end, num) {
     let num1=[...num];
