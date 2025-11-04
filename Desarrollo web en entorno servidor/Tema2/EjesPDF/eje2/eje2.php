@@ -33,6 +33,7 @@ class Validation
         // $ -> Fin de la cadena
         $patron = '/^[\w\.-]+@[\w\.-]+\.[A-Za-z]{2,4}$/';
         return preg_match($patron, $email) === 1 ?
+
             "$email es un email valido" : "$email no es un email valido";
         //Metodo rapido y facil
         //return filter_var($email, FILTER_VALIDATE_EMAIL)!==false;
