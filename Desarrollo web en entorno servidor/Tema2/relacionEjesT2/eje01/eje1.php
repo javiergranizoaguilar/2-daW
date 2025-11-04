@@ -1,7 +1,7 @@
 <?php
     $arrays = [1,22,99,23];
     echo higer($arrays);
-    function higer($array){
+    function higer($arrays){
     $number=0;
         for($i = 0; $i < count($arrays); $i++){
             if ($i===0){
