@@ -1,0 +1,70 @@
+/* Definimos el tamaño de la celda de la cuadrícula en CSS y JS */
+:root {
+    --grid-size: 50px;
+    --token-size: 42px;
+    --border-size:3px;
+    --token-total:calc((var(--border-size)*2)+var(--token-size));
+}
+
+body {
+    margin: 0;
+    overflow: hidden;
+    background-color: #222;
+    font-family: sans-serif;
+}
+
+#map-container {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    cursor: grab;
+}
+
+#map-layer {
+    position: absolute;
+    /* Usamos un mapa grande para que se pueda hacer zoom */
+    width: 3000px;
+    height: 2000px;
+    background-size: cover;
+    transition: transform 0.1s ease-out;
+    transform-origin: 0 0;
+    user-select: none;
+    z-index: 1;
+    /* Asegura que esté detrás de los tokens */
+
+    /* Dibuja una cuadrícula visible usando un gradiente CSS (Opcional, pero útil) */
+    background-image:
+        linear-gradient(to right, rgba(255, 255, 255, 0.3) 2px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.3) 2px, transparent 1px),
+        url("./castle-mimic-45x60-v0-v85iqdtrqvuf1.webp");
+
+    background-size: var(--grid-size) var(--grid-size),
+        var(--grid-size) var(--grid-size),
+        cover;
+}
+
+.token {
+    position: absolute;
+    width: var(--token-size);
+    height: var(--token-size);
+    border-radius: 50%;
+    border: var(--border-size) solid gold;
+    cursor: move;
+    z-index: 10;
+    background-size: cover;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.7);
+    background-image: url('https://via.placeholder.com/50/AA0000/FFFFFF?text=PJ');
+
+    /*transform: translate(
+        calc(var(--grid-size) / 2 - var(--token-total) / 2),
+        calc(var(--grid-size) / 2 - var(--token-total) / 2)
+        );
+
+    margin-left: calc((var(--grid-size) / 2) - var(--token-total) / 2);
+    margin-top: calc((var(--grid-size) / 2) - var(--token-total) / 2);*/
+}
+
+#token-2 {
+    background-image: url('https://via.placeholder.com/50/0000AA/FFFFFF?text=NPC');
+    border-color: deepskyblue;
+}
