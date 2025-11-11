@@ -12,6 +12,17 @@ const CENTER=isNaN(parseFloat(gridSizeString-tokenTotalSizeString))?2:parseFloat
 const mapContainer = document.getElementById('map-container');
 const mapLayer = document.getElementById('map-layer');
 const tokens = document.querySelectorAll('.token');
+// --- NUEVAS CONSTANTES PARA EL CÁLCULO DE LA ESCALA MÍNIMA ---
+const CONTAINER_WIDTH = mapContainer.clientWidth;
+const CONTAINER_HEIGHT = mapContainer.clientHeight;
+const MAP_WIDTH = mapLayer.clientWidth;  // Debería ser 3000
+const MAP_HEIGHT = mapLayer.clientHeight; // Debería ser 2000
+// 1. Calcular la escala necesaria para que el ancho quepa
+const scaleToFitWidth = CONTAINER_WIDTH / (MAP_WIDTH*1.1);
+// 2. Calcular la escala necesaria para que el alto quepa
+const scaleToFitHeight = CONTAINER_HEIGHT / (MAP_HEIGHT*1.1);
+// La escala mínima debe ser la más pequeña de las dos para asegurar que AMBAS dimensiones caben.
+const MIN_SCALE = Math.min(scaleToFitWidth, scaleToFitHeight);
 
 // --- Variables de Estado del Mapa ---
 let scale = 1.0;
@@ -104,7 +115,7 @@ document.addEventListener('mouseup', () => {
 mapContainer.addEventListener('wheel', (e) => {
     e.preventDefault();
     const zoomFactor = e.deltaY < 0 ? 1.1 : 1 / 1.1;
-    const newScale = Math.max(0.5, Math.min(3.0, scale * zoomFactor));
+    const newScale = Math.max(MIN_SCALE, Math.min(3.0, scale * zoomFactor));
 
     if (newScale !== scale) {
         const mouseX = e.clientX;
