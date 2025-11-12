@@ -428,7 +428,7 @@ function frecuenciaNgramas($text, $n)
 
     // Recorre el array asociativo de frecuencias.
     // $frase obtiene la clave (el n-grama); $frecuencia obtiene el valor (el conteo).
-    //que cojones es esto. que fumada de cosa pero parece util de cojones. Primera vez que lo uso Pag 27 tema 1 recordatorio
+    //Primera vez que lo uso Pag 27 tema 1 recordatorio. Que cojones es esto. que fumada.Funcina raro.
     foreach ($frecuencias as $frase => $frecuencia) {
         // Aplica el filtro: solo si la frecuencia es mayor que 1
         if ($frecuencia > 1) {
