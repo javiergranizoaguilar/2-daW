@@ -1,10 +1,10 @@
 /* Definimos el tamaño de la celda de la cuadrícula en CSS y JS */
 :root {
-    --map-whith:602px;
-    --map-height:602px;
-    --grid-size: 50px;
-    --token-size: 42px;
-    --token-border-size:3px;
+    --map-whith: 632px;
+    --map-height: 632px;
+    --grid-size: 70px;
+    --token-size: 58px;
+    --token-border-size: 5px;
 }
 
 body {
@@ -12,13 +12,36 @@ body {
     overflow: hidden;
     background-color: #222;
     font-family: sans-serif;
+    /* Usamos flex para colocar el mapa a la izquierda y la caja de texto a la derecha */
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    height: 100vh;
+}
+
+.texts {
+    background-color: rgba(0,0,0,0.85);
+    width: 33vw; /* ocupa una tercera parte en pantallas grandes */
+    min-width: 260px;
+    height: 100vh;
+    color: white;
+    box-sizing: border-box;
+    padding: 20px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    z-index: 20;
+    /* aspecto ligero */
+    box-shadow: -6px 0 20px rgba(0,0,0,0.6);
 }
 
 #map-container {
-    width: 100vw;
+    width: 67vw;
     height: 100vh;
     overflow: hidden;
     cursor: grab;
+    position: relative; /* para que #map-layer absolute se posicione respecto a este contenedor */
 }
 
 #map-layer {
@@ -54,11 +77,11 @@ body {
     z-index: 10;
     background-size: cover;
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.7);
-    background-image: url('https://via.placeholder.com/50/AA0000/FFFFFF?text=PJ');
+    background-image: url("../imgs/castle-mimic-45x60-v0-v85iqdtrqvuf1.webp");
 
 }
 
 #token-2 {
-    background-image: url('https://via.placeholder.com/50/0000AA/FFFFFF?text=NPC');
+    background-image: url("../imgs/castle-mimic-45x60-v0-v85iqdtrqvuf1.webp");
     border-color: deepskyblue;
 }

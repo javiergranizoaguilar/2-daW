@@ -30,8 +30,8 @@ function getCssNumericValue(varName, defaultValue = 0) {
 }
 
 // Extraer y exportar las constantes de tamaño de la cuadrícula
-export const GRID_SIZE = getCssNumericValue('--grid-size', 50);
-const tokenSize = getCssNumericValue('--token-size', 42);
+export const GRID_SIZE = getCssNumericValue('--grid-size', 70);
+const tokenSize = getCssNumericValue('--token-size', 62);
 const tokenBorderSize = getCssNumericValue('--token-border-size', 3);
 const tokenTotalSize= tokenSize+(tokenBorderSize*2);
 
