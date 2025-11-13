@@ -5,26 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../stiles/home.css">
+    <link rel="stylesheet" href="../stiles/index.css">
 </head>
 
 <body>
-    <header>
-        <div>
-            <img src="../imgs/logo.svg" alt="">
-            <h1>Horno San Miguel</h1>
-        </div>
-        <nav>
-            <ul>
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="productos.html" class="active">Productos</a></li>
-                <li><a href="nosotros.html">Sobre Nosotros</a></li>
-                <li><a href="contacto.html">Contacto</a></li>
-            </ul>
-        </nav>
-    </header>
-
     <main>
+        <main>
         <section class="productos">
             <h2>Nuestros Productos</h2>
             <figure class="product-image">
@@ -34,37 +20,38 @@
         </section>
 
         <nav class="category-nav">
-            <button class="category-button active" data-filter="all">Todos</button>
-            <button class="category-button" data-filter="panes">Panes</button>
-            <button class="category-button" data-filter="bolleria">Bollería</button>
-            <button class="category-button" data-filter="salados">Salados</button>
+            <button class="category-button active" >Todos</button>
+            <button class="category-button" >Panes</button>
+            <button class="category-button" >Bollería</button>
+            <button class="category-button" >Salados</button>
         </nav>
 
         <section class="product-grid">
 
             <article class="product-card panes">
-                <img src="img/pan_hogaza.jpg" alt="Hogaza de Masa Madre Tradicional">
+                <img src="../imgs/panes/hogaza.webp" alt="Hogaza de Masa Madre Tradicional">
                 <h3>Hogaza Tradicional</h3>
                 <p class="price">Desde 4,50€</p>
                 <div class="allergen-tag">Contiene Gluten</div>
-                <a href="detalle_hogaza.html" class="detail-link">Ver Detalles</a>
+                <a href="" class="detail-link">Añadir al Carrito</a>
             </article>
 
             <article class="product-card bolleria">
-                <img src="img/bolleria_croissant.jpg" alt="Croissant de Mantequilla Artesano">
+                <img src="../imgs/panes/croisan.webp" alt="Croissant de Mantequilla Artesano">
                 <h3>Croissant de Mantequilla</h3>
                 <p class="price">Desde 1,80€</p>
                 <div class="allergen-tag">Gluten, Lácteos</div>
-                <a href="detalle_croissant.html" class="detail-link">Ver Detalles</a>
+                <a href="" class="detail-link">Añadir al Carrito</a>
             </article>
 
             <article class="product-card salados">
-                <img src="img/salado_empanada.jpg" alt="Empanada de Atún y Pimiento">
+                <img src="../imgs/panes/empanada.webp" alt="Empanada de Atún y Pimiento">
                 <h3>Empanada de Atún</h3>
                 <p class="price">Desde 3,90€ (por porción)</p>
                 <div class="allergen-tag">Gluten, Pescado</div>
-                <a href="detalle_empanada.html" class="detail-link">Ver Detalles</a>
+                <a href="" class="detail-link">Añadir al Carrito</a>
             </article>
+            
 
         </section>
 
@@ -72,12 +59,7 @@
             <p>**Aviso Alérgenos:** Consulta en tienda si tienes alergias. Indicamos los más comunes.</p>
         </aside>
     </main>
-
-    <footer class="main-footer">
-        <p>Dirección: Pl. Mayor 8, 28000. </p>
-        <p>Horario: L-V 7:00-14:30/17:30-20:00. S 7:30-14:30. </p>
-        <p>&copy; 2025 Horno San Miguel. Web Corporativa Artesanal.</p>
-    </footer>
+    </main>
 </body>
 
 </html>
