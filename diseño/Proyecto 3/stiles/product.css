@@ -1,0 +1,187 @@
+/* VARIABLES DE COLOR */
+:root {
+    --color-tostado: #C8AE8E; /* Tono marrón cálido */
+    --color-crema: #F5F5DC;   /* Fondo general, limpio y cálido */
+    --color-granate: #8B0000; /* Acento para llamadas y tags */
+    --color-oscuro: #333333;  /* Texto principal */
+    --color-claro: #FFFFFF;
+}
+
+/* ESTILOS BASE */
+body {
+    font-family: sans-serif; /* Usarás una fuente tradicional/legible aquí */
+    margin: 0;
+    padding: 0;
+    background-color: var(--color-crema);
+    color: var(--color-oscuro);
+    line-height: 1.6;
+    font-size: 1.8vh; /* Base de fuente relativa a la altura del viewport */
+}
+
+/* HEADER Y NAVEGACIÓN */
+header {
+    background-color: var(--color-tostado);
+    color: var(--color-claro);
+    padding: 0 2vw; /* Padding horizontal relativo al ancho */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 8vh; /* Altura mínima relativa */
+}
+header div{
+    display: flex;
+    align-items: center;
+}
+header div img{
+    min-width: 5vw;
+    max-width: 5vw;
+}
+header div h1{
+    padding: 0 10px;
+    color: var(--color-crema);
+}
+header ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+header a {
+    color: var(--color-claro);
+    text-decoration: none;
+    padding: 1vh 1.5vw; /* Padding relativo */
+    transition: background-color 0.3s;
+    border-radius: 0.5vw;
+}
+
+header a:hover,
+header a.active {
+    background-color: var(--color-granate);
+}
+
+/* HERO PRODUCTOS */
+.productos {
+    text-align: center;
+    padding: 3vh 0; /* Padding vertical relativo */
+}
+
+.productos h2 {
+    font-size: 5vh; /* Tamaño de fuente relativo */
+    color: var(--color-granate);
+    margin-bottom: 1.5vh;
+}
+
+.product-image img {
+    width: 100%;
+    max-height: 35vh; /* Altura máxima relativa */
+    object-fit: cover;
+    margin-bottom: 1vh;
+    display: block;
+}
+
+
+/* NAVEGACIÓN DE CATEGORÍAS */
+.category-nav {
+    text-align: center;
+    padding: 1.5vh 5vw; /* Padding relativo */
+    border-bottom: 0.1vh solid var(--color-tostado); /* Borde relativo */
+}
+
+.category-button {
+    background-color: var(--color-claro);
+    color: var(--color-oscuro);
+    border: 0.1vh solid var(--color-tostado);
+    padding: 1vh 2vw; /* Padding relativo */
+    margin: 0 0.5vw 0.5vw 0.5vw; /* Márgenes relativos */
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.category-button:hover,
+.category-button.active {
+    background-color: var(--color-granate);
+    color: var(--color-claro);
+    border-color: var(--color-granate);
+}
+
+/* GRID DE PRODUCTOS (RESPONSIVE) */
+.product-grid {
+    display: grid;
+    /* Mantenemos minmax para la robustez del grid, pero con vw */
+    grid-template-columns: repeat(auto-fit, minmax(28vw, 1fr)); 
+    gap: 2vw; /* Espaciado relativo */
+    padding: 3vh 5vw; /* Padding relativo */
+}
+
+.product-card {
+    background-color: var(--color-claro);
+    border: 0.1vh solid #ddd;
+    text-align: center;
+    padding-bottom: 1.5vh;
+    border-radius: 0.5vw;
+    overflow: hidden;
+    box-shadow: 0 0.2vh 0.4vh rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.product-card:hover {
+    transform: translateY(-0.5vh); /* Translación relativa */
+    box-shadow: 0 0.4vh 0.8vh rgba(0, 0, 0, 0.2);
+}
+
+.product-card img {
+    width: 75%;
+    height: auto; /* Altura de imagen relativa */
+    object-fit: cover;
+    margin-bottom: 1vh;
+}
+
+.product-card h3 {
+    color: var(--color-tostado);
+    margin: 0.8vh 0;
+}
+
+.price {
+    font-weight: bold;
+    color: var(--color-granate);
+    font-size: 2.2vh; /* Tamaño de fuente relativo */
+    margin: 0.8vh 0;
+}
+
+.allergen-tag {
+    display: inline-block;
+    background-color: var(--color-granate);
+    color: var(--color-claro);
+    padding: 0.5vh 1vw; /* Padding relativo */
+    margin-top: 0.8vh;
+    font-size: 1.5vh; /* Tamaño de fuente relativo */
+    border-radius: 2vh; /* Bordes relativos */
+}
+
+.detail-link {
+    display: block;
+    margin-top: 1.5vh;
+    color: var(--color-granate);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* AVISO ALÉRGENOS */
+.allergen-notice {
+    text-align: center;
+    background-color: var(--color-tostado);
+    color: var(--color-claro);
+    padding: 2vh 5vw;
+    font-style: italic;
+    margin-top: 2vh;
+}
+
+/* FOOTER */
+.main-footer {
+    background-color: var(--color-oscuro);
+    color: var(--color-crema);
+    text-align: center;
+    padding: 2.5vh 5vw;
+    font-size: 1.5vh;
+}
