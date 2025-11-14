@@ -1,0 +1,220 @@
+/* ============================================================
+   ABOUT PAGE - PÁGINA SOBRE NOSOTROS
+   ============================================================ */
+
+.about-main {
+    width: 100%;
+    background-color: var(--color-background-light);
+    padding: 3vh 2vw;
+}
+
+.about-article {
+    width: 100%;
+}
+
+.about-wrapper {
+    max-width: 95vw;
+    margin: 0 auto;
+}
+
+/* TÍTULO */
+.about-title {
+    font-size: 3vw;
+    font-family: var(--font-serif);
+    color: var(--color-secondary-dark);
+    text-align: center;
+    margin-bottom: 3vh;
+    text-shadow: 0 0.2vh 0.5vh rgba(0, 0, 0, 0.1);
+}
+
+/* INTRO SECTION */
+.about-intro {
+    background-color: var(--color-background);
+    border-left: 0.5vw solid var(--color-primary);
+    padding: 3vh 2vw;
+    border-radius: 0.5vw;
+    margin-bottom: 4vh;
+    box-shadow: 0 0.3vh 1vh var(--color-shadow);
+}
+
+.about-intro h2 {
+    font-size: 2vw;
+    font-family: var(--font-serif);
+    color: var(--color-primary);
+    margin-bottom: 1.5vh;
+}
+
+.about-intro p {
+    font-size: 1vw;
+    color: var(--color-text-dark);
+    line-height: 1.8;
+    margin-bottom: 1.2vh;
+}
+
+.about-intro p:last-child {
+    margin-bottom: 0;
+}
+
+/* VALORES SECTION */
+.about-values-section {
+    margin-bottom: 4vh;
+}
+
+.about-values-title {
+    font-size: 2.5vw;
+    font-family: var(--font-serif);
+    color: var(--color-secondary-dark);
+    text-align: center;
+    margin-bottom: 3vh;
+}
+
+.about-values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(22vw, 1fr));
+    gap: 2vw;
+}
+
+.about-value-card {
+    background-color: var(--color-background);
+    border: 0.2vw solid var(--color-border);
+    border-radius: 1vw;
+    padding: 2.5vh 1.5vw;
+    text-align: center;
+    box-shadow: 0 0.3vh 1vh var(--color-shadow);
+    transition: all 0.3s ease;
+}
+
+.about-value-card:hover {
+    transform: translateY(-1vh);
+    box-shadow: 0 0.8vh 2vh var(--color-shadow);
+    border-color: var(--color-primary);
+}
+
+.about-value-heading {
+    font-size: 1.6vw;
+    color: var(--color-primary);
+    margin-bottom: 1vh;
+}
+
+.about-value-card p {
+    font-size: 0.95vw;
+    color: var(--color-text-dark);
+    line-height: 1.6;
+}
+
+/* EQUIPO SECTION */
+.about-team-section {
+    background-color: var(--color-background-alt);
+    padding: 3vh 2vw;
+    border-radius: 1vw;
+    margin-bottom: 4vh;
+}
+
+.about-team-title {
+    font-size: 2.5vw;
+    font-family: var(--font-serif);
+    color: var(--color-secondary-dark);
+    text-align: center;
+    margin-bottom: 1vh;
+}
+
+.about-team-subtitle {
+    font-size: 1vw;
+    color: var(--color-text-dark);
+    text-align: center;
+    margin-bottom: 2.5vh;
+    font-style: italic;
+}
+
+.about-team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20vw, 1fr));
+    gap: 2.5vw;
+}
+
+.about-team-member {
+    background-color: var(--color-background);
+    border: 0.2vw solid var(--color-border);
+    border-radius: 1vw;
+    padding: 2.5vh 1.5vw;
+    text-align: center;
+    box-shadow: 0 0.3vh 1vh var(--color-shadow);
+    transition: all 0.3s ease;
+}
+
+.about-team-member:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0.8vh 2vh var(--color-shadow);
+    border-color: var(--color-primary);
+}
+
+.about-team-emoji {
+    font-size: 3vw;
+    margin-bottom: 1vh;
+}
+
+.about-team-name {
+    font-size: 1.3vw;
+    font-family: var(--font-serif);
+    color: var(--color-secondary-dark);
+    margin-bottom: 0.5vh;
+}
+
+.about-team-role {
+    font-size: 0.9vw;
+    color: var(--color-primary);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05vw;
+}
+
+/* INFO SECTION */
+.about-info-section {
+    margin-top: 4vh;
+}
+
+.about-info-title {
+    font-size: 2.5vw;
+    font-family: var(--font-serif);
+    color: var(--color-secondary-dark);
+    text-align: center;
+    margin-bottom: 3vh;
+}
+
+.about-info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25vw, 1fr));
+    gap: 2vw;
+}
+
+.about-info-card {
+    background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
+    color: var(--color-text-light);
+    border-radius: 1vw;
+    padding: 2.5vh 2vw;
+    text-align: center;
+    box-shadow: 0 0.5vh 1.5vh var(--color-shadow);
+    transition: all 0.3s ease;
+}
+
+.about-info-card:hover {
+    transform: translateY(-0.5vh);
+    box-shadow: 0 1vh 2.5vh var(--color-shadow);
+}
+
+.about-info-heading {
+    font-size: 1.3vw;
+    font-family: var(--font-serif);
+    margin-bottom: 1vh;
+    font-weight: 700;
+}
+
+.about-info-card p {
+    font-size: 0.95vw;
+    color: rgba(245, 245, 245, 0.95);
+    margin-bottom: 0.5vh;
+}
+
+.about-info-card p:last-child {
+    margin-bottom: 0;
+}

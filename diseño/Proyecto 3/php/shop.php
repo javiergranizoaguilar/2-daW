@@ -1,242 +1,234 @@
 
-<main>
-    <article>
-        <div>
-            <h1>Carrito de Compras</h1>
+<main class="shop-main">
+    <article class="shop-article">
+        <div class="shop-wrapper">
+            <h1 class="shop-title">Carrito de Compras</h1>
             
-            <div>
-                <div>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Producto</th>
-                                <th>Precio Unitario</th>
-                                <th>Cantidad</th>
-                                <th>Subtotal</th>
-                                <th>Acción</th>
+            <div class="shop-container">
+                <div class="shop-table-container">
+                    <table class="shop-table">
+                        <thead class="shop-table-head">
+                            <tr class="shop-table-row">
+                                <th class="shop-table-header">Producto</th>
+                                <th class="shop-table-header">Precio Unitario</th>
+                                <th class="shop-table-header">Cantidad</th>
+                                <th class="shop-table-header">Subtotal</th>
+                                <th class="shop-table-header">Acción</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <!-- Producto 1 -->
-                            <tr>
-                                <td>
-                                    <img src="../imgs/logo.webp" alt="Baguette Francesa">
-                                    <div>
-                                        <h4>Baguette Francesa</h4>
-                                        <p>Pan crujiente artesanal</p>
+                        <tbody class="shop-table-body">
+                            <tr class="shop-product-row">
+                                <td class="shop-product-cell">
+                                    <img src="../imgs/logo.webp" alt="Baguette Francesa" class="shop-product-image">
+                                    <div class="shop-product-info">
+                                        <h4 class="shop-product-name">Baguette Francesa</h4>
+                                        <p class="shop-product-desc">Pan crujiente artesanal</p>
                                     </div>
                                 </td>
-                                <td>€2.50</td>
-                                <td>
-                                    <input type="number" value="2" min="1">
+                                <td class="shop-product-price">€2.50</td>
+                                <td class="shop-product-quantity">
+                                    <input type="number" class="shop-quantity-input" value="2" min="1">
                                 </td>
-                                <td>€5.00</td>
-                                <td>
-                                    <button>❌</button>
+                                <td class="shop-product-subtotal">€5.00</td>
+                                <td class="shop-product-action">
+                                    <button class="shop-remove-btn">❌</button>
                                 </td>
                             </tr>
 
-                            <!-- Producto 2 -->
-                            <tr>
-                                <td>
-                                    <img src="../imgs/logo.webp" alt="Pan Integral con Semillas">
-                                    <div>
-                                        <h4>Pan Integral con Semillas</h4>
-                                        <p>Nutritivo y delicioso</p>
+                            <tr class="shop-product-row">
+                                <td class="shop-product-cell">
+                                    <img src="../imgs/logo.webp" alt="Pan Integral con Semillas" class="shop-product-image">
+                                    <div class="shop-product-info">
+                                        <h4 class="shop-product-name">Pan Integral con Semillas</h4>
+                                        <p class="shop-product-desc">Nutritivo y delicioso</p>
                                     </div>
                                 </td>
-                                <td>€2.80</td>
-                                <td>
-                                    <input type="number" value="1" min="1">
+                                <td class="shop-product-price">€2.80</td>
+                                <td class="shop-product-quantity">
+                                    <input type="number" class="shop-quantity-input" value="1" min="1">
                                 </td>
-                                <td>€2.80</td>
-                                <td>
-                                    <button>❌</button>
+                                <td class="shop-product-subtotal">€2.80</td>
+                                <td class="shop-product-action">
+                                    <button class="shop-remove-btn">❌</button>
                                 </td>
                             </tr>
 
-                            <!-- Producto 3 -->
-                            <tr>
-                                <td>
-                                    <img src="../imgs/logo.webp" alt="Cruasán Mantequilla">
-                                    <div>
-                                        <h4>Cruasán Mantequilla</h4>
-                                        <p>Desayuno delicioso</p>
+                            <tr class="shop-product-row">
+                                <td class="shop-product-cell">
+                                    <img src="../imgs/logo.webp" alt="Cruasán Mantequilla" class="shop-product-image">
+                                    <div class="shop-product-info">
+                                        <h4 class="shop-product-name">Cruasán Mantequilla</h4>
+                                        <p class="shop-product-desc">Desayuno delicioso</p>
                                     </div>
                                 </td>
-                                <td>€1.50</td>
-                                <td>
-                                    <input type="number" value="3" min="1">
+                                <td class="shop-product-price">€1.50</td>
+                                <td class="shop-product-quantity">
+                                    <input type="number" class="shop-quantity-input" value="3" min="1">
                                 </td>
-                                <td>€4.50</td>
-                                <td>
-                                    <button>❌</button>
+                                <td class="shop-product-subtotal">€4.50</td>
+                                <td class="shop-product-action">
+                                    <button class="shop-remove-btn">❌</button>
                                 </td>
                             </tr>
 
-                            <!-- Producto 4 -->
-                            <tr>
-                                <td>
-                                    <img src="../imgs/logo.webp" alt="Tarta de Chocolate Artesanal">
-                                    <div>
-                                        <h4>Tarta de Chocolate Artesanal</h4>
-                                        <p>Para celebraciones especiales</p>
+                            <tr class="shop-product-row">
+                                <td class="shop-product-cell">
+                                    <img src="../imgs/logo.webp" alt="Tarta de Chocolate Artesanal" class="shop-product-image">
+                                    <div class="shop-product-info">
+                                        <h4 class="shop-product-name">Tarta de Chocolate Artesanal</h4>
+                                        <p class="shop-product-desc">Para celebraciones especiales</p>
                                     </div>
                                 </td>
-                                <td>€18.00</td>
-                                <td>
-                                    <input type="number" value="1" min="1">
+                                <td class="shop-product-price">€18.00</td>
+                                <td class="shop-product-quantity">
+                                    <input type="number" class="shop-quantity-input" value="1" min="1">
                                 </td>
-                                <td>€18.00</td>
-                                <td>
-                                    <button>❌</button>
+                                <td class="shop-product-subtotal">€18.00</td>
+                                <td class="shop-product-action">
+                                    <button class="shop-remove-btn">❌</button>
                                 </td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
 
-                <!-- Resumen de Compra -->
-                <aside>
-                    <h2>Resumen de Compra</h2>
+                <aside class="shop-summary">
+                    <h2 class="shop-summary-title">Resumen de Compra</h2>
                     
-                    <div>
-                        <span>Subtotal:</span>
-                        <span>€30.30</span>
+                    <div class="shop-summary-row">
+                        <span class="shop-summary-label">Subtotal:</span>
+                        <span class="shop-summary-value">€30.30</span>
                     </div>
 
-                    <div>
-                        <span>Envío (24-48h):</span>
-                        <span>€3.50</span>
+                    <div class="shop-summary-row">
+                        <span class="shop-summary-label">Envío (24-48h):</span>
+                        <span class="shop-summary-value">€3.50</span>
                     </div>
 
-                    <div>
-                        <label for="coupon">Código Descuento:</label>
-                        <input type="text" placeholder="Ingresa tu código">
+                    <div class="shop-summary-row">
+                        <label for="coupon" class="shop-summary-label">Código Descuento:</label>
+                        <input type="text" id="coupon" class="shop-coupon-input" placeholder="Ingresa tu código">
                     </div>
 
-                    <div>
-                        <span>Descuento:</span>
-                        <span>-€0.00</span>
+                    <div class="shop-summary-row">
+                        <span class="shop-summary-label">Descuento:</span>
+                        <span class="shop-summary-value">-€0.00</span>
                     </div>
 
-                    <hr>
+                    <hr class="shop-summary-divider">
 
-                    <div>
-                        <span>Total:</span>
-                        <span>€33.80</span>
+                    <div class="shop-summary-row shop-summary-total">
+                        <span class="shop-summary-label">Total:</span>
+                        <span class="shop-summary-value">€33.80</span>
                     </div>
 
-                    <div>
-                        <h3>📦 Información de Entrega</h3>
-                        <p>Entregaremos tu pedido en <strong>24-48 horas</strong> en el municipio.</p>
-                        <p>Dirección de envío: <strong>C/ Magnolia 12, 28000 Madrid</strong></p>
+                    <div class="shop-delivery-info">
+                        <h3 class="shop-delivery-heading">📦 Información de Entrega</h3>
+                        <p class="shop-delivery-text">Entregaremos tu pedido en <strong>24-48 horas</strong> en el municipio.</p>
+                        <p class="shop-delivery-text">Dirección de envío: <strong>C/ Magnolia 12, 28000 Madrid</strong></p>
                     </div>
 
-                    <div>
-                        <a href="shop.php">Seguir Comprando</a>
-                        <button>Proceder al Pago</button>
+                    <div class="shop-summary-actions">
+                        <a href="./index.php?page=product" class="shop-continue-link">Seguir Comprando</a>
+                        <button class="shop-checkout-btn">Proceder al Pago</button>
                     </div>
                 </aside>
             </div>
 
-            <!-- Opciones Adicionales -->
-            <div>
-                <h2>Opciones Especiales</h2>
-                <div>
-                    <div>
-                        <h3>🎁 Empaquetado de Regalo</h3>
-                        <p>Empaques nuestros productos elegantemente para un regalo especial</p>
-                        <p>+€2.00</p>
-                        <input type="checkbox">
+            <div class="shop-options">
+                <h2 class="shop-options-title">Opciones Especiales</h2>
+                <div class="shop-options-grid">
+                    <div class="shop-option-card">
+                        <h3 class="shop-option-heading">🎁 Empaquetado de Regalo</h3>
+                        <p class="shop-option-description">Empaques nuestros productos elegantemente para un regalo especial</p>
+                        <p class="shop-option-price">+€2.00</p>
+                        <input type="checkbox" class="shop-option-checkbox">
                     </div>
 
-                    <div>
-                        <h3>🎉 Tarjeta Personalizada</h3>
-                        <p>Añade una tarjeta con tu mensaje</p>
-                        <p>+€1.50</p>
-                        <input type="checkbox">
+                    <div class="shop-option-card">
+                        <h3 class="shop-option-heading">🎉 Tarjeta Personalizada</h3>
+                        <p class="shop-option-description">Añade una tarjeta con tu mensaje</p>
+                        <p class="shop-option-price">+€1.50</p>
+                        <input type="checkbox" class="shop-option-checkbox">
                     </div>
 
-                    <div>
-                        <h3>📅 Programar Entrega</h3>
-                        <p>Elige la fecha exacta de entrega</p>
-                        <p>Gratis</p>
-                        <input type="date">
+                    <div class="shop-option-card">
+                        <h3 class="shop-option-heading">📅 Programar Entrega</h3>
+                        <p class="shop-option-description">Elige la fecha exacta de entrega</p>
+                        <p class="shop-option-price">Gratis</p>
+                        <input type="date" class="shop-option-date">
                     </div>
                 </div>
             </div>
 
-            <!-- Información de Pago -->
-            <div>
-                <h2>Métodos de Pago Disponibles</h2>
-                <div>
-                    <div>
-                        <input type="radio" name="payment" checked>
-                        <label>💳 Tarjeta de Crédito/Débito</label>
+            <div class="shop-payment">
+                <h2 class="shop-payment-title">Métodos de Pago Disponibles</h2>
+                <div class="shop-payment-methods">
+                    <div class="shop-payment-option">
+                        <input type="radio" id="payment-card" name="payment" class="shop-payment-input" checked>
+                        <label for="payment-card" class="shop-payment-label">💳 Tarjeta de Crédito/Débito</label>
                     </div>
-                    <div>
-                        <input type="radio" name="payment">
-                        <label>🏦 Transferencia Bancaria</label>
+                    <div class="shop-payment-option">
+                        <input type="radio" id="payment-transfer" name="payment" class="shop-payment-input">
+                        <label for="payment-transfer" class="shop-payment-label">🏦 Transferencia Bancaria</label>
                     </div>
-                    <div>
-                        <input type="radio" name="payment">
-                        <label>🔵 PayPal</label>
+                    <div class="shop-payment-option">
+                        <input type="radio" id="payment-paypal" name="payment" class="shop-payment-input">
+                        <label for="payment-paypal" class="shop-payment-label">🔵 PayPal</label>
                     </div>
-                    <div>
-                        <input type="radio" name="payment">
-                        <label>💵 Efectivo en Tienda</label>
+                    <div class="shop-payment-option">
+                        <input type="radio" id="payment-cash" name="payment" class="shop-payment-input">
+                        <label for="payment-cash" class="shop-payment-label">💵 Efectivo en Tienda</label>
                     </div>
                 </div>
             </div>
 
-            <!-- Datos de Facturación -->
-            <div>
-                <h2>Datos de Facturación</h2>
-                <form>
-                    <div>
-                        <label>Nombre Completo *</label>
-                        <input type="text" required>
+            <div class="shop-billing">
+                <h2 class="shop-billing-title">Datos de Facturación</h2>
+                <form class="shop-billing-form">
+                    <div class="shop-form-group">
+                        <label class="shop-form-label">Nombre Completo *</label>
+                        <input type="text" class="shop-form-input" required>
                     </div>
 
-                    <div>
-                        <label>Email *</label>
-                        <input type="email" required>
+                    <div class="shop-form-group">
+                        <label class="shop-form-label">Email *</label>
+                        <input type="email" class="shop-form-input" required>
                     </div>
 
-                    <div>
-                        <label>Teléfono *</label>
-                        <input type="tel" required>
+                    <div class="shop-form-group">
+                        <label class="shop-form-label">Teléfono *</label>
+                        <input type="tel" class="shop-form-input" required>
                     </div>
 
-                    <div>
-                        <label>Dirección *</label>
-                        <input type="text" required>
+                    <div class="shop-form-group">
+                        <label class="shop-form-label">Dirección *</label>
+                        <input type="text" class="shop-form-input" required>
                     </div>
 
-                    <div>
-                        <label>Ciudad *</label>
-                        <input type="text" required>
+                    <div class="shop-form-group">
+                        <label class="shop-form-label">Ciudad *</label>
+                        <input type="text" class="shop-form-input" required>
                     </div>
 
-                    <div>
-                        <label>Código Postal *</label>
-                        <input type="text" required>
+                    <div class="shop-form-group">
+                        <label class="shop-form-label">Código Postal *</label>
+                        <input type="text" class="shop-form-input" required>
                     </div>
 
-                    <div>
-                        <label>Notas Especiales</label>
-                        <textarea rows="3" placeholder="Ej: Alergias, preferencias especiales..."></textarea>
+                    <div class="shop-form-group">
+                        <label class="shop-form-label">Notas Especiales</label>
+                        <textarea class="shop-form-textarea" rows="3" placeholder="Ej: Alergias, preferencias especiales..."></textarea>
                     </div>
 
-                    <div>
-                        <input type="checkbox" required>
-                        <label>Acepto los términos y condiciones de compra</label>
+                    <div class="shop-form-group">
+                        <input type="checkbox" class="shop-form-checkbox" required>
+                        <label class="shop-form-checkbox-label">Acepto los términos y condiciones de compra</label>
                     </div>
 
-                    <div>
-                        <input type="checkbox">
-                        <label>Deseo recibir información sobre ofertas especiales</label>
+                    <div class="shop-form-group">
+                        <input type="checkbox" class="shop-form-checkbox">
+                        <label class="shop-form-checkbox-label">Deseo recibir información sobre ofertas especiales</label>
                     </div>
                 </form>
             </div>

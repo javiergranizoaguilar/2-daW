@@ -1,0 +1,306 @@
+/* ============================================================
+   PANADERÍA HORNO SAN MIGUEL - ESTILOS GLOBALES
+   Responsive Design con vh, vw, %
+   Paleta: Tostado (#B8860B), Crema (#FFF8DC), Granate (#722F37)
+   ============================================================ */
+
+/* PALETA DE COLORES */
+:root {
+    --color-primary: #B8860B;      /* Tostado - principal */
+    --color-primary-light: #D4A574; /* Tostado claro */
+    --color-primary-dark: #8B6A0D;  /* Tostado oscuro */
+    
+    --color-secondary: #722F37;     /* Granate - acentos */
+    --color-secondary-light: #A84D5C; /* Granate claro */
+    --color-secondary-dark: #571E25;  /* Granate oscuro */
+    
+    --color-background: #FFF8DC;    /* Crema - fondo */
+    --color-background-light: #FFFEF5; /* Crema muy clara */
+    --color-background-alt: #F5EBD9; /* Crema oscura */
+    
+    --color-text-dark: #3D3D3D;     /* Texto oscuro */
+    --color-text-light: #F5F5F5;    /* Texto claro */
+    --color-text-semilight: rgba(245, 245, 245, 0.7); /* Texto semi claro */
+
+    --color-border: #D4A574;        /* Bordes en tostado claro */
+    --color-shadow: rgba(139, 106, 13, 0.2); /* Sombras tostadas */
+    
+    /* TIPOGRAFÍAS */
+    --font-serif: Georgia, 'Times New Roman', serif; /* Tradicional */
+    --font-sans: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Moderna */
+    
+    /* ESPACIOS - usando % y vh/vw */
+    --spacing-xs: 0.5%;
+    --spacing-sm: 1%;
+    --spacing-md: 2%;
+    --spacing-lg: 3%;
+    --spacing-xl: 4%;
+    --spacing-xxl: 6%;
+}
+
+/* ============================================================
+   RESET Y ESTILOS BASE
+   ============================================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-sans);
+    background-color: var(--color-background);
+    color: var(--color-text-dark);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* ============================================================
+   TIPOGRAFÍA
+   ============================================================ */
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-serif);
+    color: var(--color-secondary-dark);
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+h1 {
+    font-size: 3.5vw;
+    margin-bottom: var(--spacing-lg);
+}
+
+h2 {
+    font-size: 2.8vw;
+    margin-bottom: var(--spacing-md);
+}
+
+h3 {
+    font-size: 2vw;
+    margin-bottom: var(--spacing-sm);
+}
+
+h4 {
+    font-size: 1.5vw;
+}
+
+h5, h6 {
+    font-size: 1.2vw;
+}
+
+p {
+    font-size: 1vw;
+    margin-bottom: var(--spacing-md);
+    color: var(--color-text-dark);
+}
+
+a {
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+a:hover {
+    color: var(--color-secondary);
+    text-decoration: underline;
+}
+
+/* ============================================================
+   COMPONENTES REUTILIZABLES
+   ============================================================ */
+
+
+
+
+
+
+
+
+
+/* ============================================================
+   SECCIONES
+   ============================================================ */
+
+section {
+    margin: var(--spacing-xxl) 0;
+    padding: 3vh var(--spacing-lg);
+}
+
+/* ============================================================
+   IMÁGENES
+   ============================================================ */
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+figure {
+    margin: 0;
+    padding: 0;
+}
+
+figcaption {
+    font-size: 0.9vw;
+    color: var(--color-text-dark);
+    margin-top: var(--spacing-sm);
+    font-style: italic;
+    text-align: center;
+}
+
+/* ============================================================
+   FORMULARIOS
+   ============================================================ */
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+label {
+    font-weight: 600;
+    color: var(--color-text-dark);
+    font-size: 1vw;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="date"],
+input[type="number"],
+textarea,
+select {
+    padding: 1.5vh 1.5vw;
+    border: 0.2vw solid var(--color-border);
+    border-radius: 0.5vw;
+    font-family: var(--font-sans);
+    font-size: 1vw;
+    background-color: var(--color-background-light);
+    color: var(--color-text-dark);
+    transition: all 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus,
+input[type="date"]:focus,
+input[type="number"]:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 0.3vw rgba(184, 134, 11, 0.2);
+}
+
+textarea {
+    resize: vertical;
+    min-height: 15vh;
+}
+
+/* ============================================================
+   TABLA
+   ============================================================ */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: var(--spacing-lg) 0;
+}
+
+thead {
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+}
+
+th {
+    padding: 2vh 1vw;
+    text-align: left;
+    font-weight: 600;
+    font-size: 1vw;
+}
+
+td {
+    padding: 1.5vh 1vw;
+    border-bottom: 0.1vw solid var(--color-border);
+}
+
+tbody tr:hover {
+    background-color: var(--color-background-alt);
+}
+
+/* ============================================================
+   UTILIDADES
+   ============================================================ */
+
+.text-center {
+    text-align: center;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-justify {
+    text-align: justify;
+}
+
+.mt-sm {
+    margin-top: var(--spacing-sm);
+}
+
+.mt-md {
+    margin-top: var(--spacing-md);
+}
+
+.mt-lg {
+    margin-top: var(--spacing-lg);
+}
+
+.mb-sm {
+    margin-bottom: var(--spacing-sm);
+}
+
+.mb-md {
+    margin-bottom: var(--spacing-md);
+}
+
+.mb-lg {
+    margin-bottom: var(--spacing-lg);
+}
+
+.px-sm {
+    padding-left: var(--spacing-sm);
+    padding-right: var(--spacing-sm);
+}
+
+.px-md {
+    padding-left: var(--spacing-md);
+    padding-right: var(--spacing-md);
+}
+
+.py-sm {
+    padding-top: var(--spacing-sm);
+    padding-bottom: var(--spacing-sm);
+}
+
+.py-md {
+    padding-top: var(--spacing-md);
+    padding-bottom: var(--spacing-md);
+}
+
+.hidden {
+    display: none;
+}
+
+.visible {
+    display: block;
+}

@@ -1,187 +1,271 @@
-/* VARIABLES DE COLOR */
-:root {
-    --color-tostado: #C8AE8E; /* Tono marrón cálido */
-    --color-crema: #F5F5DC;   /* Fondo general, limpio y cálido */
-    --color-granate: #8B0000; /* Acento para llamadas y tags */
-    --color-oscuro: #333333;  /* Texto principal */
-    --color-claro: #FFFFFF;
-}
+/* ============================================================
+   PRODUCT PAGE - PÁGINA DE PRODUCTOS
+   ============================================================ */
 
-/* ESTILOS BASE */
-body {
-    font-family: sans-serif; /* Usarás una fuente tradicional/legible aquí */
-    margin: 0;
-    padding: 0;
-    background-color: var(--color-crema);
-    color: var(--color-oscuro);
-    line-height: 1.6;
-    font-size: 1.8vh; /* Base de fuente relativa a la altura del viewport */
-}
-
-/* HEADER Y NAVEGACIÓN */
-header {
-    background-color: var(--color-tostado);
-    color: var(--color-claro);
-    padding: 0 2vw; /* Padding horizontal relativo al ancho */
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    min-height: 8vh; /* Altura mínima relativa */
-}
-header div{
-    display: flex;
-    align-items: center;
-}
-header div img{
-    min-width: 5vw;
-    max-width: 5vw;
-}
-header div h1{
-    padding: 0 10px;
-    color: var(--color-crema);
-}
-header ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-}
-
-header a {
-    color: var(--color-claro);
-    text-decoration: none;
-    padding: 1vh 1.5vw; /* Padding relativo */
-    transition: background-color 0.3s;
-    border-radius: 0.5vw;
-}
-
-header a:hover,
-header a.active {
-    background-color: var(--color-granate);
-}
-
-/* HERO PRODUCTOS */
-.productos {
-    text-align: center;
-    padding: 3vh 0; /* Padding vertical relativo */
-}
-
-.productos h2 {
-    font-size: 5vh; /* Tamaño de fuente relativo */
-    color: var(--color-granate);
-    margin-bottom: 1.5vh;
-}
-
-.product-image img {
+.product-main {
     width: 100%;
-    max-height: 35vh; /* Altura máxima relativa */
-    object-fit: cover;
-    margin-bottom: 1vh;
-    display: block;
+    background-color: var(--color-background-light);
+    padding: 3vh 2vw;
 }
 
+.product-article {
+    width: 100%;
+}
 
-/* NAVEGACIÓN DE CATEGORÍAS */
-.category-nav {
+.product-wrapper {
+    max-width: 95vw;
+    margin: 0 auto;
+}
+
+/* INTRO SECTION */
+.product-intro {
     text-align: center;
-    padding: 1.5vh 5vw; /* Padding relativo */
-    border-bottom: 0.1vh solid var(--color-tostado); /* Borde relativo */
+    margin: 0 0 0 4vh;
 }
 
-.category-button {
-    background-color: var(--color-claro);
-    color: var(--color-oscuro);
-    border: 0.1vh solid var(--color-tostado);
-    padding: 1vh 2vw; /* Padding relativo */
-    margin: 0 0.5vw 0.5vw 0.5vw; /* Márgenes relativos */
+.product-title {
+    font-size: 3vw;
+    font-family: var(--font-serif);
+    color: var(--color-secondary-dark);
+    margin-bottom: 2.5vh;
+}
+
+.product-showcase {
+    margin: 2.5vh auto;
+    max-width: 70vw;
+    border-radius: 1vw;
+    overflow: hidden;
+    box-shadow: 0 0.5vh 2vh var(--color-shadow);
+}
+
+.product-showcase-image {
+    width: 100%;
+    height: 52vh;
+    object-fit: fill;
+    transition: transform 0.3s ease;
+}
+
+.product-showcase:hover .product-showcase-image {
+    transform: scale(1.03);
+}
+
+.product-showcase-caption {
+    padding: 1.5vh 1.5vw;
+    background-color: var(--color-background);
+    font-size: 0.95vw;
+    color: var(--color-text-dark);
+    font-style: italic;
+    text-align: center;
+}
+
+/* FILTROS */
+.product-filter-nav {
+    display: flex;
+    justify-content: center;
+    gap: 1.5vw;
+    margin: 4vh 0;
+    flex-wrap: wrap;
+}
+
+.product-filter-btn {
+    padding: 1.5vh 2.5vw;
+    background-color: var(--color-background);
+    border: 0.2vw solid var(--color-border);
+    border-radius: 2vw;
+    font-size: 1vw;
+    font-weight: 600;
+    color: var(--color-text-dark);
     cursor: pointer;
-    transition: all 0.3s;
+    transition: all 0.3s ease;
+    font-family: var(--font-sans);
 }
 
-.category-button:hover,
-.category-button.active {
-    background-color: var(--color-granate);
-    color: var(--color-claro);
-    border-color: var(--color-granate);
+.product-filter-btn:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+    transform: translateY(-0.3vh);
 }
 
-/* GRID DE PRODUCTOS (RESPONSIVE) */
+.product-filter-btn.active {
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+    border-color: var(--color-primary);
+}
+
+/* GRID DE PRODUCTOS */
 .product-grid {
     display: grid;
-    /* Mantenemos minmax para la robustez del grid, pero con vw */
-    grid-template-columns: repeat(auto-fit, minmax(28vw, 1fr)); 
-    gap: 2vw; /* Espaciado relativo */
-    padding: 3vh 5vw; /* Padding relativo */
+    grid-template-columns: repeat(auto-fill, minmax(22vw, 1fr));
+    gap: 2.5vw;
+    margin: 3vh 0;
 }
 
-.product-card {
-    background-color: var(--color-claro);
-    border: 0.1vh solid #ddd;
-    text-align: center;
-    padding-bottom: 1.5vh;
-    border-radius: 0.5vw;
+.product-item {
+    background-color: var(--color-background);
+    border: 0.2vw solid var(--color-border);
+    border-radius: 1vw;
     overflow: hidden;
-    box-shadow: 0 0.2vh 0.4vh rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s;
+    box-shadow: 0 0.3vh 1vh var(--color-shadow);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
 }
 
-.product-card:hover {
-    transform: translateY(-0.5vh); /* Translación relativa */
-    box-shadow: 0 0.4vh 0.8vh rgba(0, 0, 0, 0.2);
+.product-item:hover {
+    transform: translateY(-1.5vh);
+    box-shadow: 0 1vh 2.5vh var(--color-shadow);
+    border-color: var(--color-primary);
 }
 
-.product-card img {
-    width: 75%;
-    height: auto; /* Altura de imagen relativa */
+/* IMAGEN DEL PRODUCTO */
+.product-image-container {
+    width: 100%;
+    height: 28vh;
+    overflow: hidden;
+    background-color: var(--color-background-alt);
+    position: relative;
+}
+
+.product-image {
+    width: 100%;
+    height: 100%;
     object-fit: cover;
-    margin-bottom: 1vh;
+    transition: transform 0.3s ease;
 }
 
-.product-card h3 {
-    color: var(--color-tostado);
-    margin: 0.8vh 0;
+.product-item:hover .product-image {
+    transform: scale(1.08);
 }
 
-.price {
-    font-weight: bold;
-    color: var(--color-granate);
-    font-size: 2.2vh; /* Tamaño de fuente relativo */
-    margin: 0.8vh 0;
+.product-badge {
+    position: absolute;
+    top: 1vw;
+    right: 1vw;
+    background-color: var(--color-secondary);
+    color: var(--color-text-light);
+    padding: 0.8vh 1vw;
+    border-radius: 0.4vw;
+    font-size: 0.85vw;
+    font-weight: 600;
 }
 
-.allergen-tag {
-    display: inline-block;
-    background-color: var(--color-granate);
-    color: var(--color-claro);
-    padding: 0.5vh 1vw; /* Padding relativo */
-    margin-top: 0.8vh;
-    font-size: 1.5vh; /* Tamaño de fuente relativo */
-    border-radius: 2vh; /* Bordes relativos */
+/* CONTENIDO DEL PRODUCTO */
+.product-content {
+    padding: 1.5vw;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
 }
 
-.detail-link {
-    display: block;
-    margin-top: 1.5vh;
-    color: var(--color-granate);
+.product-name {
+    font-size: 1.3vw;
+    font-family: var(--font-serif);
+    color: var(--color-secondary-dark);
+    margin-bottom: 0.5vh;
+    font-weight: 700;
+}
+
+.product-category {
+    font-size: 0.8vw;
+    color: var(--color-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.1vw;
+    margin-bottom: 0.8vh;
+    font-weight: 600;
+}
+
+.product-description {
+    font-size: 0.9vw;
+    color: var(--color-text-dark);
+    margin-bottom: 1.2vh;
+    line-height: 1.4;
+    flex-grow: 1;
+}
+.product-detail-link {
     text-decoration: none;
-    font-weight: bold;
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+    padding: 0 5px;
+    border-radius: 20px;
+}
+.product-specs {
+    font-size: 0.85vw;
+    color: #666;
+    margin-bottom: 1.2vh;
+}
+
+.product-price {
+    font-size: 1.6vw;
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-bottom: 1.2vh;
+}
+
+.product-allergens {
+    background-color: #FFF5E6;
+    border-left: 0.3vw solid var(--color-secondary);
+    padding: 1vw;
+    margin-bottom: 1.5vh;
+    border-radius: 0.3vw;
+}
+
+.product-allergen-label {
+    font-size: 0.75vw;
+    color: var(--color-secondary-dark);
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 0.3vh;
+}
+
+.product-allergen-text {
+    font-size: 0.85vw;
+    color: var(--color-text-dark);
+    line-height: 1.3;
+}
+
+.product-button {
+    padding: 1.5vh 1.5vw;
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+    border: none;
+    border-radius: 0.4vw;
+    font-size: 1vw;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: var(--font-sans);
+}
+
+.product-button:hover {
+    background-color: var(--color-secondary);
+    transform: translateY(-0.2vh);
 }
 
 /* AVISO ALÉRGENOS */
-.allergen-notice {
+.product-allergen-notice {
+    background: linear-gradient(135deg, rgba(114, 47, 55, 0.1), rgba(184, 134, 11, 0.1));
+    border: 0.2vw solid var(--color-secondary);
+    border-radius: 1vw;
+    padding: 2.5vw;
+    margin: 4vh 0;
     text-align: center;
-    background-color: var(--color-tostado);
-    color: var(--color-claro);
-    padding: 2vh 5vw;
-    font-style: italic;
-    margin-top: 2vh;
 }
 
-/* FOOTER */
-.main-footer {
-    background-color: var(--color-oscuro);
-    color: var(--color-crema);
-    text-align: center;
-    padding: 2.5vh 5vw;
-    font-size: 1.5vh;
+.product-allergen-notice h3 {
+    color: var(--color-secondary-dark);
+    font-size: 1.8vw;
+    margin-bottom: 1vh;
 }
+
+.product-allergen-notice p {
+    color: var(--color-text-dark);
+    font-size: 1vw;
+    margin: 0;
+}
+
+/* ============================================================
+   RESPONSIVE GRID AUTO-FIT
+   ============================================================ */
+
+/* Los grids se adaptan automáticamente con auto-fit y minmax */

@@ -1,0 +1,217 @@
+/* ============================================================
+   CONTACT PAGE - PÁGINA DE CONTACTO
+   ============================================================ */
+
+.contact-main {
+    width: 100%;
+    background-color: var(--color-background-light);
+    padding: 3vh 2vw;
+}
+
+.contact-article {
+    width: 100%;
+}
+
+.contact-wrapper {
+    max-width: 95vw;
+    margin: 0 auto;
+}
+
+/* TÍTULOS */
+.contact-title {
+    font-size: 3vw;
+    font-family: var(--font-serif);
+    color: var(--color-secondary-dark);
+    text-align: center;
+    margin-bottom: 1vh;
+}
+
+.contact-subtitle {
+    font-size: 1.2vw;
+    color: var(--color-text-dark);
+    text-align: center;
+    margin-bottom: 3vh;
+    font-style: italic;
+}
+
+/* GRID PRINCIPAL - CONTACTO + FORMULARIO */
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(40vw, 1fr));
+    gap: 3vw;
+    margin-bottom: 4vh;
+}
+
+/* SECCIÓN DE INFORMACIÓN */
+.contact-info-section {
+    background-color: var(--color-background);
+    padding: 3vh 2vw;
+    border: 0.2vw solid var(--color-border);
+    border-radius: 1vw;
+    box-shadow: 0 0.3vh 1vh var(--color-shadow);
+}
+
+.contact-info-heading {
+    font-size: 1.8vw;
+    font-family: var(--font-serif);
+    color: var(--color-primary);
+    margin-bottom: 2.5vh;
+    border-bottom: 0.3vw solid var(--color-border);
+    padding-bottom: 1vh;
+}
+
+.contact-info-item {
+    margin-bottom: 2.5vh;
+    padding-bottom: 2vh;
+    border-bottom: 0.1vw solid rgba(184, 134, 11, 0.2);
+}
+
+.contact-info-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.contact-info-label {
+    font-size: 1.2vw;
+    font-weight: 700;
+    color: var(--color-secondary-dark);
+    margin-bottom: 0.8vh;
+}
+
+.contact-info-item p {
+    font-size: 1vw;
+    color: var(--color-text-dark);
+    margin-bottom: 0.4vh;
+    line-height: 1.5;
+}
+
+.contact-info-item p:last-child {
+    margin-bottom: 0;
+}
+
+/* SECCIÓN DE FORMULARIO */
+.contact-form-section {
+    background-color: var(--color-background);
+    padding: 3vh 2vw;
+    border: 0.2vw solid var(--color-border);
+    border-radius: 1vw;
+    box-shadow: 0 0.3vh 1vh var(--color-shadow);
+}
+
+.contact-form-heading {
+    font-size: 1.8vw;
+    font-family: var(--font-serif);
+    color: var(--color-primary);
+    margin-bottom: 2.5vh;
+    border-bottom: 0.3vw solid var(--color-border);
+    padding-bottom: 1vh;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5vh;
+}
+
+.contact-form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5vh;
+}
+
+.contact-form-label {
+    font-weight: 600;
+    color: var(--color-text-dark);
+    font-size: 1vw;
+}
+
+.contact-form-input,
+.contact-form-textarea {
+    padding: 1.5vh 1.5vw;
+    border: 0.2vw solid var(--color-border);
+    border-radius: 0.5vw;
+    font-family: var(--font-sans);
+    font-size: 1vw;
+    background-color: var(--color-background-light);
+    color: var(--color-text-dark);
+    transition: all 0.3s ease;
+}
+
+.contact-form-input:focus,
+.contact-form-textarea:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 0.3vw rgba(184, 134, 11, 0.2);
+}
+
+.contact-form-textarea {
+    resize: vertical;
+    min-height: 15vh;
+}
+
+.contact-form-button {
+    padding: 2vh 3vw;
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+    border: none;
+    border-radius: 0.5vw;
+    font-size: 1.1vw;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: var(--font-sans);
+}
+
+.contact-form-button:hover {
+    background-color: var(--color-secondary);
+    transform: translateY(-0.3vh);
+    box-shadow: 0 0.5vh 1.5vh var(--color-shadow);
+}
+
+/* FAQ SECTION */
+.contact-faq-section {
+    margin-top: 4vh;
+}
+
+.contact-faq-title {
+    font-size: 2.5vw;
+    font-family: var(--font-serif);
+    color: var(--color-secondary-dark);
+    text-align: center;
+    margin-bottom: 3vh;
+}
+
+.contact-faq-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30vw, 1fr));
+    gap: 2vw;
+}
+
+.contact-faq-item {
+    background-color: var(--color-background);
+    border-left: 0.4vw solid var(--color-primary);
+    border-radius: 0.5vw;
+    padding: 2vh 2vw;
+    box-shadow: 0 0.3vh 1vh var(--color-shadow);
+    transition: all 0.3s ease;
+}
+
+.contact-faq-item:hover {
+    box-shadow: 0 0.8vh 2vh var(--color-shadow);
+    transform: translateX(0.5vw);
+}
+
+.contact-faq-question {
+    font-size: 1.1vw;
+    font-weight: 700;
+    color: var(--color-secondary-dark);
+    margin-bottom: 1vh;
+}
+
+.contact-faq-answer {
+    font-size: 0.95vw;
+    color: var(--color-text-dark);
+    line-height: 1.6;
+    margin: 0;
+}

@@ -1,0 +1,312 @@
+/* ============================================================
+   MAIN PAGE - PÁGINA DE INICIO
+   ============================================================ */
+
+.main-page {
+    width: 100%;
+}
+
+/* HERO SECTION */
+.main-hero {
+    min-height: 70vh;
+    background: linear-gradient(135deg, rgba(184, 134, 11, 0.95), rgba(114, 47, 55, 0.95)),
+                url('../imgs/panes/hogaza.webp') center/cover;
+    background-attachment: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-text-light);
+    text-align: center;
+    padding: 4vh 2vw;
+}
+
+.main-hero-content {
+    max-width: 80vw;
+    animation: slideInUp 0.8s ease-out;
+}
+
+.main-hero-title {
+    font-size: 4.5vw;
+    font-weight: 700;
+    font-family: var(--font-serif);
+    margin-bottom: 1.5vh;
+    text-shadow: 0 0.2vh 0.5vh rgba(0, 0, 0, 0.5);
+}
+
+.main-hero-subtitle {
+    font-size: 1.8vw;
+    margin-bottom: 3vh;
+    font-weight: 300;
+    color: var(--color-background);
+    text-shadow: 0 0.2vh 0.5vh rgba(0, 0, 0, 0.3);
+}
+
+.main-hero-button {
+    display: inline-block;
+    padding: 2.5vh 4vw;
+    background-color: var(--color-background);
+    color: var(--color-secondary-dark);
+    border: none;
+    border-radius: 0.5vw;
+    font-size: 1.3vw;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    font-family: var(--font-sans);
+}
+
+.main-hero-button:hover {
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+    transform: scale(1.05);
+    box-shadow: 0 0.5vh 1.5vh rgba(0, 0, 0, 0.3);
+}
+
+/* CLAIM SECTION */
+.main-claim {
+    background-color: var(--color-background-alt);
+    padding: 6vh 2vw;
+    text-align: center;
+}
+
+.main-claim-content {
+    max-width: 85vw;
+    margin: 0 auto;
+}
+
+.main-claim-text {
+    font-size: 3vw;
+    font-family: var(--font-serif);
+    color: var(--color-secondary-dark);
+    margin-bottom: 2vh;
+    font-weight: 700;
+    font-style: italic;
+}
+
+.main-claim-description {
+    font-size: 1.1vw;
+    color: var(--color-text-dark);
+    max-width: 70vw;
+    margin: 0 auto;
+    line-height: 1.8;
+}
+
+/* CATEGORÍAS SECTION */
+.main-categories {
+    padding: 6vh 2vw;
+    background-color: var(--color-background-light);
+}
+
+.main-categories-content {
+    max-width: 95vw;
+    margin: 0 auto;
+}
+
+.main-categories-title {
+    font-size: 2.8vw;
+    font-family: var(--font-serif);
+    color: var(--color-secondary-dark);
+    text-align: center;
+    margin-bottom: 4vh;
+}
+
+.main-categories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(22vw, 1fr));
+    gap: 2.5vw;
+    margin-bottom: 3vh;
+}
+
+.main-category-card {
+    background-color: var(--color-background);
+    border: 0.2vw solid var(--color-border);
+    border-radius: 1vw;
+    overflow: hidden;
+    box-shadow: 0 0.3vh 1vh var(--color-shadow);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    padding: 1.5vw;
+}
+
+.main-category-card:hover {
+    transform: translateY(-1.5vh);
+    box-shadow: 0 1vh 2.5vh var(--color-shadow);
+    border-color: var(--color-primary);
+}
+
+.main-category-image {
+    width: 100%;
+    height: 25vh;
+    overflow: hidden;
+    border-radius: 0.5vw;
+    margin-bottom: 1.5vh;
+}
+
+.main-category-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.main-category-card:hover .main-category-image img {
+    transform: scale(1.08);
+}
+
+.main-category-name {
+    font-size: 1.5vw;
+    font-family: var(--font-serif);
+    color: var(--color-secondary-dark);
+    margin-bottom: 0.5vh;
+}
+
+.main-category-description {
+    font-size: 0.95vw;
+    color: var(--color-text-dark);
+    margin-bottom: 1vh;
+    flex-grow: 1;
+    line-height: 1.5;
+}
+
+.main-category-price {
+    font-size: 1.3vw;
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-bottom: 1.5vh;
+}
+
+.main-category-link {
+    display: inline-block;
+    padding: 1.5vh 2vw;
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+    border-radius: 0.4vw;
+    font-size: 0.95vw;
+    font-weight: 600;
+    text-align: center;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.main-category-link:hover {
+    background-color: var(--color-secondary);
+    text-decoration: none;
+}
+
+/* WHY US SECTION */
+.main-whyus {
+    padding: 6vh 2vw;
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+}
+
+.main-whyus-content {
+    max-width: 95vw;
+    margin: 0 auto;
+}
+
+.main-whyus-title {
+    font-size: 2.8vw;
+    font-family: var(--font-serif);
+    color: var(--color-background);
+    text-align: center;
+    margin-bottom: 4vh;
+}
+
+.main-whyus-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20vw, 1fr));
+    gap: 2vw;
+}
+
+.main-whyus-card {
+    background-color: rgba(255, 248, 220, 0.1);
+    border-left: 0.4vw solid var(--color-background);
+    padding: 2.5vh 2vw;
+    border-radius: 0.5vw;
+    transition: all 0.3s ease;
+}
+
+.main-whyus-card:hover {
+    background-color: rgba(255, 248, 220, 0.2);
+    transform: translateX(0.5vw);
+}
+
+.main-whyus-feature {
+    font-size: 1.3vw;
+    font-weight: 700;
+    margin-bottom: 1vh;
+    color: var(--color-background);
+}
+
+.main-whyus-description {
+    font-size: 0.95vw;
+    line-height: 1.6;
+    color: rgba(255, 248, 220, 0.95);
+}
+
+/* SUBSCRIPTION SECTION */
+.main-subscription {
+    padding: 5vh 2vw;
+    background: linear-gradient(var(--color-secondary-light), var(--color-secondary-dark));
+    color: var(--color-text-light);
+    text-align: center;
+    margin: 0;
+}
+
+.main-subscription-content {
+    max-width: 80vw;
+    margin: 0 auto;
+}
+
+.main-subscription-title {
+    font-size: 2.8vw;
+    font-family: var(--font-serif);
+    margin-bottom: 1.5vh;
+    color: var(--color-background);
+}
+
+.main-subscription-description {
+    font-size: 1.1vw;
+    margin-bottom: 2.5vh;
+    color: rgba(255, 248, 220, 0.95);
+    line-height: 1.7;
+}
+
+.main-subscription-button {
+    display: inline-block;
+    padding: 2.5vh 4vw;
+    background-color: var(--color-background);
+    color: var(--color-secondary-dark);
+    border: none;
+    border-radius: 0.5vw;
+    font-size: 1.2vw;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    font-family: var(--font-sans);
+}
+
+.main-subscription-button:hover {
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+    transform: scale(1.05);
+}
+
+/* ============================================================
+   ANIMACIONES
+   ============================================================ */
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(3vh);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

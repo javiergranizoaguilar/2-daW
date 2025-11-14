@@ -1,49 +1,29 @@
-<main>
-        <section class="productos">
-            <h2>Nuestros Productos</h2>
-            <figure class="product-image">
-                <img src="img/panaderia_variedad.jpg" alt="Surtido de panes de masa madre y bollería artesanal">
-                <figcaption>Elaboración diaria con masa madre desde 1982.</figcaption>
-            </figure>
-        </section>
+<main class="product-main">
+    <article class="product-article">
+        <div class="product-wrapper">
+            <section class="product-intro">
+                <h1 class="product-title">Nuestros Productos</h1>
+                <figure class="product-showcase">
+                    <img src="../imgs/diego.jpg" alt="Surtido de panes de masa madre y bollería artesanal" class="product-showcase-image">
+                    <figcaption class="product-showcase-caption">Elaboración diaria con ingredientes naturales desde 1993.</figcaption>
+                </figure>
+            </section>
+            <?php $tipe = $_GET['tipe'] ?? 'all';?>
+            <nav class="product-filter-nav">
+                <a class="product-filter-btn <?php if ($tipe=="all")echo "active"?>"  href="./index.php?page=product&tipe=all">Todos</a>
+                <a class="product-filter-btn <?php if ($tipe=="p")echo "active"?>" href="./index.php?page=product&tipe=p">Panes</a>
+                <a class="product-filter-btn <?php if ($tipe=="d")echo "active"?>" href="./index.php?page=product&tipe=d">Bollería</a>
+                <a class="product-filter-btn <?php if ($tipe=="s")echo "active"?>" href="./index.php?page=product&tipe=s">Salados</a>
+            </nav>
 
-        <nav class="category-nav">
-            <button class="category-button active" >Todos</button>
-            <button class="category-button" >Panes</button>
-            <button class="category-button" >Bollería</button>
-            <button class="category-button" >Salados</button>
-        </nav>
+            <section class="product-grid">
+                <?php include "configuration.php"?>
+            </section>
 
-        <section class="product-grid">
-
-            <article class="product-card panes">
-                <img src="../imgs/panes/hogaza.webp" alt="Hogaza de Masa Madre Tradicional">
-                <h3>Hogaza Tradicional</h3>
-                <p class="price">Desde 4,50€</p>
-                <div class="allergen-tag">Contiene Gluten</div>
-                <a href="" class="detail-link">Añadir al Carrito</a>
-            </article>
-
-            <article class="product-card bolleria">
-                <img src="../imgs/panes/croisan.webp" alt="Croissant de Mantequilla Artesano">
-                <h3>Croissant de Mantequilla</h3>
-                <p class="price">Desde 1,80€</p>
-                <div class="allergen-tag">Gluten, Lácteos</div>
-                <a href="" class="detail-link">Añadir al Carrito</a>
-            </article>
-
-            <article class="product-card salados">
-                <img src="../imgs/panes/empanada.webp" alt="Empanada de Atún y Pimiento">
-                <h3>Empanada de Atún</h3>
-                <p class="price">Desde 3,90€ (por porción)</p>
-                <div class="allergen-tag">Gluten, Pescado</div>
-                <a href="" class="detail-link">Añadir al Carrito</a>
-            </article>
-            <?php include "configuration.php"?>
-
-        </section>
-
-        <aside class="allergen-notice">
-            <p>**Aviso Alérgenos:** Consulta en tienda si tienes alergias. Indicamos los más comunes.</p>
-        </aside>
-    </main>
+            <aside class="product-allergen-notice">
+                <h3>⚠️ Aviso de Alérgenos Importantes</h3>
+                <p>Nuestros productos contienen o pueden contener gluten, soja, ajonjolí/sésamo, frutos secos y trazas de mostaza. Consulta en tienda si tienes alergias o intolerancias alimentarias. Todos nuestros procesos se realizan en instalaciones compartidas con estos alérgenos.</p>
+            </aside>
+        </div>
+    </article>
+</main>

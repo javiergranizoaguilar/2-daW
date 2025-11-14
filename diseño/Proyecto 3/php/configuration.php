@@ -11,7 +11,7 @@ const INFORMATION_BREAD = [
         ]
     ],
     [
-        "path" => 2,
+        "path" => "../imgs/panes/centeno.png",
         "categorie" => "p", // Pan
         "name" => "Pan de Centeno",
         "price" => 4.50,
@@ -21,7 +21,7 @@ const INFORMATION_BREAD = [
         ]
     ],
     [
-        "path" => 3,
+        "path" => "../imgs/panes/integral.png",
         "categorie" => "p", // Pan
         "name" => "Pan Integral de Espelta",
         "price" => 3.90,
@@ -42,7 +42,7 @@ const INFORMATION_BREAD = [
         ]
     ],
     [
-        "path" => 5,
+        "path" => "../imgs/panes/apple_pie.webp",
         "categorie" => "d", // Dulce
         "name" => "Tarta de Manzana",
         "price" => 4.20,
@@ -54,7 +54,7 @@ const INFORMATION_BREAD = [
         ]
     ],
     [
-        "path" => 6,
+        "path" => "../imgs/panes/muffin.png",
         "categorie" => "d", // Dulce
         "name" => "Muffin de Chocolate",
         "price" => 2.50,
@@ -77,7 +77,7 @@ const INFORMATION_BREAD = [
         ]
     ],
     [
-        "path" => 8,
+        "path" => "../imgs/panes/quiche.webp",
         "categorie" => "s", // Salado
         "name" => "Quiche de Verduras",
         "price" => 3.50,
@@ -88,7 +88,7 @@ const INFORMATION_BREAD = [
         ]
     ],
     [
-        "path" => 9,
+        "path" => "../imgs/panes/iberico.webp",
         "categorie" => "s", // Salado
         "name" => "Bocadillo de Jamón y Queso",
         "price" => 4.90,
@@ -100,15 +100,27 @@ const INFORMATION_BREAD = [
 ];
 function alegenstoString($array):String
 {
-    return implode(",", $array);
+    return implode(", ", $array);
 }
-foreach (INFORMATION_BREAD as $pan) {
-    echo ('<article class="product-card salados">
-                <img src='.$pan['path'].' alt='.$pan['name'].'>
-                <h3>'.$pan['name'].'</h3>
-                <p class="price">Desde '.$pan['price'].'€ (por porción)</p>
-                <div class="allergen-tag">'.alegenstoString($pan['allergens']).'</div>
-                <a href="" class="detail-link">Añadir al Carrito</a>
+function listarPanes(array $panes, $tipe): array {
+    // Usando una función anónima tradicional con 'use'
+    return array_filter($panes, function (array $pan) use ($tipe) {
+        return $tipe=="all"?true:$pan['categorie'] == $tipe;
+    });
+}
+$tipe = $_GET['tipe'] ?? 'all';
+foreach (listarPanes(INFORMATION_BREAD,$tipe) as $pan) {
+
+    echo ('<article >
+                <div class="product-image-container">
+                    <img src="'.$pan['path'].'" alt="'.$pan['name'].'" class="product-image">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">'.$pan['name'].'</h3>
+                    <p class="product-price">€'.$pan['price'].'</p>
+                    <div class="product-allergens">Alérgenos: '.alegenstoString($pan['allergens']).'</div>
+                    <a href="" class="product-detail-link">Añadir al Carrito</a>
+                </div>
             </article>');
 }
 ?>

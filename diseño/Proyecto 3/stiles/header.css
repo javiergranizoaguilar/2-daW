@@ -1,0 +1,88 @@
+/* ============================================================
+   HEADER - ESTILOS DE NAVEGACIÓN PRINCIPAL
+   ============================================================ */
+
+.header-main {
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+    padding: 1.5vh 2vw;
+    box-shadow: 0 0.3vh 1vh var(--color-shadow);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 3vw;
+    flex-wrap: wrap;
+}
+
+/* LOGO Y TÍTULO */
+.header-logo-container {
+    display: flex;
+    align-items: center;
+    gap: 1.5vw;
+    flex-shrink: 0;
+}
+
+.header-logo {
+    width: 5vw;
+    height: 5vw;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.header-logo:hover {
+    transform: scale(1.05);
+}
+
+.header-title {
+    font-family: var(--font-serif);
+    font-size: 2.2vw;
+    color: var(--color-text-light);
+    margin: 0;
+    font-weight: 700;
+    letter-spacing: 0.1vw;
+}
+
+/* NAVEGACIÓN */
+.header-nav {
+    flex-grow: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.header-nav-list {
+    list-style: none;
+    display: flex;
+    gap: 2vw;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.header-nav-item {
+    position: relative;
+}
+
+.header-nav-link {
+    color: var(--color-text-light);
+    font-size: 1.1vw;
+    font-weight: 500;
+    padding: 0.5vh 1vw;
+    display: block;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    border-bottom: 0.3vw solid transparent;
+}
+
+.header-nav-link:hover {
+    color: var(--color-background);
+    border-bottom-color: var(--color-background);
+    text-decoration: none;
+}
+
+.header-nav-active {
+    border-bottom-color: var(--color-background);
+    font-weight: 700;
+}
