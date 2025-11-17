@@ -38,7 +38,7 @@
             }
             ?>
         </div>
-        <form method="POST" action="procesar.php">
+        <form method="POST" action="map.php">
             <label for="comentarios">Escriba sus comentarios:</label>
             <br>
             <textarea id="comentarios" name="mensaje_usuario" rows="6" cols="50">¡Hola desde el formulario!

@@ -1,0 +1,226 @@
+/* ============================================================
+   SHOP PAGE - PÁGINA DE CARRITO
+   ============================================================ */
+
+.shop-main {
+    width: 100%;
+    background-color: var(--color-background-light);
+    padding: 3vh 2vw;
+}
+
+.shop-article {
+    width: 100%;
+}
+
+.shop-wrapper {
+    max-width: 95vw;
+    margin: 0 auto;
+}
+
+/* TÍTULO */
+.shop-title {
+    font-size: 3vw;
+    font-family: var(--font-serif);
+    color: var(--color-secondary-dark);
+    text-align: center;
+    margin-bottom: 3vh;
+}
+
+/* CONTENEDOR PRINCIPAL */
+.shop-container {
+    display: grid;
+    grid-template-columns: 1fr 35vw;
+    gap: 3vw;
+    margin-bottom: 3vh;
+}
+
+/* TABLA DE CARRITO */
+.shop-table-container {
+    background-color: var(--color-background);
+    border: 0.2vw solid var(--color-border);
+    border-radius: 1vw;
+    overflow: hidden;
+    box-shadow: 0 0.3vh 1vh var(--color-shadow);
+    overflow-x: auto;
+}
+
+.shop-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0;
+}
+
+.shop-table-head {
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+}
+
+.shop-table-header {
+    padding: 2vh 1.5vw;
+    text-align: left;
+    font-weight: 600;
+    font-size: 1vw;
+    border-bottom: 0.2vw solid var(--color-border);
+}
+
+.shop-table-body {
+    background-color: var(--color-background-light);
+}
+
+.shop-product-row {
+    border-bottom: 0.1vw solid var(--color-border);
+    transition: background-color 0.3s ease;
+}
+
+.shop-product-row:hover {
+    background-color: rgba(184, 134, 11, 0.05);
+}
+
+.shop-table-row:last-child {
+    border-bottom: none;
+}
+
+.shop-product-cell {
+    padding: 1.5vh 1.5vw;
+    display: flex;
+    align-items: center;
+    gap: 1.5vw;
+}
+
+.shop-product-image {
+    width: 8vw;
+    height: 8vh;
+    object-fit: cover;
+    border-radius: 0.5vw;
+    border: 0.1vw solid var(--color-border);
+}
+
+.shop-product-info {
+    flex: 1;
+}
+
+.shop-product-name {
+    font-size: 1.1vw;
+    font-weight: 700;
+    color: var(--color-secondary-dark);
+    margin-bottom: 0.3vh;
+}
+
+.shop-product-desc {
+    font-size: 0.9vw;
+    color: var(--color-text-dark);
+    margin: 0;
+}
+
+.shop-product-price,
+.shop-product-quantity,
+.shop-product-subtotal,
+.shop-product-action {
+    padding: 1.5vh 1.5vw;
+    font-size: 1vw;
+    text-align: center;
+    color: var(--color-text-dark);
+    font-weight: 600;
+}
+
+.shop-product-price {
+    color: var(--color-primary);
+    font-size: 1.2vw;
+}
+
+.shop-product-subtotal {
+    color: var(--color-primary);
+    font-weight: 700;
+    font-size: 1.2vw;
+}
+
+/* CANTIDAD INPUT */
+.shop-quantity-input {
+    width: 5vw;
+    padding: 0.8vh 0.5vw;
+    border: 0.1vw solid var(--color-border);
+    border-radius: 0.3vw;
+    text-align: center;
+    font-size: 1vw;
+}
+
+.shop-quantity-input:focus {
+    outline: none;
+    border-color: var(--color-primary);
+}
+
+/* BOTÓN ELIMINAR */
+.shop-remove-btn {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2vw;
+    transition: transform 0.3s ease;
+}
+
+.shop-remove-btn:hover {
+    transform: scale(1.2);
+}
+
+/* RESUMEN LATERAL */
+.shop-summary {
+    background-color: var(--color-background-alt);
+    border: 0.2vw solid var(--color-border);
+    border-radius: 1vw;
+    padding: 2.5vh 2vw;
+    box-shadow: 0 0.3vh 1vh var(--color-shadow);
+    position: sticky;
+    top: 12vh;
+    height: fit-content;
+}
+
+.shop-summary-title {
+    font-size: 1.5vw;
+    font-family: var(--font-serif);
+    color: var(--color-secondary-dark);
+    margin-bottom: 2vh;
+    text-align: center;
+    border-bottom: 0.2vw solid var(--color-border);
+    padding-bottom: 1.5vh;
+}
+
+.shop-summary-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1.5vh;
+    font-size: 1vw;
+    color: var(--color-text-dark);
+}
+
+.shop-summary-row label {
+    font-weight: 600;
+}
+
+.shop-summary-total {
+    border-top: 0.2vw solid var(--color-border);
+    padding-top: 1.5vh;
+    font-weight: 700;
+    font-size: 1.3vw;
+    color: var(--color-primary);
+}
+
+.shop-checkout-btn {
+    width: 100%;
+    padding: 2.2vh 1.5vw;
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+    border: none;
+    border-radius: 0.5vw;
+    font-size: 1.1vw;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 1.5vh;
+    font-family: var(--font-sans);
+}
+
+.shop-checkout-btn:hover {
+    background-color: var(--color-secondary);
+    transform: translateY(-0.3vh);
+    box-shadow: 0 0.5vh 1.5vh var(--color-shadow);
+}

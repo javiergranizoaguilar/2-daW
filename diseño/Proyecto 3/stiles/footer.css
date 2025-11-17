@@ -1,0 +1,40 @@
+/* ============================================================
+   FOOTER - PIE DE PÁGINA
+   ============================================================ */
+
+.footer-main {
+    background-color: var(--color-secondary-dark);
+    color: var(--color-text-light);
+    padding: 4vh 2vw;
+    text-align: center;
+}
+
+.footer-address,
+.footer-hours,
+.footer-copyright {
+    font-size: 1vw;
+    margin: 0.8vh 0;
+    line-height: 1.6;
+}
+
+.footer-main p {
+    color: var(--color-text-semilight);
+}
+
+.footer-address {
+    font-weight: 500;
+    margin-bottom: 1.5vh;
+}
+
+.footer-hours {
+    font-size: 0.95vw;
+    margin-bottom: 2vh;
+}
+
+.footer-copyright {
+    font-size: 0.9vw;
+    color: rgba(245, 245, 245, 0.7);
+    border-top: 0.1vw solid rgba(245, 245, 245, 0.3);
+    padding-top: 1.5vh;
+    margin-top: 1.5vh;
+}

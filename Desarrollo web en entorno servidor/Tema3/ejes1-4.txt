@@ -1,0 +1,85 @@
+
+
+eje1
+
+
+CREATE TABLE categoria (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    nombre VARCHAR(100) NOT NULL UNIQUE, -- El nombre de la categoría debe ser único
+    descripcion TEXT
+);
+
+
+CREATE TABLE producto (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    nombre VARCHAR(150) NOT NULL,
+    categoria_id INT NOT NULL,
+    precio DECIMAL(10, 2) NOT NULL,
+    stock INT DEFAULT 0,
+    FOREIGN KEY (categoria_id) REFERENCES categoria(id) -- FK a la tabla categoria
+);
+
+
+CREATE TABLE usuario (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    nombre VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL UNIQUE, -- El email debe ser único
+    contraseña VARCHAR(255) NOT NULL -- Se recomienda usar VARCHAR(255) para almacenar hashes de contraseñas
+);
+
+
+CREATE TABLE pedido (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    usuario_id INT NOT NULL,
+    fecha DATETIME DEFAULT CURRENT_TIMESTAMP,
+    total DECIMAL(10, 2) NOT NULL,
+    FOREIGN KEY (usuario_id) REFERENCES usuario(id) -- FK a la tabla usuario
+);
+
+
+eje2
+
+
+INSERT INTO categoria (nombre) VALUES
+('Cítricos'),
+('Frutas Rojas'),
+('Tropicales');
+
+INSERT INTO producto (nombre, categoria_id, precio, stock) VALUES
+('Naranjas', 1, 2.50, 100),
+('Limones', 1, 2.00, 80),
+('Pomelos', 1, 3.20, 45),
+('Fresas', 2, 4.50, 15),
+('Cerezas', 2, 7.80, 25),
+('Frambuesas', 2, 6.00, 5),
+('Mangos', 3, 5.50, 50),
+('Piñas', 3, 4.90, 30),
+('Plátanos', 3, 0.80, 150),
+('Aguacates', 3, 3.80, 18);
+
+eje3
+
+$stmt = $pdo->prepare( 'SELECT * FROM producto ORDER BY precio < ? ORDER BY precio ' );
+$stmt->execute([3.00]);
+$baratos = $stmt->fetchAll( PDO::FETCH_ASSOC );
+
+$stmt = $pdo->prepare( 'SELECT * FROM producto id_categoria = ?' );
+$stmt->execute([2]);
+$producto = $stmt->fetch( PDO::FETCH_ASSOC );
+
+$stmt = $pdo->prepare( 'SELECT * FROM producto WHERE stock < ?' );
+$stmt->execute([20]);
+$producto = $stmt->fetch( PDO::FETCH_ASSOC );
+
+$stmt = $pdo->prepare( 'SELECT * FROM producto WHERE stock < ?' );
+$stmt->execute([20]);
+$producto = $stmt->fetch( PDO::FETCH_ASSOC );
+
+$stmt = $pdo->query('SELECT COUNT(*) as total FROM producto');
+$resultado = $stmt->fetch(PDO::FETCH_ASSOC);
+$total = $resultado['total'];
+
+
+eje4
+
+
