@@ -20,23 +20,23 @@
         <p>ddddd</p>
         <div>
             <?php
-// 1. Verificamos si la solicitud se hizo por POST y si el campo existe.
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['mensaje_usuario'])) {
-    
-    // 2. Capturamos el dato usando el 'name' del textarea.
-    // Usamos htmlspecialchars() para prevenir ataques XSS al mostrar los datos.
-    $texto_textarea = htmlspecialchars($_POST['mensaje_usuario']);
-    
-    // 3. Mostramos el resultado.
-    echo "<h1>Resultado del Textarea</h1>";
-    echo "<p>El texto que ingresaste es:</p>";
-    // nl2br() se usa para convertir los saltos de línea (\n) en etiquetas <br> para HTML.
-    echo nl2br($texto_textarea);
+            // 1. Verificamos si la solicitud se hizo por POST y si el campo existe.
+            if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['mensaje_usuario'])) {
 
-} else {
-    echo "<p>No se recibieron datos del formulario.</p>";
-}
-?>
+                // 2. Capturamos el dato usando el 'name' del textarea.
+                // Usamos htmlspecialchars() para prevenir ataques XSS al mostrar los datos.
+                $texto_textarea = htmlspecialchars($_POST['mensaje_usuario']);
+
+                // 3. Mostramos el resultado.
+                echo "<h1>Resultado del Textarea</h1>";
+                echo "<p>El texto que ingresaste es:</p>";
+                // nl2br() se usa para convertir los saltos de línea (\n) en etiquetas <br> para HTML.
+                echo nl2br($texto_textarea);
+
+            } else {
+                echo "<p>No se recibieron datos del formulario.</p>";
+            }
+            ?>
         </div>
         <form method="POST" action="procesar.php">
             <label for="comentarios">Escriba sus comentarios:</label>
