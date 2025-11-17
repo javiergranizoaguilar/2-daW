@@ -1,5 +1,6 @@
 <?php
-const ESTATEMENTS = [
+const ESTATEMENTS = 
+[
     [
         'title' => 'Ejercicio 1: Crear la BD de Tienda de Frutas',
         'texts' => [
@@ -97,6 +98,8 @@ $dbname = 'tienda';
 $username = 'root';
 $password = 'root';
 $pdo = createConnection();
+createEjer();
+
 // Conexión a la base de datos
 function createConnection()
 {
@@ -172,11 +175,6 @@ function createEjer()
         }
     }
 }
-createEjer();
-
-//eje1();
-//eje2();
-//eje3();
 
 //eje1
 function eje1()
