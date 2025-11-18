@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="c1.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="c1.js"></script>
+    <h1 id="text1" class="text1" onclick="rgb()">Ejercicio práctico: ejercicios varios
+        Ejercicio 1: Crear una página con una imagen y un botón. Añadir el código necesario para que cuando pulse
+        el botón salga un alert (“hola”) y cuando pase el ratón encima de la foto (onmouseover) salga un
+        alert(“adios”).</h1>
+    <img id="meme" src="./images.jpeg" alt="Imagen" onmouseover="mostrarAdios(),cambiarImagen()">
+    <button onclick="mostrarHola()">Holy</button>
+    <h1>Ejercicio 2: A través de un prompt, pide el nombre al usuario y saludalo con un alert de la siguiente forma:
+        “Bienvenid@ a mi página XXXXXX” (siendo XXXXXX el nombre que ha introducido el usuario).</h1>
+    <button onclick="pedirNombre()">Pedir nombre</button>
+    <h1>Ejercicio 3: Crear una página en JavaScript que:
+        • Pida al usuario mediante prompt el nombre del producto que quiere comprar.
+        • Pida el precio del producto.
+        • Pida la cantidad que desea comprar.
+        • Calcule el total a pagar usando operadores matemáticos.
+        • Muestre por consola la información completa (producto, cantidad y total).
+        • Use confirm para preguntar al usuario si desea confirmar la compra.
+        • Muestre si el usuario ha confirmado o no la compra, junto con la información de lo que se está comprando,
+        en un alert.
+        • Añada una sección en la página web en la que se muestre la información de la compra (usa
+        document.writeln).
+        Crea una página web con una hoja de estilos (css). Debes incluir en esa página
+        estos ejercicios de JavaScript
+        Nota: haz el código JS en un archivo aparte, no lo hagas en el archivo.html</h1>
+    <button onclick="realizarCompra()">Realizar compra</button>
+</body>
+
+</html>

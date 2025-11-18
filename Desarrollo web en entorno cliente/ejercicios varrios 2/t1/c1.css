@@ -1,0 +1,17 @@
+body{
+    background-color: rgb(0, 0, 0);
+}
+h1{
+    color: white;
+}
+img{
+    width: 25%;
+}
+button{
+    width: 10%;
+    height: 10%;
+}
+.text1:hover{
+    cursor: pointer;
+
+}
