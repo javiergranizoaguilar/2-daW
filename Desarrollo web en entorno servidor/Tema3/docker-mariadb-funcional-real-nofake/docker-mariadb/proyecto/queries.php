@@ -69,7 +69,7 @@ function makeQueriesUnitari($query, $values = null)
         }
         $pdo->commit();
     }catch (Exception $e) {
-    echo "<p class='error'>❌ Error de conexión: " . $e->getMessage() . "</p>";
+    echo "<p class='error'>❌ Error de ejecucion: " . $e->getMessage() . "</p>";
     $pdo->rollBack();
 }
     return $stmt;

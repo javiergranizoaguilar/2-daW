@@ -161,6 +161,18 @@ function eje1()
         ");
         echo "<p class='success'>✅ Tabla **pedidos** creada/verificada.</p>";
 
+        $pdo->exec("CREATE TABLE IF NOT EXISTS detalle_pedido (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    pedido_id INT NOT NULL,
+    producto_id INT NOT NULL,
+    cantidad INT NOT NULL,
+    precio_unitario DECIMAL(10, 2) NOT NULL,
+    FOREIGN KEY (pedido_id) REFERENCES pedido(id) ON DELETE CASCADE,
+    FOREIGN KEY (producto_id) REFERENCES producto(id) ON DELETE RESTRICT,
+    UNIQUE KEY uk_pedido_producto (pedido_id, producto_id)
+);");
+
+        echo "<p class='success'>✅ Tabla **pedidos detalles** creada/verificada.</p>";
     } catch (PDOException $e) {
         echo "<p class='error'>❌ Error al crear las tablas: " . $e->getMessage() . "</p>";
     }
@@ -234,10 +246,11 @@ function eje4()
 
 function eje5()
 {
-    $selectQueries="SELECT stock FROM producto WHERE id = ? FOR UPDATE";
+    $selectQueries=["SELECT stock FROM producto WHERE id = ? FOR UPDATE",
+                    "SELECT * FROM producto"];
     $updateQueries=[
         "UPDATE producto SET precio = precio * ? WHERE categoria_id = ?",
-        "UPDATE producto SET stock = ? WHERE id = ?"
+        "UPDATE producto SET stock = stock - ? WHERE id = ?"
     ];
     $selectValues=2;
     $updateValues = [
@@ -248,8 +261,62 @@ function eje5()
             15,$selectValues
         ]
     ];
+    makeQueriesUnitari($updateQueries[0],$updateValues[0]);
+    createTableArrayUnitary(makeSelecQueriesUnitari($selectQueries[1]));
+    $stock=makeSelecQueriesUnitari($selectQueries[0],$selectValues)[0]['stock'];
+    createTableArrayUnitary(makeSelecQueriesUnitari($selectQueries[0],$selectValues));
+    if ($stock >= $updateValues[1][0]) {
+        makeQueriesUnitari($updateQueries[1],$updateValues[1]);
+    }
+    createTableArrayUnitary(makeSelecQueriesUnitari($selectQueries[0],$selectValues));
+}
 
-    createTableArrayUnitary(makeSelecQueriesUnitari($selectQueries,$selectValues));
+//eje6
+
+function eje6()
+{
+    global $pdo;
+    try {
+        $pdo->exec("
+            ALTER TABLE producto
+            ADD COLUMN IF NOT EXISTS eliminado BOOLEAN NOT NULL DEFAULT FALSE;
+        ");
+
+        $query_delete = "
+            UPDATE producto
+            SET eliminado = TRUE
+            WHERE stock = 0 AND eliminado = FALSE
+        ";
+
+        $stmt_delete = makeQueriesUnitari($query_delete);
+
+        $query_select_activos = "
+            SELECT id, nombre, stock, eliminado 
+            FROM producto 
+            WHERE eliminado = FALSE
+        ";
+        $query_select_eliminados = "
+            SELECT id, nombre, stock, eliminado 
+            FROM producto 
+            WHERE eliminado = TRUE
+        ";
+
+        $productos_activos = makeSelecQueriesUnitari($query_select_activos);
+        $productos_eliminados = makeSelecQueriesUnitari($query_select_eliminados);
+
+        createTableArrayUnitary($productos_activos);
+
+        createTableArrayUnitary($productos_eliminados);
+
+    } catch (PDOException $e) {
+        echo "<p class='error'>❌ Error en Eje6: " . $e->getMessage() . "</p>";
+    }
+}
+//eje7
+
+function eje7()
+{
+
 }
 ?>
 
