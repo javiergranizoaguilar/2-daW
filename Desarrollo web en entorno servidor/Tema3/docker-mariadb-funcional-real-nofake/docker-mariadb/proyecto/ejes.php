@@ -1,5 +1,7 @@
 <?php
-const ESTATEMENTS = 
+include "queries.php";
+include "createHtmlThings.php";
+const ESTATEMENTS =
 [
     [
         'title' => 'Ejercicio 1: Crear la BD de Tienda de Frutas',
@@ -99,82 +101,6 @@ $username = 'root';
 $password = 'root';
 $pdo = createConnection();
 createEjer();
-
-// Conexión a la base de datos
-function createConnection()
-{
-    try {
-        global $host, $dbname, $username, $password;
-        $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $password);
-        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        echo "<p class='success'>✅ Conexión exitosa a la base de datos</p>";
-        return $pdo;
-    } catch (PDOException $e) {
-        echo "<p class='error'>❌ Error de conexión: " . $e->getMessage() . "</p>";
-        echo "<div class='info'>";
-        echo "<strong>Verifica que:</strong><br>";
-        echo "- Los contenedores estén corriendo: <code>docker compose -f docker-compose-alumnos.yml ps</code><br>";
-        echo "- El servicio de base de datos esté disponible<br>";
-        return null;
-    }
-
-}
-
-function createTableArray($arrayObjects)
-{
-    if (!is_array($arrayObjects) || empty($arrayObjects)) {
-        echo "<p class='info'>No hay resultados para mostrar en la tabla.</p>";
-    } else {
-        $arraykeys = array_keys($arrayObjects[0]);
-
-        echo "<table style='width: 100%; border-collapse: collapse;'>";
-        echo "<tr style='background: #f4f4f4;'>";
-        foreach ($arraykeys as $key) {
-            echo "<th style='padding: 10px; border: 1px solid #ddd;'>$key</th>";
-        }
-        echo "</tr>";
-        foreach ($arrayObjects as $object) {
-            echo "<tr>";
-            foreach ($arraykeys as $key) {
-                echo "<td style='padding: 10px; border: 1px solid #ddd;'>{$object[$key]}</td>";
-            }
-            echo "</tr>";
-        }
-        echo "</table>";
-    }
-}
-
-function createEstatement($title, $texts, $hint)
-{
-    echo "<h1>{$title}</h1>";
-    for ($x = 0; $x < count($texts); $x++) {
-
-        echo $x == 0 ? "<h1 class='exercise'>$texts[$x]</h1>" : "<h1 class='points'>$texts[$x]</h1>";
-    }
-    echo "<h1>{$hint}</h1>";
-}
-
-function createEjer()
-{
-
-    for ($x = 1; $x < count(ESTATEMENTS); $x++) {
-
-        createEstatement(ESTATEMENTS[$x-1]['title'], ESTATEMENTS[$x-1]['texts'], ESTATEMENTS[$x-1]['hint']);
-
-        $functionName = 'eje' . $x;
-
-        // 2. Comprobar si la función existe antes de llamar
-        if (function_exists($functionName)) {
-            // 3. Llamar a la función usando el nombre dinámico
-            $functionName();
-
-            // Si necesitas pasar un argumento, sería:
-            // $functionName($argumento);
-        } else {
-            echo "Advertencia: La función $functionName no está definida.\n";
-        }
-    }
-}
 
 //eje1
 function eje1()
@@ -283,56 +209,47 @@ function eje2()
     }
 }
 
-function makeQueries($query, $values)
-{
-    global $pdo;
-    $stmt = $pdo->prepare($query);
-    $stmt->execute([$values]);
-}
-
 //eje 3
-function eje3(): void
+function eje3()
 {
-    global $pdo;
-    try {
-        // Corrección de sintaxis SQL: se elimina el segundo "ORDER BY"
-        $stmt = $pdo->prepare("SELECT * FROM producto ORDER BY precio < ?, precio");
-        $stmt->execute([3.00]);
-        $baratos = $stmt->fetchAll(PDO::FETCH_ASSOC); // Correcto, usa fetchAll para múltiples resultados
+    $queries = [
+        "SELECT * FROM producto ORDER BY precio < ?, precio",
+        "SELECT * FROM producto WHERE categoria_id = ?",
+        "SELECT * FROM producto WHERE stock < ?",
+        "SELECT COUNT(*) as total FROM producto"
+    ];
+    $values = [
+        3.00, 2, 20, []
+    ];
+    createTableArrayMultiple(makeSelecQueriesMultiple($queries, $values));
 
-        createTableArray($baratos);
-
-        // Corrección de sintaxis SQL: se añade "WHERE"
-        $stmt = $pdo->prepare("SELECT * FROM producto WHERE categoria_id = ?");
-        $stmt->execute([2]);
-        // Corrección de lógica PHP: se usa fetchAll para obtener todos los productos
-        $productos = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-        createTableArray($productos);
-
-        $stmt = $pdo->prepare("SELECT * FROM producto WHERE stock < ?");
-        $stmt->execute([20]);
-        // Corrección de lógica PHP: se usa fetchAll para obtener múltiples resultados
-        $stock_bajo = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-        createTableArray($stock_bajo);
-
-        $stmt = $pdo->query("SELECT COUNT(*) as total FROM producto");
-        $resultado = $stmt->fetch(PDO::FETCH_ASSOC);
-        $total = $resultado['total'];
-
-        echo "<p class='info'>Total: $total</p>";
-
-    } catch (Exception $e) {
-        echo "<p class='error'>❌ Error de conexión: " . $e->getMessage() . "</p>";
-        echo "<div class='info'>";
-        echo "<strong>Verifica que:</strong><br>";
-        echo "- Los contenedores estén corriendo: <code>docker compose -f docker-compose-alumnos.yml ps</code><br>";
-        echo "- El servicio de base de datos esté disponible<br>";
-        echo "- Las credenciales sean correctas";
-        echo "</div>";
-    }
 }
 
+//eje 4
+function eje4()
+{
+    $queries = "SELECT p.nombre AS nombre_producto, p.precio,c.nombre AS nombre_categoria FROM producto p INNER JOIN categoria c ON p.categoria_id = c.id ORDER BY nombre_categoria, p.precio;";
+    createTableArrayUnitary(makeSelecQueriesUnitari($queries));
+}
+
+function eje5()
+{
+    $selectQueries="SELECT stock FROM producto WHERE id = ? FOR UPDATE";
+    $updateQueries=[
+        "UPDATE producto SET precio = precio * ? WHERE categoria_id = ?",
+        "UPDATE producto SET stock = ? WHERE id = ?"
+    ];
+    $selectValues=2;
+    $updateValues = [
+        [
+            1.1,1
+        ],
+        [
+            15,$selectValues
+        ]
+    ];
+
+    createTableArrayUnitary(makeSelecQueriesUnitari($selectQueries,$selectValues));
+}
 ?>
 
