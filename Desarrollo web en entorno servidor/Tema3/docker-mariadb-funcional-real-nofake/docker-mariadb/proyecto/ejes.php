@@ -1,4 +1,6 @@
 <?php
+
+//Uso de ia Exclusivo para consultas repetitivas y Documentacion
 include "queries.php";
 include "createHtmlThings.php";
 const ESTATEMENTS =
@@ -107,12 +109,7 @@ function eje1()
 {
     global $pdo;
     try {
-        // 1. Crear la Base de Datos (opcional, si ya existe la conexión a 'tienda')
-        // Si la conexión ya está en 'tienda', los comandos se ejecutan dentro de esa DB.
-        // Para este ejercicio, asumimos que se deben crear las tablas en la BD a la que
-        // $initialPDO está conectado (que es 'tienda').
 
-        // 2. Crear las tablas
         echo "<h3>Creando Tablas para Tienda de Frutas...</h3>";
 
         // Tabla categorias
@@ -231,7 +228,7 @@ function eje3()
         "SELECT COUNT(*) as total FROM producto"
     ];
     $values = [
-        3.00, 2, 20, []
+        3.00, 2, 50, []
     ];
     createTableArrayMultiple(makeSelecQueriesMultiple($queries, $values));
 
@@ -244,6 +241,7 @@ function eje4()
     createTableArrayUnitary(makeSelecQueriesUnitari($queries));
 }
 
+//eje5
 function eje5()
 {
     $selectQueries=["SELECT stock FROM producto WHERE id = ? FOR UPDATE",
@@ -272,7 +270,6 @@ function eje5()
 }
 
 //eje6
-
 function eje6()
 {
     global $pdo;
@@ -282,41 +279,179 @@ function eje6()
             ADD COLUMN IF NOT EXISTS eliminado BOOLEAN NOT NULL DEFAULT FALSE;
         ");
 
-        $query_delete = "
+        $queryDelete = "
             UPDATE producto
             SET eliminado = TRUE
             WHERE stock = 0 AND eliminado = FALSE
         ";
 
-        $stmt_delete = makeQueriesUnitari($query_delete);
+        $stmtDelete = makeQueriesUnitari($queryDelete);
 
-        $query_select_activos = "
+        $querySelectActivos = "
             SELECT id, nombre, stock, eliminado 
             FROM producto 
             WHERE eliminado = FALSE
         ";
-        $query_select_eliminados = "
+        $querySelectEliminados = "
             SELECT id, nombre, stock, eliminado 
             FROM producto 
             WHERE eliminado = TRUE
         ";
 
-        $productos_activos = makeSelecQueriesUnitari($query_select_activos);
-        $productos_eliminados = makeSelecQueriesUnitari($query_select_eliminados);
+        $productosActivos = makeSelecQueriesUnitari($querySelectActivos);
+        $productosEliminados = makeSelecQueriesUnitari($querySelectEliminados);
 
-        createTableArrayUnitary($productos_activos);
-
-        createTableArrayUnitary($productos_eliminados);
+        createTableArrayUnitary($productosActivos);
+        echo "<p>\n Productos Eliminados</p>";
+        createTableArrayUnitary($productosEliminados);
 
     } catch (PDOException $e) {
         echo "<p class='error'>❌ Error en Eje6: " . $e->getMessage() . "</p>";
     }
 }
-//eje7
 
+//eje7
 function eje7()
 {
+    global $pdo;
 
+    $usuarioId = 1;
+    $itemsCompra = [
+        ['producto_id' => 1, 'cantidad' => 1], // Naranja: Reducir Stock en 10
+        ['producto_id' => 4, 'cantidad' => 1], // Fresa: Reducir Stock en 5
+        ['producto_id' => 9, 'cantidad' => 1]  // Maracuyá: ¡STOCK INSUFICIENTE! (Debería causar ROLLBACK)
+    ];
+
+    try {
+
+        $pdo->beginTransaction();
+        $totalPedido = 0.00;
+
+        // $check_user ahora es $checkUser
+        $checkUser = $pdo->prepare("SELECT id FROM usuario WHERE id = ?");
+        $checkUser->execute([$usuarioId]);
+
+        if (!$checkUser->fetch()) {
+            $pdo->exec("INSERT INTO usuario (id, nombre, email, contrasena) VALUES (1, 'Test User', 'test@example.com', 'hashed_pass') ON DUPLICATE KEY UPDATE nombre='Test User'");
+        }
+
+        // $stmt_pedido ahora es $stmtPedido
+        $stmtPedido = $pdo->prepare("INSERT INTO pedido (usuario_id, fecha, total) VALUES (?, NOW(), 0)");
+        $stmtPedido->execute([$usuarioId]);
+
+        // $pedido_id ahora es $pedidoId
+        $pedidoId = $pdo->lastInsertId();
+
+        foreach ($itemsCompra as $item) {
+            $pid = $item['producto_id'];
+            $cant = $item['cantidad'];
+
+            // 2. Reducir el stock - PASO 1: Consulta con Bloqueo (FOR UPDATE)
+            // $stmt_prod ahora es $stmtProd
+            $stmtProd = $pdo->prepare("SELECT precio, stock FROM producto WHERE id = ? FOR UPDATE");
+            $stmtProd->execute([$pid]);
+            $producto = $stmtProd->fetch(PDO::FETCH_ASSOC);
+
+
+            if (!$producto) {
+                throw new PDOException("Producto ID: $pid no encontrado.");
+            }
+
+            if ($producto['stock'] < $cant) {
+                // El producto 9 (Maracuyá) causará este error y un ROLLBACK
+                throw new PDOException("Stock insuficiente para Producto ID: $pid. Solicitado: $cant, Stock: {$producto['stock']}");
+            }
+
+            // $stmt_stock ahora es $stmtStock
+            $stmtStock = $pdo->prepare("UPDATE producto SET stock = stock - ? WHERE id = ?");
+            $stmtStock->execute([$cant, $pid]);
+
+            // 3. Calcular el total del pedido
+            $subtotal = $cant * $producto['precio'];
+            $totalPedido += $subtotal;
+
+            // $stmt_detalle ahora es $stmtDetalle
+            $stmtDetalle = $pdo->prepare("INSERT INTO detalle_pedido (pedido_id, producto_id, cantidad, precio_unitario) VALUES (?, ?, ?, ?)");
+            $stmtDetalle->execute([$pedidoId, $pid, $cant, $producto['precio']]);
+        }
+
+        // $stmt_update_total ahora es $stmtUpdateTotal
+        $stmtUpdateTotal = $pdo->prepare("UPDATE pedido SET total = ? WHERE id = ?");
+        $stmtUpdateTotal->execute([$totalPedido, $pedidoId]);
+
+        $pdo->commit();
+
+        // $query_final ahora es $queryFinal
+        $queryFinal = "
+            SELECT p.id, p.total, dp.producto_id, dp.cantidad, pr.nombre 
+            FROM pedido p 
+            INNER JOIN detalle_pedido dp ON p.id = dp.pedido_id 
+            INNER JOIN producto pr ON dp.producto_id = pr.id 
+            WHERE p.id = ?
+        ";
+
+        // Se asume que estas funciones externas esperan los argumentos tal cual
+        createTableArrayUnitary(makeSelecQueriesUnitari($queryFinal, $pedidoId));
+
+    } catch (PDOException $e) {
+        // 5. Manejar errores y hacer ROLLBACK
+        $pdo->rollBack();
+        echo $e->getMessage();
+    }
+}
+
+//eje8
+function eje8()
+{
+
+    $sqlTopVentas = "
+        SELECT 
+            p.nombre AS Producto, 
+            SUM(dp.cantidad) AS Total_Vendido
+        FROM detalle_pedido dp
+        INNER JOIN producto p ON dp.producto_id = p.id
+        GROUP BY p.id, p.nombre
+        ORDER BY Total_Vendido DESC
+        LIMIT 5
+    ";
+    createTableArrayUnitary(makeSelecQueriesUnitari($sqlTopVentas));
+
+    $sqlIngresosCategoria = "
+        SELECT 
+            c.nombre AS Categoria, 
+            SUM(dp.cantidad * dp.precio_unitario) AS Ingresos_Totales
+        FROM detalle_pedido dp
+        INNER JOIN producto p ON dp.producto_id = p.id
+        INNER JOIN categoria c ON p.categoria_id = c.id
+        GROUP BY c.id, c.nombre
+        ORDER BY Ingresos_Totales DESC
+    ";
+    createTableArrayUnitary(makeSelecQueriesUnitari($sqlIngresosCategoria));
+
+
+    $sqlBajoStock = "
+        SELECT 
+            nombre AS Producto, 
+            stock AS Stock_Actual, 
+            precio AS Precio
+        FROM producto
+        WHERE stock < 10
+        ORDER BY stock ASC
+    ";
+    createTableArrayUnitary(makeSelecQueriesUnitari($sqlBajoStock));
+
+    $sqlTopUsuarios = "
+        SELECT 
+            u.nombre AS Usuario, 
+            COUNT(p.id) AS Cantidad_Pedidos,
+            SUM(p.total) AS Gasto_Total
+        FROM pedido p
+        INNER JOIN usuario u ON p.usuario_id = u.id
+        GROUP BY u.id, u.nombre
+        ORDER BY Cantidad_Pedidos DESC
+        LIMIT 5
+    ";
+    createTableArrayUnitary(makeSelecQueriesUnitari($sqlTopUsuarios));
 }
 ?>
 

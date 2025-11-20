@@ -41,6 +41,24 @@ function makeSelecQueriesUnitari($query, $values = null)
     return makeQueriesUnitari($query, $values)->fetchAll(PDO::FETCH_ASSOC);
 }
 
+function makeQueriesUnitariMultiple($query, $values = null)
+{
+    global $pdo;
+    $aux = [];
+    $n = count($query);
+    try {
+        for ($x = 0; $x < $n; $x++) {
+            $aux2 = makeQueries($pdo, $query[$x], $values[$x]);
+            $aux[$x] = $aux2;
+        }
+        $pdo->commit();
+    }
+    catch (PDOException $e) {
+        $pdo->rollback();
+        echo $e->getMessage();
+    }
+    return $aux;
+}
 function makeQueriesMultiple($query, $values = null)
 {
     $aux = [];
@@ -56,24 +74,29 @@ function makeQueriesUnitari($query, $values = null)
 {
     global $pdo;
     try {
-        $pdo->beginTransaction();
-        $stmt = $pdo->prepare($query);
-        if (is_array($values)) {
-            $stmt->execute($values);
-        } else {
-            if ($values !== null) {
-                $stmt->execute([$values]);
-            } else {
-                $stmt->execute();
-            }
-        }
+        $stmt = makeQueries($pdo, $query, $values);
         $pdo->commit();
     }catch (Exception $e) {
     echo "<p class='error'>❌ Error de ejecucion: " . $e->getMessage() . "</p>";
     $pdo->rollBack();
-}
+    }
     return $stmt;
 
 }
 
+function makeQueries($pdo, $query, $values = null)
+{
+    $pdo->beginTransaction();
+    $stmt = $pdo->prepare($query);
+    if (is_array($values)) {
+        $stmt->execute($values);
+    } else {
+        if ($values !== null) {
+            $stmt->execute([$values]);
+        } else {
+            $stmt->execute();
+        }
+    }
+    return $stmt;
+}
 ?>
