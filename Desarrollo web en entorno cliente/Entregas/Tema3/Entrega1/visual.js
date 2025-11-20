@@ -1,6 +1,5 @@
 'use strict'
-
-export function mostrarMatrix(matrix){
+function mostrarMatrix(matrix){
     let contenedor = document.getElementById("tablero-visual");
     
     // 2. Creamos una variable para guardar el HTML que vamos a generar
@@ -30,3 +29,4 @@ export function mostrarMatrix(matrix){
     // 5. Inyectamos el HTML generado dentro del div
     contenedor.innerHTML = html;
 }
+export {mostrarMatrix};

@@ -1,6 +1,7 @@
 'use strict'
 import { mostrarMatrix } from "./visual.js";
 
+document.getElementById("a").addEventListener('click',buscaMinas);
 function buscaMinas() {
     let size = pedirNumeroEntero(1, "Dame el tamaño de del tablero", "Dame un numero mallor o igual a: ");
     let minesratio = pedirNumeroRango(0, 100);
