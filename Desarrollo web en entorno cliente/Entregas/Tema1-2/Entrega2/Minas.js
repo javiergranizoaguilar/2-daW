@@ -1,6 +1,7 @@
 'use strict'
+
 function buscaMinas() {
-    let size = pedirNumero(1, "Dame el tamaño de del tablero", "Dame un numero mallor o igual a: ");
+    let size = pedirNumeroEntero(1, "Dame el tamaño de del tablero", "Dame un numero mallor o igual a: ");
     let minesratio = pedirNumeroRango(0, 100);
     let matrix = tableroCreation(size, minesratio);
     let matrixShow = tableroCreation(size, 0);
@@ -9,6 +10,7 @@ function buscaMinas() {
     console.table(matrixShow);
     play(matrix, matrixShow);
 }
+
 function play(matrix, matrixShow) {
     let verdad = true;
     do {
@@ -23,24 +25,24 @@ function play(matrix, matrixShow) {
         alert("Perdiste manco");
     }
 }
+
 function ganar(matrix, matrixShow) {
     let win = true
     for (let x = 0; x < matrix.length; x++) {
         for (let y = 0; y < matrix.length; y++) {
             if ((matrix[x][y] >= 0 && matrix[x][y] === matrixShow[x][y]) ||
                 (matrix[x][y] === "." && matrix[x][y] === matrixShow[x][y]) ||
-                matrix[x][y] === "*") {
-            }
-            else {
+                matrix[x][y] === "*") {} else {
                 win = false;
             }
         }
     }
     return win;
 }
+
 function seleccionResult(matrix, matrixShow) {
-    let coordX = pedirNumero(-1, "Dame la coordenad X", "Dame un numero mallor o igual a: ");
-    let coordY = pedirNumero(-1, "Dame la coordenad Y", "Dame un numero mallor o igual a: ");
+    let coordX = pedirNumeroEntero(-1, "Dame la coordenad X", "Dame un numero mallor o igual a: ");
+    let coordY = pedirNumeroEntero(-1, "Dame la coordenad Y", "Dame un numero mallor o igual a: ");
 
     if (matrix[CoordX][CoordY] == "*") {
         return null;
@@ -48,6 +50,7 @@ function seleccionResult(matrix, matrixShow) {
         return show(matrix, matrixShow, coordX, coordY);
     }
 }
+
 function show(matrix, matrixShow, rx, ry) {
     let aux = []
     switch (true) {
@@ -61,6 +64,7 @@ function show(matrix, matrixShow, rx, ry) {
     }
     return aux;
 }
+
 function vaciosLogic(rejaI) {
     let minas = 0;
     let aux1 = [];
@@ -73,10 +77,10 @@ function vaciosLogic(rejaI) {
         aux2 = [];
         for (let y = 0; y < rejaI.length; y++) {
             aux = borderMargin(x, y, x1, x2, y2, rejaI)
-            x1 = aux.newX1;
-            x2 = aux.newX2;
-            y2 = aux.newY2;
-
+            x1 = aux.newX1<0 ? 0:aux.newX1;
+            x2 = aux.newX2<0 ? 0:aux.newX2;
+            y2 = aux.newY2<0 ? 0:aux.newY2;
+            print(x1);
             minas = 0;
             for (x1; x1 <= x2; x1++) {
                 for (let y1 = y - 1 < 0 ? 0 : y - 1; y1 <= y2; y1++) {
@@ -88,12 +92,13 @@ function vaciosLogic(rejaI) {
                     }
                 }
             }
-            placingMines(minas, rejaI, aux2)
+            placingMines(minas, rejaI, aux2,x,y)
         }
         aux1.push(aux2);
     }
     return aux1;
 }
+
 function placingMines(mines, rejaI, aux2, x, y) {
     if (rejaI[x][y] === "*") {
         aux2.push("*")
@@ -103,6 +108,7 @@ function placingMines(mines, rejaI, aux2, x, y) {
         aux2.push(mines)
     }
 }
+
 function tableroCreation(size, ratio) {
     let matrix = [];
     let aux = []
@@ -111,8 +117,7 @@ function tableroCreation(size, ratio) {
         for (let y = 0; y < size; y++) {
             if (ratio !== 0 && Math.floor(Math.random() * 100) <= ratio) {
                 aux.push("*");
-            }
-            else {
+            } else {
                 aux.push("X");
             }
         }
@@ -120,6 +125,7 @@ function tableroCreation(size, ratio) {
     }
     return matrix;
 }
+
 function pedirNumeroEntero(num, text, textError) {
     let numero;
     let entrada;
@@ -139,6 +145,7 @@ function pedirNumeroEntero(num, text, textError) {
 
     return numero;
 }
+
 function pedirNumeroRango(num1, num2) {
     let numero;
     do {
@@ -151,9 +158,10 @@ function pedirNumeroRango(num1, num2) {
 
     return numero;
 }
+
 function borderMargin(x, y, x1, x2, y2, rejaI) {
 
-    if (x + -1 < 0) {
+    if (x - 1 < 0) {
         x1 = 0;
         x2 = x + 1;
     }
@@ -161,17 +169,17 @@ function borderMargin(x, y, x1, x2, y2, rejaI) {
         x1 = x - 1;
         x2 = rejaI.length - 1;
     }
-    if (!(x + 1 >= rejaI.length && x + -1 < 0)) {
+    if (!(x + 1 >= rejaI.length && x - 1 < 0)) {
         x1 = x - 1;
         x2 = x + 1;
     }
-    if (y + -1 < 0) {
+    if (y - 1 < 0) {
         y2 = y + 1
     }
     if (y + 1 >= rejaI.length) {
         y2 = rejaI.length - 1;
     }
-    if (!(y + 1 >= rejaI.length && y + -1 < 0)) {
+    if (!(y + 1 >= rejaI.length && y - 1 < 0)) {
         y2 = y + 1
     }
     return {
@@ -181,6 +189,7 @@ function borderMargin(x, y, x1, x2, y2, rejaI) {
     }
 
 }
+
 function desbloqueoblancos(rejaI, matrixShow, rx, ry) {
     let x1 = 0;
     let x2 = 0;
@@ -196,8 +205,8 @@ function desbloqueoblancos(rejaI, matrixShow, rx, ry) {
             for (x1; x1 <= x2; x1++) {
                 for (y1 = y - 1 < 0 ? 0 : y - 1; y1 <= y2; y1++) {
 
-                    if ((x1 === rx && ((y1 - 1 === ry) || (y1 + 1 === ry)))
-                        || (y1 === ry && ((x1 - 1 === rx) || (x1 + 1 === rx)))) {
+                    if ((x1 === rx && ((y1 - 1 === ry) || (y1 + 1 === ry))) ||
+                        (y1 === ry && ((x1 - 1 === rx) || (x1 + 1 === rx)))) {
                         if (rejaI[x1][y1] === "." && matrixShow[x1][y1] != ".") {
                             matrixShow[x1][y1] = rejaI[x1][y1];
                             desbloqueoblancos(rejaI, matrixShow, x1, y1);
