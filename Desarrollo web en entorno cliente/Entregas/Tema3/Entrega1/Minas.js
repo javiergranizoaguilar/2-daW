@@ -1,12 +1,12 @@
 'use strict'
+import { mostrarMatrix } from "./visual.js";
 
 function buscaMinas() {
     let size = pedirNumeroEntero(1, "Dame el tamaño de del tablero", "Dame un numero mallor o igual a: ");
     let minesratio = pedirNumeroRango(0, 100);
     let matrix = tableroCreation(size, minesratio);
     let matrixShow = tableroCreation(size, 0);
-    console.table(matrix);
-    console.table(matrixShow);
+    mostrarMatrix(matrixShow);
     matrix = vaciosLogic(matrix);
     console.table(matrix);
     console.table(matrixShow);
