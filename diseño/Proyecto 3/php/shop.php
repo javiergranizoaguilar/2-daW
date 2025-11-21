@@ -19,7 +19,7 @@
                         <tbody class="shop-table-body">
                             <tr class="shop-product-row">
                                 <td class="shop-product-cell">
-                                    <img src="../imgs/logo.webp" alt="Baguette Francesa" class="shop-product-image">
+                                    <img src="../imgs/panes/centeno.png" alt="Baguette Francesa" class="shop-product-image">
                                     <div class="shop-product-info">
                                         <h4 class="shop-product-name">Baguette Francesa</h4>
                                         <p class="shop-product-desc">Pan crujiente artesanal</p>
@@ -37,7 +37,7 @@
 
                             <tr class="shop-product-row">
                                 <td class="shop-product-cell">
-                                    <img src="../imgs/logo.webp" alt="Pan Integral con Semillas" class="shop-product-image">
+                                    <img src="../imgs/panes/integral.png" alt="Pan Integral con Semillas" class="shop-product-image">
                                     <div class="shop-product-info">
                                         <h4 class="shop-product-name">Pan Integral con Semillas</h4>
                                         <p class="shop-product-desc">Nutritivo y delicioso</p>
@@ -55,7 +55,7 @@
 
                             <tr class="shop-product-row">
                                 <td class="shop-product-cell">
-                                    <img src="../imgs/logo.webp" alt="Cruasán Mantequilla" class="shop-product-image">
+                                    <img src="../imgs/panes/croisan.webp" alt="Cruasán Mantequilla" class="shop-product-image">
                                     <div class="shop-product-info">
                                         <h4 class="shop-product-name">Cruasán Mantequilla</h4>
                                         <p class="shop-product-desc">Desayuno delicioso</p>
@@ -73,7 +73,7 @@
 
                             <tr class="shop-product-row">
                                 <td class="shop-product-cell">
-                                    <img src="../imgs/logo.webp" alt="Tarta de Chocolate Artesanal" class="shop-product-image">
+                                    <img src="../imgs/panes/apple_pie.webp" alt="Tarta de Manzana Artesanal" class="shop-product-image">
                                     <div class="shop-product-info">
                                         <h4 class="shop-product-name">Tarta de Chocolate Artesanal</h4>
                                         <p class="shop-product-desc">Para celebraciones especiales</p>
