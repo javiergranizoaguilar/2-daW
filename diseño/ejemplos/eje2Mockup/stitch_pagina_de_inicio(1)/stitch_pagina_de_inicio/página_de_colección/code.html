@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Furry Friends - Fursuits</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#7f13ec",
+                        "background-light": "#f7f6f8",
+                        "background-dark": "#191022",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-[#1f1230] dark:text-background-light">
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+<header class="sticky top-0 z-20 w-full bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm border-b border-primary/20 dark:border-primary/30">
+<div class="container mx-auto flex items-center justify-between px-4 sm:px-6 lg:px-8 py-3">
+<div class="flex items-center gap-8">
+<a class="flex items-center gap-3 text-2xl font-bold text-primary" href="#">
+<svg class="h-8 w-8" fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M24 4H6V17.3333V30.6667H24V44H42V30.6667V17.3333H24V4Z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+<span class="hidden sm:inline">Furry Friends</span>
+</a>
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Inicio</a>
+<a class="text-sm font-bold text-primary" href="#">Fursuits</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Accesorios</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Comisiones</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Contacto</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative hidden lg:block">
+<span class="absolute inset-y-0 left-0 flex items-center pl-3">
+<svg class="text-primary/70" fill="currentColor" height="20px" viewBox="0 0 256 256" width="20px" xmlns="http://www.w3.org/2000/svg">
+<path d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"></path>
+</svg>
+</span>
+<input class="w-full max-w-xs rounded-lg border-transparent bg-primary/10 dark:bg-primary/20 py-2 pl-10 pr-4 text-sm focus:border-primary focus:ring-primary" placeholder="Buscar..." type="search"/>
+</div>
+<button class="lg:hidden p-2 rounded-lg bg-primary/10 hover:bg-primary/20 dark:bg-primary/20 dark:hover:bg-primary/30 transition-colors">
+<svg class="text-primary" fill="currentColor" height="20px" viewBox="0 0 256 256" width="20px" xmlns="http://www.w3.org/2000/svg">
+<path d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"></path>
+</svg>
+</button>
+<button class="p-2 rounded-lg bg-primary/10 hover:bg-primary/20 dark:bg-primary/20 dark:hover:bg-primary/30 transition-colors">
+<svg class="text-primary" fill="currentColor" height="20px" viewBox="0 0 256 256" width="20px" xmlns="http://www.w3.org/2000/svg">
+<path d="M216,40H40A16,16,0,0,0,24,56V200a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A16,16,0,0,0,216,40Zm0,160H40V56H216V200ZM176,88a48,48,0,0,1-96,0,8,8,0,0,1,16,0,32,32,0,0,0,64,0,8,8,0,0,1,16,0Z"></path>
+</svg>
+</button>
+<button class="size-10 rounded-full border-2 border-primary/50 hover:border-primary transition-all">
+<div class="size-full rounded-full bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAreN31RR63IpNBiLNvtpb3n9BGzOr7LpeFyG1iVioSCf8XN8JMdBgRECLzpDLNLTy6yStksLIMX0uQrqcs8LnvNnJK4MaXHrPDmSgs9DGA_0qqcSXUneI4Mq_B81GrNTy-ry5XLJjuhSR5EBLIH6L629G0ntiUj4g3GBGwCvgIMEvY3beXMNIrd9TKMPjtwtoylZv8PDnTMXEYQtNCG5mNJ0Pt5u7x3rN4TqoIjxF1EP1ZYH4-5U5-n0QQdwZSYNr1F_5PfoEs5acX");'></div>
+</button>
+</div>
+</div>
+</header>
+<main class="container mx-auto flex-grow px-4 sm:px-6 lg:px-8 py-10">
+<div class="flex flex-col gap-8">
+<div class="text-center">
+<h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-primary">Fursuits Disponibles</h1>
+<p class="mt-4 max-w-2xl mx-auto text-lg text-black/60 dark:text-white/60">Explora nuestra colección de fursuits de alta calidad, listos para ser enviados. Encuentra el personaje perfecto para ti.</p>
+</div>
+<div class="flex flex-wrap items-center justify-center gap-2 sm:gap-4">
+<button class="px-4 py-2 rounded-lg text-sm font-bold bg-primary text-white transition-all">Todos</button>
+<button class="px-4 py-2 rounded-lg text-sm font-medium bg-primary/10 dark:bg-primary/20 text-primary hover:bg-primary/20 dark:hover:bg-primary/30 transition-colors">Parciales</button>
+<button class="px-4 py-2 rounded-lg text-sm font-medium bg-primary/10 dark:bg-primary/20 text-primary hover:bg-primary/20 dark:hover:bg-primary/30 transition-colors">Completos</button>
+<button class="px-4 py-2 rounded-lg text-sm font-medium bg-primary/10 dark:bg-primary/20 text-primary hover:bg-primary/20 dark:hover:bg-primary/30 transition-colors">Otros</button>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+<div class="group flex flex-col rounded-xl overflow-hidden bg-background-light dark:bg-background-dark shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border border-primary/10 dark:border-primary/20">
+<div class="w-full aspect-[3/4] bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBEIX6F8VyugrLk1804pboc2ZKn3nDVnNTloR_0UYW91hc1n-4TokD2Wir46lE8c4TVpy40soLw9UpMi71p__esmh9cFbmyByizUk6tJPG9bgCMks1n8lVBknlg-fHBkj9ndFv6n_GEgnkuaU_CJgibe2rtC4QNSlpjsxyZGSp4THVgGk2U9aeAICKR15zUwvOW2_br3Y0ZaHi05VPXyLTdtHbRx2L14Pj7fKidVrtvGs0hYS1DKB2WUBgn-4KlRV4R9iB36GIyCSY3");'></div>
+<div class="p-4 flex flex-col flex-grow">
+<h3 class="text-lg font-bold text-black dark:text-white">Fursuit de Zorro</h3>
+<p class="mt-1 text-sm text-black/60 dark:text-white/60 flex-grow">Fursuit parcial de zorro, ideal para eventos y convenciones.</p>
+<button class="mt-4 w-full rounded-lg bg-primary py-2 text-sm font-bold text-white hover:bg-opacity-90 transition-colors">Ver Detalles</button>
+</div>
+</div>
+<div class="group flex flex-col rounded-xl overflow-hidden bg-background-light dark:bg-background-dark shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border border-primary/10 dark:border-primary/20">
+<div class="w-full aspect-[3/4] bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAcWr_xuDOK87OGW8W-rCQ3x3t7h9QskfDpW6SsfuQLIk-XAgh_YOQ7iTKXyIXuYfT5C5W9FnUJX5XHtjlaALdoihGtTx7xUMNqJloEWFE3erIZd9N_0GvUxeDeS83sM0ZFjx-pSfQg_zaHquxfPZ9wcgYnEK8Hik-X3x9g3tthfJODW0HBP8Z5b4fzZ8sgThTz8d-evx5GKu_hxIvA9USOuwMaB68Lz1OQUew4DWo3yitHe7Vnh-n59bHSnKYDhgSouwS_Yt0XUVuS");'></div>
+<div class="p-4 flex flex-col flex-grow">
+<h3 class="text-lg font-bold text-black dark:text-white">Fursuit de Lobo</h3>
+<p class="mt-1 text-sm text-black/60 dark:text-white/60 flex-grow">Fursuit completo de lobo, con detalles realistas y alta calidad.</p>
+<button class="mt-4 w-full rounded-lg bg-primary py-2 text-sm font-bold text-white hover:bg-opacity-90 transition-colors">Ver Detalles</button>
+</div>
+</div>
+<div class="group flex flex-col rounded-xl overflow-hidden bg-background-light dark:bg-background-dark shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border border-primary/10 dark:border-primary/20">
+<div class="w-full aspect-[3/4] bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD0NuxXWHS1V0AJYHZwB47BE_xV_qW-Ek1vko6CG8A3wtJHUXNAAVOH1RLk-epefQTCk3dMy2ZZGC14LoRsVTUlY3vF9JthYcffgE4-yfeSG0t1Jccb2788xZ3RhXY8NulWWctNeLInQyqaR7DR07EoapiMLg_jpCkuaHOkWCUXHNv2jD_4GSrdqonyKGxndxXQK7I9TyMXjeCQdAS1SEFHTLu4KnOOSKWw1bgz4Fhra3SUH_ImeBX7ZhNa_eJGFfAuA2SoMZx-bH5k");'></div>
+<div class="p-4 flex flex-col flex-grow">
+<h3 class="text-lg font-bold text-black dark:text-white">Fursuit de Dragón</h3>
+<p class="mt-1 text-sm text-black/60 dark:text-white/60 flex-grow">Fursuit de dragón, con alas y cola articuladas.</p>
+<button class="mt-4 w-full rounded-lg bg-primary py-2 text-sm font-bold text-white hover:bg-opacity-90 transition-colors">Ver Detalles</button>
+</div>
+</div>
+<div class="group flex flex-col rounded-xl overflow-hidden bg-background-light dark:bg-background-dark shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border border-primary/10 dark:border-primary/20">
+<div class="w-full aspect-[3/4] bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA7umI03GuUyP9oaQmoFD1o3ClSeANsRkNYvlGpcjAUe7b8Bhyv7E1OwjRvLxJxpuh9uL-7S4E6gn005aMbpK1YCUiUNfLT7eMkz2xIQf9VoRUkww6P3FSAl90uquEMgsA0pTau38cvsVwdI_rgSOK9d2sfWV7uLJbTV3q40oiVsE7LaXDBgFAGqq6L64IXXIUrU5dvM9SCpcI2g3C-geG_yg21PHWPWH3qsBcv1DlOcwSpxjgIsdGJQCNqahnZyjqRgONeafYGKNXX");'></div>
+<div class="p-4 flex flex-col flex-grow">
+<h3 class="text-lg font-bold text-black dark:text-white">Fursuit de Conejo</h3>
+<p class="mt-1 text-sm text-black/60 dark:text-white/60 flex-grow">Fursuit de conejo, suave y cómodo, perfecto para cualquier ocasión.</p>
+<button class="mt-4 w-full rounded-lg bg-primary py-2 text-sm font-bold text-white hover:bg-opacity-90 transition-colors">Ver Detalles</button>
+</div>
+</div>
+<div class="group flex flex-col rounded-xl overflow-hidden bg-background-light dark:bg-background-dark shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border border-primary/10 dark:border-primary/20">
+<div class="w-full aspect-[3/4] bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAyA2wHL0NVuJFTipJ2XRq8drX3pr-o6GF1-noRdY_jPewrN05ZlINkot1kAXSwfS22Wz4b7k--OzW53wWY0zgDD9gAZ2PcmqBAr3CYwQrC2sShFVUnW4PYb4mfFIB7po6HvvJ-lrSSlAzkI-g5xgIEDz4bzvDGtph6ziNs2gtllGhCzLFADfz2Jx_6_HG0NeTZ9y7Syj_fxek6T2Gfs0xtIzDPwLoaJ9iT1UIFPaeIwQSiE1LDzEX4uWrPM6-dW4-XRq4nSE0hWko5");'></div>
+<div class="p-4 flex flex-col flex-grow">
+<h3 class="text-lg font-bold text-black dark:text-white">Fursuit de Oso</h3>
+<p class="mt-1 text-sm text-black/60 dark:text-white/60 flex-grow">Fursuit de oso, robusto y detallado, con expresión amigable.</p>
+<button class="mt-4 w-full rounded-lg bg-primary py-2 text-sm font-bold text-white hover:bg-opacity-90 transition-colors">Ver Detalles</button>
+</div>
+</div>
+<div class="group flex flex-col rounded-xl overflow-hidden bg-background-light dark:bg-background-dark shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border border-primary/10 dark:border-primary/20">
+<div class="w-full aspect-[3/4] bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD1YtdvuzYJdB636K8Cx0SPqvcWmCH_yy4kOBHPGJobVDS5ItiVY0FuBzu_FKHTRoyik41mdjelvYbE2vp_2L-jOcMBbMlFanCmwhvjc4njg9QnasXOhgP8KBJzRnQHbKwgjKmtp4uWlH7A8JzzVLnrHPGi4yuKycgnaEDOD85pyn4LkDlpAWpYnKYb9Ua0Apyfk_ugy70V4ua4z8FqqEfqMQwAV8KsKjMFVh9K0OFHhd-WvcEWeXEIquztljMRilzCCXSTFfwpyIzX");'></div>
+<div class="p-4 flex flex-col flex-grow">
+<h3 class="text-lg font-bold text-black dark:text-white">Fursuit de Gato</h3>
+<p class="mt-1 text-sm text-black/60 dark:text-white/60 flex-grow">Fursuit de gato, elegante y felino, con movimientos fluidos.</p>
+<button class="mt-4 w-full rounded-lg bg-primary py-2 text-sm font-bold text-white hover:bg-opacity-90 transition-colors">Ver Detalles</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<footer class="bg-primary/10 dark:bg-primary/20 mt-12">
+<div class="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+<div class="flex flex-col md:flex-row items-center justify-between gap-6">
+<div class="flex flex-wrap justify-center md:justify-start gap-x-6 gap-y-2">
+<a class="text-sm text-black/70 dark:text-white/70 hover:text-primary dark:hover:text-primary transition-colors" href="#">Política de Privacidad</a>
+<a class="text-sm text-black/70 dark:text-white/70 hover:text-primary dark:hover:text-primary transition-colors" href="#">Términos de Servicio</a>
+<a class="text-sm text-black/70 dark:text-white/70 hover:text-primary dark:hover:text-primary transition-colors" href="#">Contacto</a>
+</div>
+<p class="text-sm text-black/50 dark:text-white/50 text-center md:text-right">© 2024 Furry Friends. Todos los derechos reservados.</p>
+</div>
+</div>
+</footer>
+</div>
+
+</body></html>

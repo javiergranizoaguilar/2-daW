@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Stitch Design</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+<script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#7f13ec",
+              "background-light": "#f7f6f8",
+              "background-dark": "#191022",
+            },
+            fontFamily: {
+              display: ["Plus Jakarta Sans"],
+            },
+            borderRadius: { DEFAULT: "0.5rem", lg: "1rem", xl: "1.5rem", full: "9999px" },
+          },
+        },
+      };
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-800 dark:text-slate-200">
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+<div class="flex h-full grow flex-col">
+<header class="flex items-center justify-between whitespace-nowrap border-b border-primary/20 px-10 py-4 dark:border-primary/30">
+<div class="flex items-center gap-3 text-slate-900 dark:text-white">
+<svg class="h-8 w-8 text-primary" fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M24 4H6V17.3333V30.6667H24V44H42V30.6667V17.3333H24V4Z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+<h2 class="text-xl font-bold">Furry Friends</h2>
+</div>
+<nav class="hidden items-center gap-8 md:flex">
+<a class="text-sm font-medium text-slate-600 hover:text-primary dark:text-slate-300 dark:hover:text-primary" href="#">Inicio</a>
+<a class="text-sm font-medium text-slate-600 hover:text-primary dark:text-slate-300 dark:hover:text-primary" href="#">Productos</a>
+<a class="text-sm font-medium text-slate-600 hover:text-primary dark:text-slate-300 dark:hover:text-primary" href="#">Acerca de</a>
+<a class="text-sm font-medium text-slate-600 hover:text-primary dark:text-slate-300 dark:hover:text-primary" href="#">Contacto</a>
+</nav>
+<div class="flex items-center gap-2">
+<button class="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full bg-primary/10 text-slate-600 hover:bg-primary/20 dark:bg-primary/20 dark:text-slate-300 dark:hover:bg-primary/30">
+<svg fill="currentColor" height="20px" viewBox="0 0 256 256" width="20px" xmlns="http://www.w3.org/2000/svg">
+<path d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"></path>
+</svg>
+</button>
+<button class="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full bg-primary/10 text-slate-600 hover:bg-primary/20 dark:bg-primary/20 dark:text-slate-300 dark:hover:bg-primary/30">
+<svg fill="currentColor" height="20px" viewBox="0 0 256 256" width="20px" xmlns="http://www.w3.org/2000/svg">
+<path d="M216,40H40A16,16,0,0,0,24,56V200a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A16,16,0,0,0,216,40Zm0,160H40V56H216V200ZM176,88a48,48,0,0,1-96,0,8,8,0,0,1,16,0,32,32,0,0,0,64,0,8,8,0,0,1,16,0Z"></path>
+</svg>
+</button>
+</div>
+</header>
+<main class="flex-1 px-4 py-12 sm:px-6 lg:px-8">
+<div class="mx-auto grid max-w-6xl grid-cols-1 gap-16 lg:grid-cols-2">
+<div class="space-y-8">
+<div class="space-y-4">
+<h1 class="text-4xl font-extrabold tracking-tighter text-slate-900 dark:text-white">Contáctanos</h1>
+<p class="text-lg text-slate-600 dark:text-slate-400">¿Tienes una pregunta o quieres empezar un proyecto? Rellena el formulario y nos pondremos en contacto contigo.</p>
+</div>
+<form class="space-y-6">
+<div>
+<label class="mb-2 block text-sm font-medium text-slate-700 dark:text-slate-300" for="name">Nombre</label>
+<input class="form-input block w-full rounded-lg border-primary/20 bg-background-light p-3 text-slate-900 placeholder-slate-400 focus:border-primary focus:ring-primary dark:border-primary/30 dark:bg-background-dark dark:text-white dark:placeholder-slate-500" id="name" placeholder="Tu nombre"/>
+</div>
+<div>
+<label class="mb-2 block text-sm font-medium text-slate-700 dark:text-slate-300" for="email">Correo electrónico</label>
+<input class="form-input block w-full rounded-lg border-primary/20 bg-background-light p-3 text-slate-900 placeholder-slate-400 focus:border-primary focus:ring-primary dark:border-primary/30 dark:bg-background-dark dark:text-white dark:placeholder-slate-500" id="email" placeholder="tu@email.com"/>
+</div>
+<div>
+<label class="mb-2 block text-sm font-medium text-slate-700 dark:text-slate-300" for="subject">Asunto</label>
+<input class="form-input block w-full rounded-lg border-primary/20 bg-background-light p-3 text-slate-900 placeholder-slate-400 focus:border-primary focus:ring-primary dark:border-primary/30 dark:bg-background-dark dark:text-white dark:placeholder-slate-500" id="subject" placeholder="Asunto del mensaje"/>
+</div>
+<div>
+<label class="mb-2 block text-sm font-medium text-slate-700 dark:text-slate-300" for="message">Mensaje</label>
+<textarea class="form-textarea block w-full rounded-lg border-primary/20 bg-background-light p-3 text-slate-900 placeholder-slate-400 focus:border-primary focus:ring-primary dark:border-primary/30 dark:bg-background-dark dark:text-white dark:placeholder-slate-500" id="message" placeholder="Escribe tu mensaje aquí" rows="5"></textarea>
+</div>
+<div class="flex justify-end">
+<button class="flex items-center justify-center rounded-lg bg-primary px-6 py-3 text-sm font-bold text-white hover:bg-primary/90" type="submit">Enviar Mensaje</button>
+</div>
+</form>
+</div>
+<div class="space-y-12">
+<div class="space-y-4">
+<h2 class="text-3xl font-bold text-slate-900 dark:text-white">Información de contacto</h2>
+<p class="text-slate-600 dark:text-slate-400">Furry Friends es una tienda especializada en la creación y venta de fursuits de alta calidad. Nos apasiona dar vida a tus personajes y ofrecerte una experiencia única.</p>
+<div class="space-y-4 border-t border-primary/20 pt-6 dark:border-primary/30">
+<div class="flex items-start gap-4">
+<p class="w-28 flex-shrink-0 text-sm font-medium text-slate-500 dark:text-slate-400">Dirección</p>
+<p class="text-sm text-slate-700 dark:text-slate-300">Calle Principal 123, Ciudad, País</p>
+</div>
+<div class="flex items-start gap-4">
+<p class="w-28 flex-shrink-0 text-sm font-medium text-slate-500 dark:text-slate-400">Teléfono</p>
+<p class="text-sm text-slate-700 dark:text-slate-300">+1 (555) 123-4567</p>
+</div>
+<div class="flex items-start gap-4">
+<p class="w-28 flex-shrink-0 text-sm font-medium text-slate-500 dark:text-slate-400">Correo electrónico</p>
+<p class="text-sm text-slate-700 dark:text-slate-300">info@furryfriends.com</p>
+</div>
+</div>
+</div>
+<div class="space-y-4">
+<h2 class="text-3xl font-bold text-slate-900 dark:text-white">Síguenos</h2>
+<div class="flex flex-wrap gap-4">
+<a class="group flex flex-col items-center gap-2 rounded-lg bg-primary/10 p-4 text-center transition-colors hover:bg-primary/20 dark:bg-primary/20 dark:hover:bg-primary/30" href="#">
+<div class="rounded-full bg-primary/20 p-3 text-primary group-hover:bg-primary/30 dark:bg-primary/30 dark:group-hover:bg-primary/40">
+<svg fill="currentColor" height="24px" viewBox="0 0 256 256" width="24px" xmlns="http://www.w3.org/2000/svg">
+<path d="M247.39,68.94A8,8,0,0,0,240,64H209.57A48.66,48.66,0,0,0,168.1,40a46.91,46.91,0,0,0-33.75,13.7A47.9,47.9,0,0,0,120,88v6.09C79.74,83.47,46.81,50.72,46.46,50.37a8,8,0,0,0-13.65,4.92c-4.31,47.79,9.57,79.77,22,98.18a110.93,110.93,0,0,0,21.88,24.2c-15.23,17.53-39.21,26.74-39.47,26.84a8,8,0,0,0-3.85,11.93c.75,1.12,3.75,5.05,11.08,8.72C53.51,229.7,65.48,232,80,232c70.67,0,129.72-54.42,135.75-124.44l29.91-29.9A8,8,0,0,0,247.39,68.94Zm-45,29.41a8,8,0,0,0-2.32,5.14C196,166.58,143.28,216,80,216c-10.56,0-18-1.4-23.22-3.08,11.51-6.25,27.56-17,37.88-32.48A8,8,0,0,0,92,169.08c-.47-.27-43.91-26.34-44-96,16,13,45.25,33.17,78.67,38.79A8,8,0,0,0,136,104V88a32,32,0,0,1,9.6-22.92A30.94,30.94,0,0,1,167.9,56c12.66.16,24.49,7.88,29.44,19.21A8,8,0,0,0,204.67,80h16Z"></path>
+</svg>
+</div>
+<p class="text-sm font-medium text-slate-700 dark:text-slate-300">Twitter</p>
+</a>
+<a class="group flex flex-col items-center gap-2 rounded-lg bg-primary/10 p-4 text-center transition-colors hover:bg-primary/20 dark:bg-primary/20 dark:hover:bg-primary/30" href="#">
+<div class="rounded-full bg-primary/20 p-3 text-primary group-hover:bg-primary/30 dark:bg-primary/30 dark:group-hover:bg-primary/40">
+<svg fill="currentColor" height="24px" viewBox="0 0 256 256" width="24px" xmlns="http://www.w3.org/2000/svg">
+<path d="M128,80a48,48,0,1,0,48,48A48.05,48.05,0,0,0,128,80Zm0,80a32,32,0,1,1,32-32A32,32,0,0,1,128,160ZM176,24H80A56.06,56.06,0,0,0,24,80v96a56.06,56.06,0,0,0,56,56h96a56.06,56.06,0,0,0,56-56V80A56.06,56.06,0,0,0,176,24Zm40,152a40,40,0,0,1-40,40H80a40,40,0,0,1-40-40V80A40,40,0,0,1,80,40h96a40,40,0,0,1,40,40ZM192,76a12,12,0,1,1-12-12A12,12,0,0,1,192,76Z"></path>
+</svg>
+</div>
+<p class="text-sm font-medium text-slate-700 dark:text-slate-300">Instagram</p>
+</a>
+<a class="group flex flex-col items-center gap-2 rounded-lg bg-primary/10 p-4 text-center transition-colors hover:bg-primary/20 dark:bg-primary/20 dark:hover:bg-primary/30" href="#">
+<div class="rounded-full bg-primary/20 p-3 text-primary group-hover:bg-primary/30 dark:bg-primary/30 dark:group-hover:bg-primary/40">
+<svg fill="currentColor" height="24px" viewBox="0 0 256 256" width="24px" xmlns="http://www.w3.org/2000/svg">
+<path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm8,191.63V152h24a8,8,0,0,0,0-16H136V112a16,16,0,0,1,16-16h16a8,8,0,0,0,0-16H152a32,32,0,0,0-32,32v24H96a8,8,0,0,0,0,16h24v63.63a88,88,0,1,1,16,0Z"></path>
+</svg>
+</div>
+<p class="text-sm font-medium text-slate-700 dark:text-slate-300">Facebook</p>
+</a>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</div>
+
+</body></html>

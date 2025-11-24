@@ -1,32 +1,29 @@
 'use strict'
-function mostrarMatrix(matrix){
+import { seleccionResult } from "./Minas.js";
+function mostrarMatrix(matrix) {
     let contenedor = document.getElementById("tablero-visual");
-    
+    contenedor.innerHTML = "";
     // 2. Creamos una variable para guardar el HTML que vamos a generar
-    let html = "<table>"; 
+    let table = document.createElement("table");
 
     // 3. Recorremos las filas (<tr>)
     for (let x = 0; x < matrix.length; x++) {
-        html += "<tr>";
-        
+        let tr = document.createElement("tr");
+
         // 4. Recorremos las columnas (<td>)
         for (let y = 0; y < matrix[x].length; y++) {
             let valor = matrix[x][y];
-            
-            // (Opcional) Si es "X" lo dejamos vacío visualmente para que se vea limpio
-            // Si prefieres ver la X, quita este if
-            /* if (valor === "X") { 
-                valor = ""; 
-            } */
 
-            html += `<td>${valor}</td>`;
+            let td = document.createElement("td");
+            td.classList.add(`element${x}${y}`, "tile");
+            td.onclick=()=>seleccionResult(x,y);
+            td.textContent = valor;
+            //td.addEventListener();
+            tr.appendChild(td);
         }
-        html += "</tr>";
+        table.appendChild(tr);
     }
-
-    html += "</table>";
-
-    // 5. Inyectamos el HTML generado dentro del div
-    contenedor.innerHTML = html;
+    contenedor.appendChild(table);
 }
-export {mostrarMatrix};
+
+export { mostrarMatrix };
