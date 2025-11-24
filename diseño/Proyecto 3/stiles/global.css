@@ -230,7 +230,6 @@ th {
 
 td {
     padding: 1.5vh 1vw;
-    border-bottom: 0.1vw solid var(--color-border);
 }
 
 tbody tr:hover {
