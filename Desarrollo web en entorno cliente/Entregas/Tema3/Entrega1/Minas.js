@@ -3,14 +3,26 @@ import { mostrarMatrix } from "./visual.js";
 
 let matrix;
 let matrixShow;
-document.getElementById("a").addEventListener('click', buscaMinas);
-function buscaMinas() {
+let gameEnded = false;
+let mines = 0;
+let flags = 0;
+let startTime;
+let finishTime;
+let time;
+document.getElementById("easy").onclick = () => buscaMinas(20);
+document.getElementById("medium").onclick = () => buscaMinas(40);
+document.getElementById("hard").onclick = () => buscaMinas(60);
+function buscaMinas(minesratio) {
+    gameEnded = false;
+    mines = 0;
+    flags = 0;
+    startTime=getTime();
     let size = pedirNumeroEntero(1, "Dame el tamaño de del tablero", "Dame un numero mallor o igual a: ");
-    let minesratio = pedirNumeroRango(0, 100);
     matrix = tableroCreation(size, minesratio);
     matrixShow = tableroCreation(size, 0);
-    mostrarMatrix(matrixShow);
+    mostrarMatrix(matrix, matrixShow, gameEnded);
     matrix = vaciosLogic(matrix);
+    numberMines();
     console.table(matrix);
     console.table(matrixShow);
 
@@ -24,7 +36,6 @@ function ganar(matrix, matrixShow) {
                 (matrix[x][y] === "." && matrix[x][y] === matrixShow[x][y]) ||
                 (matrix[x][y] === "*")
             )) {
-                console.log("a");
                 win = false;
             }
         }
@@ -33,62 +44,60 @@ function ganar(matrix, matrixShow) {
 }
 
 function seleccionResult(x, y) {
-    let coordX = x;
-    let coordY = y;
+    if (matrixShow[x][y] != "f") {
+        let coordX = x;
+        let coordY = y;
 
-    if (matrix[coordX][coordY] == "*") {
-        alert("Perdiste");
-        mostrarMatrix(matrix);
-    } else {
-        show(matrix, matrixShow, coordX, coordY);
-        if (ganar(matrix, matrixShow)) {
-            alert("Ganaste");
-            mostrarMatrix(matrix);
+        if (matrix[coordX][coordY] == "*") {
+            alert("Perdiste");
+            gameEnded = true;
+            finishTime=getTime();
+            timeBetwen(finishTime,startTime);
+            mostrarMatrix(matrix, matrixShow, gameEnded);
+        } else {
+            show(matrix, matrixShow, coordX, coordY);
+            if (ganar(matrix, matrixShow)) {
+                alert("Ganaste");
+                gameEnded = true;
+                finishTime=getTime();
+                timeBetwen(finishTime,startTime);
+                mostrarMatrix(matrix, matrixShow, gameEnded);
+            }
         }
     }
 }
 
 function show(matrix, matrixShow, rx, ry) {
-    let aux = []
     switch (true) {
         case matrix[rx][ry] === ".":
-            aux.push(desbloqueoBlancos(matrix, matrixShow, rx, ry));
+            desbloqueoBlancos(matrix, matrixShow, rx, ry);
             break;
         case matrix[rx][ry] > 0:
             matrixShow[rx][ry] = matrix[rx][ry];
-            aux.push(matrixShow)
             break;
     }
-    mostrarMatrix(matrixShow)
+    mostrarMatrix(matrix, matrixShow, gameEnded)
 }
 
 function vaciosLogic(rejaI) {
     let minas = 0;
-    let aux1 = [];
-    let aux2 = [];
-    let x1 = 0;
-    let x2 = 0;
-    let y1 = 0;
-    let y2 = 0;
+    let aux1 = [], aux2 = [];
+    let xStart, xEnd, yStart, yEnd = 0;
     let aux;
     for (let x = 0; x < rejaI.length; x++) {
         aux2 = [];
         for (let y = 0; y < rejaI.length; y++) {
             aux = borderMarginWhite(x, y, rejaI)
-            x1 = aux.newX1;
-            x2 = aux.newX2;
-            y1 = aux.newY1;
-            y2 = aux.newY2;
+            xStart = aux.newX1;
+            xEnd = aux.newX2;
+            yStart = aux.newY1;
+            yEnd = aux.newY2;
             minas = 0;
-            for (let x3 = x1; x3 <= x2; x3++) {
-                for (let y3 = y1; y3 <= y2; y3++) {
-
-                    if (rejaI[x3][y3] != rejaI[x][y]) {
-
-                        if (rejaI[x3][y3] === "*") {
-
+            for (let xAux = xStart; xAux <= xEnd; xAux++) {
+                for (let yAux = yStart; yAux <= yEnd; yAux++) {
+                    if (rejaI[xAux][yAux] != rejaI[x][y]) {
+                        if (rejaI[xAux][yAux] === "*") {
                             minas++;
-                            console.log(rejaI[x3][y3]);
                         }
                     }
                 }
@@ -149,19 +158,6 @@ function pedirNumeroEntero(num, text, textError) {
     return numero;
 }
 
-function pedirNumeroRango(num1, num2) {
-    let numero;
-    do {
-        numero = prompt("Introduce un número entre " + num1 + " y " + num2 + "para el ratio de minas:");
-
-        // Convertimos a número y validamos
-        numero = parseFloat(numero);
-
-    } while ((numero === null || isNaN(numero)) && !(numero <= num1 && numero >= num2));
-
-    return numero;
-}
-
 function borderMarginWhite(x, y, rejaI) {
 
     let x1 = x - 1;
@@ -212,4 +208,65 @@ function desbloqueoBlancos(rejaI, matrixShow, rx, ry) {
         }
     }
 }
-export { seleccionResult };
+function createFlags(e, x, y) {
+    e.preventDefault();
+    if (matrixShow[x][y] != "f" && flags <= mines) {
+        matrixShow[x][y] = "f";
+        flags++;
+        mostrarMatrix(matrix, matrixShow, gameEnded);
+        
+    }
+}
+function deleteFlags(x, y) {
+    if (matrixShow[x][y] == "f") {
+        matrixShow[x][y] = "X";
+        flags--;
+    }
+    mostrarMatrix(matrix, matrixShow, gameEnded);
+}
+function numberMines() {
+    for (let x = 0; x < matrix.length; x++) {
+        for (let y = 0; y < matrix.length; y++) {
+            if (matrix[x][y] == "*") {
+                mines++
+            }
+        }
+    }
+}
+function getTime(){
+    
+    return Date.now();
+}
+
+function timeBetwen(tiempoFin, tiempoInicio) {
+    const diferenciaMs = tiempoFin - tiempoInicio;
+    const MS_EN_SEGUNDO = 1000;
+    const MS_EN_MINUTO = MS_EN_SEGUNDO * 60;
+    const MS_EN_HORA = MS_EN_MINUTO * 60;
+
+    const horas = Math.floor(diferenciaMs / MS_EN_HORA);
+    let residuoMs = diferenciaMs % MS_EN_HORA;
+
+    const minutos = Math.floor(residuoMs / MS_EN_MINUTO);
+    residuoMs %= MS_EN_MINUTO;
+
+    const segundos = Math.floor(residuoMs / MS_EN_SEGUNDO);
+
+    let resultado = [];
+    
+    if (horas > 0) {
+        resultado.push(`${horas} hora${horas !== 1 ? 's' : ''}`);
+    }
+    if (minutos > 0) {
+        resultado.push(`${minutos} minuto${minutos !== 1 ? 's' : ''}`);
+    }
+    if (segundos > 0 || (horas === 0 && minutos === 0)) {
+        resultado.push(`${segundos} segundo${segundos !== 1 ? 's' : ''}`);
+    }
+
+    if (resultado.length === 0) {
+         return "Menos de un segundo.";
+    }
+    time=resultado.join(', ');
+}
+export { seleccionResult, createFlags, deleteFlags, flags, time };
