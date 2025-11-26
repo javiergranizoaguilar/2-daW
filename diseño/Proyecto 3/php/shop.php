@@ -233,7 +233,7 @@
                     </div>
                     </form>
                 </div>
-                <button class="modal-close-button" id="outButton">Salir</button>
+                <button class="modal-close-button" id="outButton">❌</button>
             </div>
         </div>
     </article>
