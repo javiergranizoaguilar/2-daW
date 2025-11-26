@@ -6,20 +6,21 @@ class CuentaBancaria
 
     public function __construct($saldo)
     {
-        $this->saldo=$saldo;
+        $this->saldo = $saldo;
     }
+
     public function consultarSaldo()
     {
         return $this->saldo;
     }
 
-    public function retirar($retirar):void
+    public function retirar($retirar): void
     {
-        $this->saldo-=$retirar;
+        $this->saldo -= $retirar;
     }
 
-    public function depositar($depositar):void
+    public function depositar($depositar): void
     {
-        $this->saldo+=$depositar;
+        $this->saldo += $depositar;
     }
 }

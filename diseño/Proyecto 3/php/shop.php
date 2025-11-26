@@ -130,7 +130,7 @@
 
                     <div class="summary-actions">
                         <a href="./index.php?page=product">Seguir Comprando</a>
-                        <button class="btn-submit">Proceder al Pago</button>
+                        <button class="btn-submit" id="openButton">Proceder al Pago</button>
                     </div>
                 </aside>
             </div>
@@ -160,10 +160,12 @@
                     </div>
                 </div>
             </div>
-
-            <!-- <div class="shop-payment">
-                <h2 class="shop-payment-title">Métodos de Pago Disponibles</h2>
-                <div class="shop-payment-methods">
+        </div>
+        <div class="modal-overlay" id="popup">
+            <div class="modal-content">
+                <div class="shop-payment">
+                    <h2 class="shop-payment-title">Métodos de Pago Disponibles</h2>
+                    <div class="shop-payment-methods">
                     <div class="shop-payment-option">
                         <input type="radio" id="payment-card" name="payment" class="shop-payment-input" checked>
                         <label for="payment-card" class="shop-payment-label">💳 Tarjeta de Crédito/Débito</label>
@@ -181,15 +183,14 @@
                         <label for="payment-cash" class="shop-payment-label">💵 Efectivo en Tienda</label>
                     </div>
                 </div>
-            </div>
-
-            <div class="shop-billing">
-                <h2 class="shop-billing-title">Datos de Facturación</h2>
-                <form class="shop-billing-form">
-                    <div class="shop-form-group">
-                        <label class="shop-form-label">Nombre Completo *</label>
-                        <input type="text" class="shop-form-input" required>
-                    </div>
+                </div>
+                <div class="shop-billing">
+                    <h2 class="shop-billing-title">Datos de Facturación</h2>
+                    <form class="shop-billing-form">
+                        <div class="shop-form-group">
+                            <label class="shop-form-label">Nombre Completo *</label>
+                            <input type="text" class="shop-form-input" required>
+                        </div>
 
                     <div class="shop-form-group">
                         <label class="shop-form-label">Email *</label>
@@ -221,17 +222,19 @@
                         <textarea class="shop-form-textarea" rows="3" placeholder="Ej: Alergias, preferencias especiales..."></textarea>
                     </div>
 
-                    <div class="shop-form-group">
+                    <div class="shop-form-group-checkbox">
                         <input type="checkbox" class="shop-form-checkbox" required>
                         <label class="shop-form-checkbox-label">Acepto los términos y condiciones de compra</label>
                     </div>
 
-                    <div class="shop-form-group">
+                    <div class="shop-form-group-checkbox">
                         <input type="checkbox" class="shop-form-checkbox">
                         <label class="shop-form-checkbox-label">Deseo recibir información sobre ofertas especiales</label>
                     </div>
-                </form>
-            </div> -->
+                    </form>
+                </div>
+                <button class="modal-close-button" id="outButton">Salir</button>
+            </div>
         </div>
     </article>
 </main>

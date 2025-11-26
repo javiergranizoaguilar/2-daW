@@ -1,4 +1,5 @@
 <?php
+
 class Veiculo{
     private $marca;
     private $modelo;
