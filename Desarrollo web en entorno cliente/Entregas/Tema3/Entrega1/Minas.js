@@ -210,7 +210,7 @@ function desbloqueoBlancos(rejaI, matrixShow, rx, ry) {
 }
 function createFlags(e, x, y) {
     e.preventDefault();
-    if (matrixShow[x][y] != "f" && flags <= mines) {
+    if (matrixShow[x][y] != "f" && flags < mines) {
         matrixShow[x][y] = "f";
         flags++;
         mostrarMatrix(matrix, matrixShow, gameEnded);
@@ -269,4 +269,4 @@ function timeBetwen(tiempoFin, tiempoInicio) {
     }
     time=resultado.join(', ');
 }
-export { seleccionResult, createFlags, deleteFlags, flags, time };
+export { seleccionResult, createFlags, deleteFlags, flags,mines, time };

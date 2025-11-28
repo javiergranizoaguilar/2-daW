@@ -1,7 +1,9 @@
 'use strict'
-import { deleteFlags, createFlags, seleccionResult,flags,time } from "./Minas.js";
+import { deleteFlags, createFlags, seleccionResult,flags,mines,time } from "./Minas.js";
 let contenedor = document.getElementById("tablero-visual");
 function mostrarMatrix(matrixReal,matrixShow,isReal) {
+    let flagsLeft=mines;
+    flagsLeft=mines-flags
     contenedor.innerHTML = "";
     // 2. Creamos una variable para guardar el HTML que vamos a generar
     let table = document.createElement("table");
@@ -25,7 +27,7 @@ function mostrarMatrix(matrixReal,matrixShow,isReal) {
         table.appendChild(tr);
     }
     contenedor.appendChild(table);
-    createP(!isReal?"Flags":"Tiempo",!isReal?flags:time);
+    createP(!isReal?"Flags":"Tiempo",!isReal?flagsLeft:time);
 }
 function createP(text,valor){
     let p= document.createElement("p");

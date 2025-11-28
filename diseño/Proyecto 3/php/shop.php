@@ -231,6 +231,7 @@
                         <input type="checkbox" class="shop-form-checkbox">
                         <label class="shop-form-checkbox-label">Deseo recibir información sobre ofertas especiales</label>
                     </div>
+                        <input type="submit" class="shop-form-submit-button">
                     </form>
                 </div>
                 <button class="modal-close-button" id="outButton">❌</button>
