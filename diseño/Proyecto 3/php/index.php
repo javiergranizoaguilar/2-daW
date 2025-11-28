@@ -25,5 +25,5 @@ switch($page) {
     break;
 }
 ?>
-<script src="../javaScript/shop.js" type="module"></script>
+
 <?php include "footer.php" ?>

@@ -37,32 +37,32 @@
 
                 <div class="contact-form-section">
                     <h2 class="contact-form-heading">Envíanos un Mensaje</h2>
-                    <form action="#" method="POST" class="contact-form">
+                    <form method="post" class="contact-form">
                         <div class="contact-form-group">
-                            <label class="contact-form-label">Nombre *</label>
-                            <input type="text" class="contact-form-input" required>
+                            <label for="form-name" class="contact-form-label">Nombre *</label>
+                            <input type="text" id="form-name" class="contact-form-input">
                         </div>
                         <div class="contact-form-group">
-                            <label class="contact-form-label">Email *</label>
-                            <input type="email" class="contact-form-input" required>
+                            <label for="form-email" class="contact-form-label">Email *</label>
+                            <input type="email" id="form-email" class="contact-form-input">
                         </div>
                         <div class="contact-form-group">
-                            <label class="contact-form-label">Teléfono</label>
-                            <input type="tel" class="contact-form-input">
+                            <label for="form-phone" class="contact-form-label">Teléfono</label>
+                            <input type="tel" id="form-phone" class="contact-form-input">
                         </div>
                         <div class="contact-form-group">
-                            <label class="contact-form-label">Asunto *</label>
-                            <input type="text" class="contact-form-input" required>
+                            <label for="form-subject" class="contact-form-label">Asunto *</label>
+                            <input type="text" id="form-subject" class="contact-form-input">
                         </div>
                         <div class="contact-form-group">
-                            <label class="contact-form-label">Fecha del Evento</label>
-                            <input type="date" class="contact-form-input">
+                            <label for="form-date" class="contact-form-label">Fecha del Evento</label>
+                            <input type="date" id="form-date" class="contact-form-input">
                         </div>
                         <div class="contact-form-group">
-                            <label class="contact-form-label">Mensaje *</label>
-                            <textarea rows="5" class="contact-form-textarea" required></textarea>
+                            <label for="form-message" class="contact-form-label">Mensaje *</label>
+                            <textarea rows="5" id="form-message" class="contact-form-textarea"></textarea>
                         </div>
-                        <button type="submit" class="contact-form-button">Enviar Mensaje</button>
+                        <input type="submit" class="contact-form-button">
                     </form>
                 </div>
             </div>

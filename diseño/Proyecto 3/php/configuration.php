@@ -111,7 +111,7 @@ function listarPanes(array $panes, $tipe): array {
 $tipe = $_GET['tipe'] ?? 'all';
 foreach (listarPanes(INFORMATION_BREAD,$tipe) as $pan) {
 
-    echo ('<article >
+    echo ('<article>
                 <div class="product-image-container">
                     <img src="'.$pan['path'].'" alt="'.$pan['name'].'" class="product-image">
                 </div>

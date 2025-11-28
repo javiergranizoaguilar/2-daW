@@ -186,14 +186,15 @@
                 </div>
                 <div class="shop-billing">
                     <h2 class="shop-billing-title">Datos de Facturación</h2>
-                    <form class="shop-billing-form" id="billing-form"> <div class="shop-form-group">
+                    <form method="post" class="shop-billing-form" id="billing-form">
+                        <div class="shop-form-group">
                             <label class="shop-form-label" for="full-name">Nombre Completo *</label>
-                            <input type="text" class="shop-form-input" id="full-name" required>
+                            <input type="text" class="shop-form-input" id="full-name" >
                         </div>
 
                         <div class="shop-form-group">
                             <label class="shop-form-label" for="email">Email *</label>
-                            <input type="email" class="shop-form-input" id="email" required>
+                            <input type="email" class="shop-form-input" id="email" >
                         </div>
 
                         <div class="shop-form-group">
@@ -238,4 +239,5 @@
             </div>
         </div>
     </article>
+
 </main>

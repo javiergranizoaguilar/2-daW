@@ -180,7 +180,7 @@ input[type="date"],
 input[type="number"],
 textarea,
 select {
-    padding: 1.5vh 1.5vw;
+    
     border: 0.2vw solid var(--color-border);
     border-radius: 0.5vw;
     font-family: var(--font-sans);

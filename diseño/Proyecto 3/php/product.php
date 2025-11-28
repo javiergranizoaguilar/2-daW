@@ -10,10 +10,10 @@
             </section>
             <?php $tipe = $_GET['tipe'] ?? 'all';?>
             <nav class="product-filter-nav">
-                <a class="product-filter-btn <?php if ($tipe=="all")echo "active"?>"  href="./index.php?page=product&tipe=all">Todos</a>
-                <a class="product-filter-btn <?php if ($tipe=="p")echo "active"?>" href="./index.php?page=product&tipe=p">Panes</a>
-                <a class="product-filter-btn <?php if ($tipe=="d")echo "active"?>" href="./index.php?page=product&tipe=d">Bollería</a>
-                <a class="product-filter-btn <?php if ($tipe=="s")echo "active"?>" href="./index.php?page=product&tipe=s">Salados</a>
+                <a class="product-filter-btn <?php if ($tipe==="all")echo "active"?>"  href="./index.php?page=product&tipe=all">Todos</a>
+                <a class="product-filter-btn <?php if ($tipe==="p")echo "active"?>" href="./index.php?page=product&tipe=p">Panes</a>
+                <a class="product-filter-btn <?php if ($tipe==="d")echo "active"?>" href="./index.php?page=product&tipe=d">Bollería</a>
+                <a class="product-filter-btn <?php if ($tipe==="s")echo "active"?>" href="./index.php?page=product&tipe=s">Salados</a>
             </nav>
 
             <section class="product-grid">
