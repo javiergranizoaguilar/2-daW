@@ -1,7 +1,3 @@
-/* ============================================================
-   MAIN PAGE - PÁGINA DE INICIO
-   ============================================================ */
-
 .main-page {
     width: 100%;
 }
@@ -10,7 +6,8 @@
 .main-hero {
     min-height: 70vh;
     background: linear-gradient(135deg, rgba(184, 134, 11, 0.95), rgba(114, 47, 55, 0.95)),
-                url('../imgs/panes/hogaza.webp') center/cover;
+                url('../imgs/panes/hogaza.webp')  center/cover;
+    border-radius: 20px;
     background-attachment: fixed;
     display: flex;
     align-items: center;
@@ -26,7 +23,7 @@
 }
 
 .main-hero-title {
-    font-size: 4.5vw;
+    font-size: var(--font-size-h1);
     font-weight: 700;
     font-family: var(--font-serif);
     margin-bottom: 1.5vh;
@@ -34,7 +31,7 @@
 }
 
 .main-hero-subtitle {
-    font-size: 1.8vw;
+    font-size: var(--font-size-subtitle);
     margin-bottom: 3vh;
     font-weight: 300;
     color: var(--color-background);
@@ -48,7 +45,7 @@
     color: var(--color-secondary-dark);
     border: none;
     border-radius: 0.5vw;
-    font-size: 1.3vw;
+    font-size: var(--font-size-large-sm);
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -76,7 +73,7 @@
 }
 
 .main-claim-text {
-    font-size: 3vw;
+    font-size: var(--font-size-h2-alt);
     font-family: var(--font-serif);
     color: var(--color-secondary-dark);
     margin-bottom: 2vh;
@@ -85,7 +82,7 @@
 }
 
 .main-claim-description {
-    font-size: 1.1vw;
+    font-size: var(--font-size-base-md);
     color: var(--color-text-dark);
     max-width: 70vw;
     margin: 0 auto;
@@ -104,7 +101,7 @@
 }
 
 .main-categories-title {
-    font-size: 2.8vw;
+    font-size: var(--font-size-h2);
     font-family: var(--font-serif);
     color: var(--color-secondary-dark);
     text-align: center;
@@ -156,14 +153,14 @@
 }
 
 .main-category-name {
-    font-size: 1.5vw;
+    font-size: var(--font-size-large-md);
     font-family: var(--font-serif);
     color: var(--color-secondary-dark);
     margin-bottom: 0.5vh;
 }
 
 .main-category-description {
-    font-size: 0.95vw;
+    font-size: var(--font-size-small);
     color: var(--color-text-dark);
     margin-bottom: 1vh;
     flex-grow: 1;
@@ -171,7 +168,7 @@
 }
 
 .main-category-price {
-    font-size: 1.3vw;
+    font-size: var(--font-size-large-sm);
     font-weight: 700;
     color: var(--color-primary);
     margin-bottom: 1.5vh;
@@ -183,7 +180,7 @@
     background-color: var(--color-primary);
     color: var(--color-text-light);
     border-radius: 0.4vw;
-    font-size: 0.95vw;
+    font-size: var(--font-size-small);
     font-weight: 600;
     text-align: center;
     transition: all 0.3s ease;
@@ -208,7 +205,7 @@
 }
 
 .main-whyus-title {
-    font-size: 2.8vw;
+    font-size: var(--font-size-h2);
     font-family: var(--font-serif);
     color: var(--color-background);
     text-align: center;
@@ -235,14 +232,14 @@
 }
 
 .main-whyus-feature {
-    font-size: 1.3vw;
+    font-size: var(--font-size-large-sm);
     font-weight: 700;
     margin-bottom: 1vh;
     color: var(--color-background);
 }
 
 .main-whyus-description {
-    font-size: 0.95vw;
+    font-size: var(--font-size-small);
     line-height: 1.6;
     color: rgba(255, 248, 220, 0.95);
 }
@@ -262,14 +259,14 @@
 }
 
 .main-subscription-title {
-    font-size: 2.8vw;
+    font-size: var(--font-size-h2);
     font-family: var(--font-serif);
     margin-bottom: 1.5vh;
     color: var(--color-background);
 }
 
 .main-subscription-description {
-    font-size: 1.1vw;
+    font-size: var(--font-size-base-md);
     margin-bottom: 2.5vh;
     color: rgba(255, 248, 220, 0.95);
     line-height: 1.7;
@@ -282,7 +279,7 @@
     color: var(--color-secondary-dark);
     border: none;
     border-radius: 0.5vw;
-    font-size: 1.2vw;
+    font-size: var(--font-size-base);
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -296,10 +293,7 @@
     transform: scale(1.05);
 }
 
-/* ============================================================
-   ANIMACIONES
-   ============================================================ */
-
+/* Animaciones */
 @keyframes slideInUp {
     from {
         opacity: 0;

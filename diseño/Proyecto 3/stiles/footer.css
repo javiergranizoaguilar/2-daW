@@ -1,7 +1,3 @@
-/* ============================================================
-   FOOTER - PIE DE PÁGINA
-   ============================================================ */
-
 .footer-main {
     background-color: var(--color-secondary-dark);
     color: var(--color-text-light);
@@ -12,7 +8,7 @@
 .footer-address,
 .footer-hours,
 .footer-copyright {
-    font-size: 1vw;
+    font-size: var(--font-size-body);
     margin: 0.8vh 0;
     line-height: 1.6;
 }
@@ -27,12 +23,12 @@
 }
 
 .footer-hours {
-    font-size: 0.95vw;
+    font-size: var(--font-size-small);
     margin-bottom: 2vh;
 }
 
 .footer-copyright {
-    font-size: 0.9vw;
+    font-size: var(--font-size-smaller);
     color: rgba(245, 245, 245, 0.7);
     border-top: 0.1vw solid rgba(245, 245, 245, 0.3);
     padding-top: 1.5vh;

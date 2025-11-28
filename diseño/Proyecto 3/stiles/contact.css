@@ -1,25 +1,6 @@
-/* ============================================================
-   CONTACT PAGE - PÁGINA DE CONTACTO
-   ============================================================ */
-
-.contact-main {
-    width: 100%;
-    background-color: var(--color-background-light);
-    padding: 3vh 2vw;
-}
-
-.contact-article {
-    width: 100%;
-}
-
-.contact-wrapper {
-    max-width: 95vw;
-    margin: 0 auto;
-}
-
 /* TÍTULOS */
 .contact-title {
-    font-size: 3vw;
+    font-size: var(--font-size-title);
     font-family: var(--font-serif);
     color: var(--color-secondary-dark);
     text-align: center;
@@ -27,7 +8,7 @@
 }
 
 .contact-subtitle {
-    font-size: 1.2vw;
+    font-size: var(--font-size-base);
     color: var(--color-text-dark);
     text-align: center;
     margin-bottom: 3vh;
@@ -52,7 +33,7 @@
 }
 
 .contact-info-heading {
-    font-size: 1.8vw;
+    font-size: var(--font-size-subtitle);
     font-family: var(--font-serif);
     color: var(--color-primary);
     margin-bottom: 2.5vh;
@@ -73,14 +54,14 @@
 }
 
 .contact-info-label {
-    font-size: 1.2vw;
+    font-size: var(--font-size-base);
     font-weight: 700;
     color: var(--color-secondary-dark);
     margin-bottom: 0.8vh;
 }
 
 .contact-info-item p {
-    font-size: 1vw;
+    font-size: var(--font-size-body);
     color: var(--color-text-dark);
     margin-bottom: 0.4vh;
     line-height: 1.5;
@@ -100,7 +81,7 @@
 }
 
 .contact-form-heading {
-    font-size: 1.8vw;
+    font-size: var(--font-size-subtitle);
     font-family: var(--font-serif);
     color: var(--color-primary);
     margin-bottom: 2.5vh;
@@ -123,7 +104,7 @@
 .contact-form-label {
     font-weight: 600;
     color: var(--color-text-dark);
-    font-size: 1vw;
+    font-size: var(--font-size-body);
 }
 
 .contact-form-input,
@@ -132,7 +113,7 @@
     border: 0.2vw solid var(--color-border);
     border-radius: 0.5vw;
     font-family: var(--font-sans);
-    font-size: 1vw;
+    font-size: var(--font-size-body);
     background-color: var(--color-background-light);
     color: var(--color-text-dark);
     transition: all 0.3s ease;
@@ -156,7 +137,7 @@
     color: var(--color-text-light);
     border: none;
     border-radius: 0.5vw;
-    font-size: 1.1vw;
+    font-size: var(--font-size-base-md);
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -175,7 +156,7 @@
 }
 
 .contact-faq-title {
-    font-size: 2.5vw;
+    font-size: var(--font-size-h3);
     font-family: var(--font-serif);
     color: var(--color-secondary-dark);
     text-align: center;
@@ -203,14 +184,14 @@
 }
 
 .contact-faq-question {
-    font-size: 1.1vw;
+    font-size: var(--font-size-base-md);
     font-weight: 700;
     color: var(--color-secondary-dark);
     margin-bottom: 1vh;
 }
 
 .contact-faq-answer {
-    font-size: 0.95vw;
+    font-size: var(--font-size-small);
     color: var(--color-text-dark);
     line-height: 1.6;
     margin: 0;

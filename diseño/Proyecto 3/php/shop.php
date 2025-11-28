@@ -186,52 +186,52 @@
                 </div>
                 <div class="shop-billing">
                     <h2 class="shop-billing-title">Datos de Facturación</h2>
-                    <form class="shop-billing-form">
-                        <div class="shop-form-group">
-                            <label class="shop-form-label">Nombre Completo *</label>
-                            <input type="text" class="shop-form-input" required>
+                    <form class="shop-billing-form" id="billing-form"> <div class="shop-form-group">
+                            <label class="shop-form-label" for="full-name">Nombre Completo *</label>
+                            <input type="text" class="shop-form-input" id="full-name" required>
                         </div>
 
-                    <div class="shop-form-group">
-                        <label class="shop-form-label">Email *</label>
-                        <input type="email" class="shop-form-input" required>
-                    </div>
+                        <div class="shop-form-group">
+                            <label class="shop-form-label" for="email">Email *</label>
+                            <input type="email" class="shop-form-input" id="email" required>
+                        </div>
 
-                    <div class="shop-form-group">
-                        <label class="shop-form-label">Teléfono *</label>
-                        <input type="tel" class="shop-form-input" required>
-                    </div>
+                        <div class="shop-form-group">
+                            <label class="shop-form-label" for="phone">Teléfono *</label>
+                            <input type="tel" class="shop-form-input" id="phone" >
+                        </div>
 
-                    <div class="shop-form-group">
-                        <label class="shop-form-label">Dirección *</label>
-                        <input type="text" class="shop-form-input" required>
-                    </div>
+                        <div class="shop-form-group">
+                            <label class="shop-form-label" for="address">Dirección *</label>
+                            <input type="text" class="shop-form-input" id="address" >
+                        </div>
 
-                    <div class="shop-form-group">
-                        <label class="shop-form-label">Ciudad *</label>
-                        <input type="text" class="shop-form-input" required>
-                    </div>
+                        <div class="shop-form-group">
+                            <label class="shop-form-label" for="city">Ciudad *</label>
+                            <input type="text" class="shop-form-input" id="city" >
+                        </div>
 
-                    <div class="shop-form-group">
-                        <label class="shop-form-label">Código Postal *</label>
-                        <input type="text" class="shop-form-input" required>
-                    </div>
+                        <div class="shop-form-group">
+                            <label class="shop-form-label" for="zip-code">Código Postal *</label>
+                            <input type="text" class="shop-form-input" id="zip-code" >
+                        </div>
 
-                    <div class="shop-form-group">
-                        <label class="shop-form-label">Notas Especiales</label>
-                        <textarea class="shop-form-textarea" rows="3" placeholder="Ej: Alergias, preferencias especiales..."></textarea>
-                    </div>
+                        <div class="shop-form-group">
+                            <label class="shop-form-label" for="notes">Notas Especiales</label>
+                            <textarea class="shop-form-textarea" id="notes" rows="3" placeholder="Ej: Alergias, preferencias especiales..."></textarea>
+                        </div>
 
-                    <div class="shop-form-group-checkbox">
-                        <input type="checkbox" class="shop-form-checkbox" required>
-                        <label class="shop-form-checkbox-label">Acepto los términos y condiciones de compra</label>
-                    </div>
+                        <div class="shop-form-group-checkbox">
+                            <input type="checkbox" class="shop-form-checkbox" id="terms-conditions" required>
+                            <label class="shop-form-checkbox-label" for="terms-conditions">Acepto los términos y condiciones de compra</label>
+                        </div>
 
-                    <div class="shop-form-group-checkbox">
-                        <input type="checkbox" class="shop-form-checkbox">
-                        <label class="shop-form-checkbox-label">Deseo recibir información sobre ofertas especiales</label>
-                    </div>
-                        <input type="submit" class="shop-form-submit-button">
+                        <div class="shop-form-group-checkbox">
+                            <input type="checkbox" class="shop-form-checkbox" id="special-offers">
+                            <label class="shop-form-checkbox-label" for="special-offers">Deseo recibir información sobre ofertas especiales</label>
+                        </div>
+
+                        <input type="submit" class="shop-form-submit-button" id="submit-button" value="Realizar Pedido">
                     </form>
                 </div>
                 <button class="modal-close-button" id="outButton">❌</button>

@@ -1,24 +1,5 @@
-/* ============================================================
-   SHOP PAGE - PÁGINA DE CARRITO
-   ============================================================ */
-
-.shop {
-    width: 100%;
-    background-color: var(--color-background-light);
-    padding: 3vh 2vw;
-}
-
-article {
-    width: 100%;
-}
-
-.wrapper {
-    max-width: 95vw;
-    margin: 0 auto;
-}
-
 .title {
-    font-size: 3vw;
+    font-size: var(--font-size-title);
     font-family: var(--font-serif);
     color: var(--color-secondary-dark);
     text-align: center;
@@ -58,7 +39,7 @@ th {
     padding: 2vh 1.5vw;
     text-align: left;
     font-weight: 600;
-    font-size: 1vw;
+    font-size: var(--font-size-body);
     border-bottom: 0.2vw solid var(--color-border);
 }
 
@@ -99,14 +80,14 @@ tbody {
 }
 
 .product-name {
-    font-size: 1.1vw;
+    font-size: var(--font-size-base-md);
     font-weight: 700;
     color: var(--color-secondary-dark);
     margin-bottom: 0.3vh;
 }
 
 .product-desc {
-    font-size: 0.9vw;
+    font-size: var(--font-size-tiny);
     color: var(--color-text-dark);
     margin: 0;
 }
@@ -116,7 +97,7 @@ tbody {
 .subtotal,
 .action {
     padding: 1.5vh 1.5vw;
-    font-size: 1vw;
+    font-size: var(--font-size-body);
     text-align: center;
     color: var(--color-text-dark);
     font-weight: 600;
@@ -124,13 +105,13 @@ tbody {
 
 .price {
     color: var(--color-primary);
-    font-size: 1.2vw;
+    font-size: var(--font-size-base);
 }
 
 .subtotal {
     color: var(--color-primary);
     font-weight: 700;
-    font-size: 1.2vw;
+    font-size: var(--font-size-base);
 }
 
 /* CANTIDAD INPUT */
@@ -140,7 +121,7 @@ tbody {
     border: 0.1vw solid var(--color-border);
     border-radius: 0.3vw;
     text-align: center;
-    font-size: 1vw;
+    font-size: var(--font-size-body);
 }
 
 .quantity-input:focus {
@@ -153,7 +134,7 @@ tbody {
     background-color: transparent;
     border: none;
     cursor: pointer;
-    font-size: 1.2vw;
+    font-size: var(--font-size-base);
     transition: transform 0.3s ease;
 }
 
@@ -174,7 +155,7 @@ tbody {
 }
 
 .summary-title {
-    font-size: 1.5vw;
+    font-size: var(--font-size-large-md);
     font-family: var(--font-serif);
     color: var(--color-secondary-dark);
     margin-bottom: 2vh;
@@ -187,7 +168,7 @@ tbody {
     display: flex;
     justify-content: space-between;
     margin-bottom: 1.5vh;
-    font-size: 1vw;
+    font-size: var(--font-size-body);
     color: var(--color-text-dark);
 }
 
@@ -199,7 +180,7 @@ tbody {
     padding: 0.5vh 0.8vw;
     border: 0.1vw solid var(--color-border);
     border-radius: 0.3vw;
-    font-size: 0.95vw;
+    font-size: var(--font-size-small);
 }
 
 .summary-row input:focus {
@@ -218,7 +199,7 @@ tbody {
     border-top: 0.2vw solid var(--color-border);
     padding-top: 1.5vh;
     font-weight: 700;
-    font-size: 1.3vw;
+    font-size: var(--font-size-large-sm);
     color: var(--color-primary);
 }
 
@@ -231,14 +212,14 @@ tbody {
 }
 
 .delivery-info h3 {
-    font-size: 1vw;
+    font-size: var(--font-size-body);
     font-weight: 700;
     color: var(--color-secondary-dark);
     margin: 0 0 0.8vh 0;
 }
 
 .delivery-info p {
-    font-size: 0.9vw;
+    font-size: var(--font-size-smaller);
     color: var(--color-text-dark);
     margin: 0.5vh 0;
     line-height: 1.4;
@@ -261,7 +242,7 @@ tbody {
     text-align: center;
     text-decoration: none;
     font-weight: 600;
-    font-size: 1vw;
+    font-size: var(--font-size-body);
     transition: all 0.3s ease;
 }
 
@@ -278,7 +259,7 @@ tbody {
     color: var(--color-text-light);
     border: none;
     border-radius: 0.5vw;
-    font-size: 1.1vw;
+    font-size: var(--font-size-base-md);
     font-weight: 700;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -300,7 +281,7 @@ tbody {
 }
 
 .options-title {
-    font-size: 2vw;
+    font-size: var(--font-size-h5);
     font-family: var(--font-serif);
     color: var(--color-secondary-dark);
     margin-bottom: 2.5vh;
@@ -331,21 +312,21 @@ tbody {
 }
 
 .option-heading {
-    font-size: 1.2vw;
+    font-size: var(--font-size-base);
     font-weight: 700;
     color: var(--color-secondary-dark);
     margin: 0;
 }
 
 .option-description {
-    font-size: 0.9vw;
+    font-size: var(--font-size-tiny);
     color: var(--color-text-dark);
     margin: 0;
     line-height: 1.4;
 }
 
 .option-price {
-    font-size: 1.1vw;
+    font-size: var(--font-size-base-md);
     font-weight: 700;
     color: var(--color-primary);
     margin: 0.5vh 0 0 0;
@@ -355,16 +336,19 @@ tbody {
 .option-date {
     align-self: flex-start;
     cursor: pointer;
+    accent-color: var(--color-primary);
+}
+
+.option-checkbox {
     width: 2vw;
     height: 2vw;
-    accent-color: var(--color-primary);
 }
 
 .option-date {
     padding: 0.5vh 0.8vw;
     border: 0.1vw solid var(--color-border);
     border-radius: 0.3vw;
-    font-size: 0.95vw;
+    font-size: var(--font-size-small);
     height: 3vw;
     width: 15vw;
 }
