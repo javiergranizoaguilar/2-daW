@@ -39,7 +39,7 @@ function createinterior(td,valor){
         case ".":
             break;
         case "*":
-            createimg(td,valor);
+            createimg(td,m);
             break;
         case "f":
             createimg(td,valor);
