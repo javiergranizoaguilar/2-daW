@@ -5,14 +5,13 @@ function mostrarMatrix(matrixReal,matrixShow,isReal) {
     let flagsLeft=mines;
     flagsLeft=mines-flags
     contenedor.innerHTML = "";
-    // 2. Creamos una variable para guardar el HTML que vamos a generar
+   
     let table = document.createElement("table");
     let matrix= isReal?[...matrixReal]:[...matrixShow]
-    // 3. Recorremos las filas (<tr>)
+    
     for (let x = 0; x < matrix.length; x++) {
         let tr = document.createElement("tr");
 
-        // 4. Recorremos las columnas (<td>)
         for (let y = 0; y < matrix[x].length; y++) {
             let valor = matrix[x][y];
 
@@ -21,7 +20,8 @@ function mostrarMatrix(matrixReal,matrixShow,isReal) {
             td.onclick=()=>seleccionResult(x,y);
             td.oncontextmenu=(event)=>createFlags(event,x,y);
             td.ondblclick=()=>deleteFlags(x,y);
-            td.textContent = valor;
+            createinterior(td,valor);
+            //td.textContent = valor;
             tr.appendChild(td);
         }
         table.appendChild(tr);
@@ -34,5 +34,28 @@ function createP(text,valor){
     p.textContent = text+valor;
     contenedor.appendChild(p);
 }
-
+function createinterior(td,valor){
+    switch(valor){
+        case ".":
+            break;
+        case "*":
+            createimg(td,valor);
+            break;
+        case "f":
+            createimg(td,valor);
+            break;
+            case "X":
+            createimg(td,valor);
+            break;
+        default:
+            td.textContent=valor;
+            break;
+    }
+}
+function createimg(apeendTo,valor){
+    let img=document.createElement("img");
+    img.src=`./imgs/${valor}.png`;
+    img.alt=valor;
+    apeendTo.appendChild(img);
+}
 export { mostrarMatrix };
