@@ -1,6 +1,8 @@
 <?php
+
 class Libro
 {
+    public pdo $pdo;
     private(set) public int $id;
     public string $titulo {
         get {
@@ -14,9 +16,6 @@ class Libro
     public int $generoId;
     public string $isbn;
     public int $ejemplares {
-        get {
-            return $this->ejemplares;
-        }
         set {
             if ($value < 0) {
                 throw new Exception("El ejemplares no pueden ser negativos");
@@ -25,9 +24,6 @@ class Libro
         }
     }
     public int $disponibles {
-        get {
-            return $this->disponibles;
-        }
         set {
             if ($value < 0 && $value > $this->ejemplares) {
                 throw new Exception("El disponibles no pueden ser iguales");
@@ -54,6 +50,7 @@ class Libro
         $this->isbn = $isbn;
         $this->ejemplares = $ejemplares;
         $this->disponibles = $disponibles;
+        $this->pdo=createConnection();
     }
 
     public function estaDisponible(): bool
@@ -88,5 +85,38 @@ class Libro
         ];
         return $array;
     }
-
+    public static function buscarPorId(int $id): ?Libro
+    {
+        $pdo=createConnection();
+        try {
+            $pdo->beginTransaction();
+            $stmt1=$pdo->prepare("SELECT * FROM libros WHERE id=?");
+            $stmt1->execute([$id]);
+            $stmt=$stmt1->fetch(PDO::FETCH_ASSOC);
+            $pdo->commit();
+            return new Libro($id,$stmt["titulo"],$stmt["autor_id"],$stmt["genero_id"],$stmt["isbn"],$stmt["ejemplares"],$stmt["disponibles"]);
+        }
+        catch (PDOException $e) {
+            $pdo->rollBack();
+            echo $e->getMessage();
+            return null;
+        }
+    }
+    public static function buscarTodos(): array
+    {
+        $pdo=createConnection();
+        try {
+            $pdo->beginTransaction();
+            $stmt1=$pdo->prepare("SELECT * FROM libros");
+            $stmt1->execute([]);
+            $stmt=$stmt1->fetchall(PDO::FETCH_ASSOC);
+            $pdo->commit();
+            return $stmt;
+        }
+        catch (PDOException $e) {
+            $pdo->rollBack();
+            echo $e->getMessage();
+            return [];
+        }
+    }
 }
