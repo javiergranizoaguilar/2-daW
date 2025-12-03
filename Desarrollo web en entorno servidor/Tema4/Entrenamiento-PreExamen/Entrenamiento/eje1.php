@@ -120,7 +120,6 @@ function buscarPorId(int $id): ?Libro
         $stmt1->execute([$id]);
         $stmt=$stmt1->fetchall(PDO::FETCH_ASSOC);
         $pdo->commit();
-    echo $stmt;
         return new Libro($id,$stmt["titulo"],$stmt["autorId"],$stmt["generoId"],$stmt["isbn"],$stmt["ejemplares"],$stmt["disponibles"]);
     }
     catch (PDOException $e) {
