@@ -1,25 +1,4 @@
 <?php
-
-$host = '127.0.0.1';
-$port = '3307';
-$dbname = 'biblioteca';
-$username = 'estudiante';
-$password = 'estudiante123';
-$pdo=createConnection();
-buscarPorId(1);
-function createConnection()
-{
-    try {
-        global $host,$port ,$dbname, $username, $password;
-        $pdo = new PDO("mysql:host=$host;port=$port;dbname=$dbname;", $username, $password);
-        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        echo "✅ Conexión exitosa a la base de datos";
-        return $pdo;
-    } catch (PDOException $e) {
-        echo "❌ Error de conexión: " . $e->getMessage() . "\n";
-        return null;
-    }
-}
 class Libro
 {
     private(set) public int $id;
@@ -110,22 +89,4 @@ class Libro
         return $array;
     }
 
-}
-function buscarPorId(int $id): ?Libro
-{
-    global $pdo;
-    try {
-        $pdo->beginTransaction();
-        $stmt1=$pdo->prepare("SELECT * FROM libros WHERE id=?");
-        $stmt1->execute([$id]);
-        $stmt=$stmt1->fetchall(PDO::FETCH_ASSOC);
-        $pdo->commit();
-    echo $stmt;
-        return new Libro($id,$stmt["titulo"],$stmt["autorId"],$stmt["generoId"],$stmt["isbn"],$stmt["ejemplares"],$stmt["disponibles"]);
-    }
-    catch (PDOException $e) {
-        $pdo->rollBack();
-        echo $e->getMessage();
-        return null;
-    }
 }
