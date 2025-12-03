@@ -32,6 +32,7 @@ class Socio extends Persona
     }
     public function guardar():bool
     {
+        $exsist[]=[];
         $pdo = createConnection();
         try {
             $pdo->beginTransaction();
@@ -40,7 +41,13 @@ class Socio extends Persona
             $exsist=$stmt->fetch(PDO::FETCH_ASSOC);
             $pdo->commit();
             if (!$exsist) {
-                echo "sdffgdgswdfsdf";
+                $pdo->beginTransaction();
+                $stmt = $pdo->prepare("
+                    INSERT INTO socios (nombre, email, fecha_alta, activo)
+                    VALUES (?, ?, ?, ?)
+                ");
+                $stmt->execute([$this->nombre,$this->email,$this->fechaAlta->format('Y-m-d H:i:s'),$this->activo]);
+                $pdo->commit();
             }
             else{
                 $pdo->beginTransaction();
@@ -56,6 +63,6 @@ class Socio extends Persona
             $pdo->rollBack();
             echo $e->getMessage();
         }
-        return false;
+        return $exsist;
     }
 }
