@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plantilla Calendario A4</title>
+    <style>
+        /* Reset y fuentes base */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: #f0f0f0; /* Gris claro para la pantalla */
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        /* Contenedor principal A4 */
+        .a4-container {
+            width: 210mm;
+            height: 297mm;
+            background: white;
+            padding: 15mm;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Área de la Foto Personalizada */
+        .photo-area {
+            height: 35%; /* Ocupa el 35% superior de la página */
+            width: 100%;
+            background-color: #e0e0e0;
+            border: 2px dashed #aaa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            margin-bottom: 10mm;
+        }
+
+        /* Placeholder - Reemplazar esto con <img> si se desea */
+        .photo-placeholder {
+            color: #666;
+            font-size: 1.2rem;
+            text-align: center;
+        }
+        
+        /* Si usas una imagen real, usa este estilo en la etiqueta <img>:
+           width: 100%; height: 100%; object-fit: cover; 
+        */
+
+        /* Título del Año */
+        .year-title {
+            text-align: center;
+            font-size: 3rem;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10mm;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* Cuadrícula de los Meses */
+        .months-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* 3 columnas */
+            grid-template-rows: repeat(4, 1fr);    /* 4 filas */
+            gap: 10mm 8mm; /* Espacio entre meses */
+            flex-grow: 1;
+        }
+
+        /* Estilo de un Mes individual */
+        .month-container {
+            /* border: 1px solid #eee; */
+        }
+
+        .month-name {
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #444;
+            text-transform: uppercase;
+        }
+
+        /* Cuadrícula de Días (Cabecera L M X J V S D y fechas) */
+        .days-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            text-align: center;
+            font-size: 0.8rem;
+        }
+
+        /* Cabecera de días de la semana */
+        .weekday-header {
+            font-weight: bold;
+            color: #777;
+            padding-bottom: 2px;
+            border-bottom: 1px solid #ddd;
+        }
+        /* Fines de semana en otro color */
+        .weekday-header:nth-child(6),
+        .weekday-header:nth-child(7) {
+            color: #d9534f; 
+        }
+
+        /* Las celdas de los días */
+        .day-cell {
+            padding: 2px 0;
+            height: 18px; /* Altura fija para mantener alineación */
+        }
+        /* Días vacíos al inicio del mes */
+        .day-cell.empty {
+            background: none;
+        }
+        /* Color para sábado y domingo */
+        .day-cell:nth-child(7n),
+        .day-cell:nth-child(7n-1) {
+             color: #d9534f;
+             font-weight: 500;
+        }
+
+
+        /* --- ESTILOS ESPECÍFICOS PARA IMPRESIÓN --- */
+        @media print {
+            body {
+                background: none;
+                padding: 0;
+                display: block;
+            }
+            .a4-container {
+                width: 100%;
+                height: 100%; /* Ajusta al papel */
+                box-shadow: none;
+                padding: 10mm; /* Márgenes de impresión seguros */
+                margin: 0;
+                page-break-after: always;
+            }
+            /* Asegurar que los colores de fondo (como la foto placeholder) se impriman */
+            * {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="a4-container">
+        <div class="photo-area">
+            <div class="photo-placeholder">
+                <p>TU FOTO PERSONALIZADA AQUÍ</p>
+                <p style="font-size: 0.8rem">(Reemplaza este bloque en el HTML por tu imagen)</p>
+            </div>
+        </div>
+
+        <h1 class="year-title" id="yearDisplay"></h1>
+
+        <div class="months-grid" id="calendarGrid"></div>
+    </div>
+
+
+    <script>
+        // --- CONFIGURACIÓN ---
+        const currentYear = 2026; // ¡CAMBIA ESTO AL AÑO QUE QUIERAS!
+        // ---------------------
+
+
+        const monthNames = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+        // Usamos X para Miércoles para evitar confusión con Martes en calendarios compactos
+        const weekDays = ["L", "M", "X", "J", "V", "S", "D"];
+
+        document.getElementById('yearDisplay').innerText = currentYear;
+        const calendarGrid = document.getElementById('calendarGrid');
+
+        // Función auxiliar para saber si es bisiesto
+        function isLeapYear(year) {
+            return (year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0);
+        }
+
+        // Función auxiliar para obtener días en el mes
+        function getDaysInMonth(month, year) {
+            return new Date(year, month + 1, 0).getDate();
+        }
+
+        // Función auxiliar para obtener en qué día cae el 1 del mes
+        // Devuelve 0 para Lunes, 1 para Martes... 6 para Domingo (Ajuste europeo)
+        function getStartDayOfMonth(month, year) {
+            let day = new Date(year, month, 1).getDay();
+            // JS devuelve 0=Domingo, 1=Lunes. Queremos 0=Lunes, 6=Domingo.
+            if (day === 0) { // Si es domingo (JS)
+                return 6; // Devolvemos 6 (Nuestro sistema)
+            } else {
+                return day - 1; // Restamos 1 para ajustar Lunes a 0
+            }
+        }
+
+        // Generar los 12 meses
+        for (let i = 0; i < 12; i++) {
+            let monthContainer = document.createElement('div');
+            monthContainer.className = 'month-container';
+
+            // 1. Nombre del mes
+            let monthTitle = document.createElement('div');
+            monthTitle.className = 'month-name';
+            monthTitle.innerText = monthNames[i];
+            monthContainer.appendChild(monthTitle);
+
+            // 2. Grid del mes
+            let daysGrid = document.createElement('div');
+            daysGrid.className = 'days-grid';
+
+            // 3. Cabeceras de días de la semana (L M X...)
+            for (let k = 0; k < 7; k++) {
+                let cell = document.createElement('div');
+                cell.className = 'weekday-header';
+                cell.innerText = weekDays[k];
+                daysGrid.appendChild(cell);
+            }
+
+            // 4. Calcular datos del mes
+            let daysInMonth = getDaysInMonth(i, currentYear);
+            let startDayOffset = getStartDayOfMonth(i, currentYear);
+
+            // 5. Celdas vacías antes del día 1
+            for (let j = 0; j < startDayOffset; j++) {
+                let emptyCell = document.createElement('div');
+                emptyCell.className = 'day-cell empty';
+                daysGrid.appendChild(emptyCell);
+            }
+
+            // 6. Celdas con los números de los días
+            for (let day = 1; day <= daysInMonth; day++) {
+                let dayCell = document.createElement('div');
+                dayCell.className = 'day-cell';
+                dayCell.innerText = day;
+                daysGrid.appendChild(dayCell);
+            }
+
+            monthContainer.appendChild(daysGrid);
+            calendarGrid.appendChild(monthContainer);
+        }
+
+        console.log(`Calendario generado con éxito para el año ${currentYear}. La precisión de las fechas está garantizada matemáticamente.`);
+    </script>
+</body>
+</html>
