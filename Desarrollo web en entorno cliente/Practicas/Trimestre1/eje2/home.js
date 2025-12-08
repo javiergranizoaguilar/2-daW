@@ -1,5 +1,6 @@
 let lista=document.getElementById("lista");
- 
+ let num=document.getElementById("n");
+
 for(let i=0;i<10;i++){
     let elemento=document.createElement("li");
     elemento.draggable=true;
@@ -19,4 +20,7 @@ lista.addEventListener("dragover",(e)=>{
 lista.addEventListener("drop",(e)=>{
     
     document.getElementById(e.target.id).insertAdjacentElement("beforebegin",document.getElementById(textDragId));
+});
+num.addEventListener("click",(e)=>{
+ num.textContent= parseInt(num.textContent)+1;
 });
