@@ -1,99 +1,59 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
+}
+
+body {
+    padding-left: 50px;
+    padding-right: 50px;
 }
 
 a {
     text-decoration: none;
-    color: inherit;
+    color: black;
 }
 
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 20px;
-    width: 100%;
+    padding: 10px;
+
     img {
-        width: 150px;
-        height: auto;
+        height: 50px;
     }
 
     nav {
         display: flex;
-        align-items: center;
+        gap: 10px;
+
+
+    }
+
+}
+#section-forward{
+    display: flex;
+
+}
+
+footer {
+    display: flex;
+    justify-content: space-between;
+
+    div:first-child {
+        flex-direction: column;
+    }
+
+    >div {
+        display: flex;
         gap: 20px;
-        color: rgb(233, 233, 233);
 
-        a:last-child {
-            border: 1px solid rgb(233, 233, 233);
-            border-radius: 40px;
-            padding: 5px;
+        img {
+            width: 100px;
         }
-    }
-}
-#section-header{
-  
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    background: linear-gradient(rgba(0, 0, 0, 0.123), rgba(0, 0, 0, 0.123)),url('./img/header.png') no-repeat center center/cover;
-    text-align: center;
-    color: rgb(233, 233, 233);
-    padding: 150px 20px;
-    height: 500px;
-    margin-top: -143px;
-    h1 {
-        font-size: 3rem;
-        margin-bottom: 20px;
-    }
-
-    p {
-        font-size: 1.2rem;
-        margin-bottom: 30px;
-    }
-
-    a {
-        background-color: rgb(15, 15, 15);
-        color: rgb(233, 233, 233);
-        padding: 20px;
-        border-radius: 10px;
-        font-weight: bold;
-    }
-}
-
-
-#section-forward {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 50px 20px;
-
-    img {
-        width: 45vw;
-    }
-}
-
-#section-backard {
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: space-between;
-    align-items: center;
-    padding: 50px 20px;
-
-    img {
-        width: 45vw;
-    }
-
-}
-footer{
-    
-    :last-child{
         div{
-            p:first-child{
-                color: red;
+            :first-child{
+                color:rebeccapurple;
             }
         }
     }
