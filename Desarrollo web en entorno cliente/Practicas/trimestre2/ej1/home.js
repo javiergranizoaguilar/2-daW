@@ -16,9 +16,7 @@ lista.addEventListener("dblclick", (e) => {
     mostrar();
 });
 botonL.addEventListener("click",()=>{
-    Object.keys(localStorage).forEach(clave=>{
-        localStorage.removeItem(clave);
-    })
+    localStorage.clear();
 })
 function mostrar() {
     lista.innerHTML = "";

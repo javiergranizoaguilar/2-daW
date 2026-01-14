@@ -1,0 +1,15 @@
+Java
+WildFly: Implementa la especificación completa del estándar Jakarta EE (incluyendo EJB, JTA y JMS).
+Apache Tomcat: Funciona como un contenedor ligero de Java Servlets, JSP y WebSockets.
+
+Python
+uWSGI: Está escrito en C y utiliza el protocolo WSGI nativo para un rendimiento de bajo nivel.
+Gunicorn: Es un servidor WSGI escrito en Python puro que utiliza el modelo de trabajadores "pre-fork".
+
+Node.js
+PM2: Utiliza el módulo Cluster nativo de Node.js para balancear la carga entre múltiples núcleos de la CPU.
+Forever: Utiliza scripts de monitoreo simples para vigilar el proceso y reiniciarlo si detecta una salida de error.
+
+PHP
+Zend Server: Ejecuta el núcleo de PHP junto con extensiones propietarias como Z-Ray para introspección y caché de datos.
+PHP-FPM: Utiliza el protocolo FastCGI para gestionar un pool de procesos PHP independientes del servidor web.
