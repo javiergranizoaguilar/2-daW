@@ -1,18 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="home.css">
 </head>
-<body>
-    <form action="" method="post" id="formulario">
-        <input type="number" name="numeroColumnas" id="numeroColumnas">
-        <div id="columnas">
 
-        </div>
-        <button type="submit">Mandar</button>
-    </form>
-    <script src="./index.js"></script>
+<body>
+    <main>
+        <section id="secionFromulario">
+            <form action="" method="post" id="formulario">
+                <input type="number" name="numeroColumnas" id="numeroColumnas">
+                <div id="columnas">
+
+                </div>
+                <button type="submit">Mandar</button>
+            </form>
+        </section>
+        <section id="tablas">
+
+        </section>
+    </main>
+    <script type="module" src="./formulario.js"></script>
+    <script type="module" src="./tablas.js"></script>
 </body>
+
 </html>
