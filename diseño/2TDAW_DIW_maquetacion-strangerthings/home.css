@@ -1,0 +1,71 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+body {
+    background-color: black;
+}
+header {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 12%;
+}
+section{
+    margin: 0px 12%;
+}
+section:first-of-type {
+    margin: auto;
+}
+hr{
+    background-color: red;
+    margin: 0px;
+    padding: 0px;
+    height:2px;
+}
+hr:first-of-type{
+    height:5px;
+}
+#logo {
+    height: 100px;
+
+    img {
+        height: 100%;
+
+    }
+}
+nav{
+        display: flex;
+    align-items: center;
+}
+.white{
+    color: white;
+}
+#portada {
+    display: flex ;
+    justify-content: center;
+    flex-direction: column ;
+    align-items: center;
+    height: 80vh;
+    background: url(./maquetacion-strangerthings/img/hero.jpg) center / cover no-repeat;
+}
+#personajes{
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    h2{
+        margin: 20px;
+        color: red;
+    }
+}
+#cards {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    >div{
+        background-color: rgb(12, 12, 12);
+    }
+    h5{
+        color: red;
+    }
+}

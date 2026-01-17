@@ -9,3 +9,4 @@ services:
     restart: unless-stopped
     volumes:
       - ./src/main/certs:/usr/local/tomcat/certs
+      - ./src/main/server.xml:/usr/local/tomcat/conf/server.xml

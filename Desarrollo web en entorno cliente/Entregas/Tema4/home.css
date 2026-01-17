@@ -1,0 +1,22 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+#tablas{ 
+    display: flex;
+    justify-content: space-evenly;
+    >div{
+        height: 100vh;
+        width: -webkit-fill-available;
+        background-color: aquamarine;
+        text-align: center;
+        margin:  0px 0.5vw;
+
+        >div{
+            height: 92%;
+        }
+    }
+}
+.drag{
+    background-color: blueviolet;
+}
