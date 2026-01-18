@@ -8,10 +8,10 @@ body {
 header {
     display: flex;
     justify-content: space-between;
-    margin: 10px 12%;
+    margin: 10px 10%;
 }
 section{
-    margin: 0px 12%;
+    margin: 0px 10%;
 }
 section:first-of-type {
     margin: auto;
@@ -46,7 +46,7 @@ nav{
     flex-direction: column ;
     align-items: center;
     height: 80vh;
-    background: url(./maquetacion-strangerthings/img/hero.jpg) center / cover no-repeat;
+    background: linear-gradient(to bottom, rgba(52, 52, 52, 0.3), rgba(0, 0, 0, 0.9)),url(./maquetacion-strangerthings/img/hero.jpg) center / cover no-repeat;
 }
 #personajes{
     
@@ -64,6 +64,7 @@ nav{
     gap: 15px;
     >div{
         background-color: rgb(12, 12, 12);
+        padding: 0px;
     }
     h5{
         color: red;
