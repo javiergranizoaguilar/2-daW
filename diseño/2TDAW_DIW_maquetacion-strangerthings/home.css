@@ -1,13 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Creepster&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root{
+    --font-creep: "Creepster";
+    --font-roboto: "Roboto";
+}
+.creep{
+    font-family: var(--font-creep);
+    font-style: var(--font-creep);
+}
+.roboto{
+    font-family: var(--font-roboto);
+    font-style: var(--font-roboto);
+}
 *{
     margin: 0px;
     padding: 0px;
 }
-body {
-    background-color: black;
-}
-header {
-    display: flex;
-    justify-content: space-between;
+header >div {
     margin: 10px 10%;
 }
 section{
@@ -17,9 +26,6 @@ section:first-of-type {
     margin: auto;
 }
 hr{
-    background-color: red;
-    margin: 0px;
-    padding: 0px;
     height:2px;
 }
 hr:first-of-type{
@@ -30,43 +36,9 @@ hr:first-of-type{
 
     img {
         height: 100%;
-
     }
-}
-nav{
-        display: flex;
-    align-items: center;
-}
-.white{
-    color: white;
 }
 #portada {
-    display: flex ;
-    justify-content: center;
-    flex-direction: column ;
-    align-items: center;
     height: 80vh;
     background: linear-gradient(to bottom, rgba(52, 52, 52, 0.3), rgba(0, 0, 0, 0.9)),url(./maquetacion-strangerthings/img/hero.jpg) center / cover no-repeat;
-}
-#personajes{
-    
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    h2{
-        margin: 20px;
-        color: red;
-    }
-}
-#cards {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    >div{
-        background-color: rgb(12, 12, 12);
-        padding: 0px;
-    }
-    h5{
-        color: red;
-    }
 }

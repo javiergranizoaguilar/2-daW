@@ -10,91 +10,106 @@
   <link rel="stylesheet" href="home.css">
 </head>
 
-<body>
-  <header>
-    <div id="logo">
-      <img src="./maquetacion-strangerthings/img/logo.png" class="img-fluid" alt="">
+<body class="bg-black">
+  <header class="container">
+    <div class="row row-cols-1 row-cols-md-2">
+      <div id="logo" class="cols-4 container-xxl">
+        <img src="./maquetacion-strangerthings/img/logo.png" class="img-fluid" alt="">
+      </div>
+      <nav class="cols-4 d-flex align-items-center justify-content-end">
+        <ul class="nav ">
+          <li class="nav-item">
+            <a class="nav-link text-light" href="#">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-light" href="#">Personajes</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-light" href="#">Temporadas</a>
+          </li>
+        </ul>
+      </nav>
     </div>
-    <nav>
-      <ul class="nav justify-content-end">
-        <li class="nav-item">
-          <a class="nav-link white" href="#">Active</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link white" href="#">Link</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link white" href="#">Link</a>
-        </li>
-      </ul>
-    </nav>
   </header>
-  <hr>
+  <hr class="m-0 p-0 bg-danger">
   <main>
-    <section id="portada">
-      <h1>WELCOME TO HAWKINS</h1>
-      <p>Un viaje por Hawkins</p>
-      <a href="#">Ver Temporadas</a>
+    <section id="portada" class="d-flex justify-content-center align-items-center flex-column">
+      <h1 class="creep text-danger fs-1">WELCOME TO HAWKINS</h1>
+      <p class="roboto text-light">Un viaje por Hawkins</p>
+      <a class="roboto border border-danger p-3 text-danger" href="#">Ver Temporadas</a>
     </section>
-    <hr>
-    <section id="personajes">
-      <h2>Personajes principales</h2>
-      <div id="cards" class="row">
-        <div class="card col-3" style="width: 18rem; ">
-          <img src="./maquetacion-strangerthings/img/eleven.webp" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s
-              content.</p>
+    <hr class="m-0 p-0 bg-danger">
+    <section id="personajes" class="container-fluid d-flex flex-column align-items-center">
+      <h2 class="m-5 creep text-danger">Personajes principales</h2>
+      <div id="cards" class="row row-cols-sm-2 row-cols-md-3 row-cols-lg-4 justify-content-center g-4">
+        <div class="cols-3 d-flex justify-content-center">
+          <div class="card bg-dark " style="width: 18rem; ">
+            <img src="./maquetacion-strangerthings/img/eleven.webp" class="card-img-top " alt="...">
+            <div class="card-body">
+              <h5 class="card-title creep text-danger">Card title</h5>
+              <p class="card-text text-white-50">Some quick example text to build on the card title and make up the bulk of the card’s
+                content.</p>
+            </div>
           </div>
         </div>
-        <div class="card col-3 " style="width: 18rem; ">
-          <img src="./maquetacion-strangerthings/img/mike.webp" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s
-              content.</p>
+        <div class="cols-3 d-flex justify-content-center">
+          <div class="card bg-dark" style="width: 18rem; ">
+            <img src="./maquetacion-strangerthings/img/eleven.webp" class="card-img-top " alt="...">
+            <div class="card-body">
+              <h5 class="card-title creep text-danger">Card title</h5>
+              <p class="card-text text-white-50">Some quick example text to build on the card title and make up the bulk of the card’s
+                content.</p>
+            </div>
           </div>
         </div>
-        <div class="card col-3 " style="width: 18rem; ">
-          <img src="./maquetacion-strangerthings/img/dustin.webp" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s
-              content.</p>
+        <div class="cols-3 d-flex justify-content-center">
+          <div class="card bg-dark" style="width: 18rem; ">
+            <img src="./maquetacion-strangerthings/img/eleven.webp" class="card-img-top " alt="...">
+            <div class="card-body">
+              <h5 class="card-title creep text-danger">Card title</h5>
+              <p class="card-text text-white-50">Some quick example text to build on the card title and make up the bulk of the card’s
+                content.</p>
+            </div>
           </div>
         </div>
-        <div class="card col-3" style="width: 18rem; ">
-          <img src="./maquetacion-strangerthings/img/lucas.webp" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s
-              content.</p>
+        <div class="cols-3 d-flex justify-content-center">
+          <div class="card bg-dark" style="width: 18rem; ">
+            <img src="./maquetacion-strangerthings/img/eleven.webp" class="card-img-top " alt="...">
+            <div class="card-body">
+              <h5 class="card-title creep text-danger">Card title</h5>
+              <p class="card-text text-white-50">Some quick example text to build on the card title and make up the bulk of the card’s
+                content.</p>
+            </div>
           </div>
         </div>
-        <div class="card col-3" style="width: 18rem; ">
-          <img src="./maquetacion-strangerthings/img/hopper.webp" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s
-              content.</p>
+        <div class="cols-3 d-flex justify-content-center">
+          <div class="card bg-dark" style="width: 18rem; ">
+            <img src="./maquetacion-strangerthings/img/eleven.webp" class="card-img-top " alt="...">
+            <div class="card-body">
+              <h5 class="card-title creep text-danger">Card title</h5>
+              <p class="card-text text-white-50">Some quick example text to build on the card title and make up the bulk of the card’s
+                content.</p>
+            </div>
           </div>
         </div>
-        <div class="card col-3" style="width: 18rem; ">
-          <img src="./maquetacion-strangerthings/img/max.webp" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s
-              content.</p>
+        <div class="cols-3 d-flex justify-content-center">
+          <div class="card bg-dark" style="width: 18rem; ">
+            <img src="./maquetacion-strangerthings/img/eleven.webp" class="card-img-top " alt="...">
+            <div class="card-body">
+              <h5 class="card-title creep text-danger">Card title</h5>
+              <p class="card-text text-white-50">Some quick example text to build on the card title and make up the bulk of the card’s
+                content.</p>
+            </div>
           </div>
         </div>
+
       </div>
     </section>
     <section>
 
     </section>
   </main>
-  <hr>
+  <hr class="m-0 p-0 bg-danger">
   <footer>
 
   </footer>
