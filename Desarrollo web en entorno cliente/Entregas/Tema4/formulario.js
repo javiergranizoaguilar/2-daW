@@ -1,9 +1,12 @@
 let form = document.getElementById("formulario");
 let numeroColumnas = document.getElementById("numeroColumnas");
-let columnas = document.getElementById("columnas");
 let input = document.getElementsByTagName("input");
 let seccionFormulario = document.getElementById("secionFromulario");
 let tablas = document.getElementById("tablas");
+
+
+let arrastrado = null;
+
 
 function localArrray(array, type, clave) {
     let primero = true;
@@ -28,7 +31,7 @@ function crearTablas() {
         p.textContent = nombresColumnas[x];
         div.appendChild(p);
         div.appendChild(lista);
-        
+
         if (x == 0) {
             let boton = document.createElement("button");
             boton.textContent = "crear tarea";
@@ -36,16 +39,41 @@ function crearTablas() {
             div.appendChild(boton);
         }
         lista.id = "tabla" + x;
+        lista.addEventListener('dragover', permitirSoltar);
+        lista.addEventListener('drop', soltar);
         tablas.appendChild(div);
         let listaAux = JSON.parse(localStorage.getItem("lista" + x)) ?? [];
         listaAux.forEach((e) => {
-            let columnas = document.getElementById("tabla"+x);
-            creaTarea(e,columnas);
+            let columnas = document.getElementById("tabla" + x);
+            creaTarea(e, columnas);
         });
     }
     creardragAndDrop();
 
 }
+function empezarArrastre(evento) {
+    arrastrado= evento.target;
+    arrastrado.style.opacity = "0.5";
+}
+
+function permitirSoltar(evento) {
+    evento.preventDefault();
+}
+
+function soltar(evento) {
+    evento.preventDefault();
+    arrastrado.style.opacity = "1";
+
+    
+    let listaTamanio = (JSON.parse(localStorage.getItem(this.id)) ?? 0) == 0 ? 0 : JSON.parse(localStorage.getItem("lista0")).length;
+    let tamanioMaximo = JSON.parse(localStorage.getItem("capacidad"))[this.id.replace("tabla", "")];
+    console.log(this.id,tamanioMaximo,listaTamanio)
+    if(listaTamanio < tamanioMaximo){
+        this.appendChild(arrastrado);
+    }
+}
+
+
 function creardragAndDrop() {
     let crearboton = document.getElementById("crear");
     let tablaOriguinal = document.getElementById("tabla0");
@@ -56,17 +84,19 @@ function creardragAndDrop() {
         if (listaTamanio < tamanioMaximo) {
 
             let tarea = prompt("Escrive la tarea");
-            creaTarea(tarea,tablaOriguinal);
+            creaTarea(tarea, tablaOriguinal);
             recivirDevolverLista(tarea);
 
         }
     })
 }
-function creaTarea(tarea,tabla) {
+function creaTarea(tarea, tabla) {
     let div = document.createElement("div");
     let p = document.createElement("p");
     p.textContent = tarea;
     div.classList.add("drag");
+    div.setAttribute("draggable", "true");
+    div.addEventListener('dragstart', empezarArrastre);
     div.appendChild(p);
     tabla.appendChild(div);
 }
