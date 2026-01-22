@@ -63,16 +63,13 @@ function permitirSoltar(evento) {
 function soltar(evento) {
     evento.preventDefault();
     arrastrado.style.opacity = "1";
-
-    
-    let listaTamanio = (JSON.parse(localStorage.getItem(this.id)) ?? 0) == 0 ? 0 : JSON.parse(localStorage.getItem("lista0")).length;
+    let listaTamanio = JSON.parse(localStorage.getItem(this.id.replace("tabla", "lista"))).length ?? 0
     let tamanioMaximo = JSON.parse(localStorage.getItem("capacidad"))[this.id.replace("tabla", "")];
-    console.log(this.id,tamanioMaximo,listaTamanio)
-    if(listaTamanio < tamanioMaximo){
+    if(listaTamanio <tamanioMaximo){
         this.appendChild(arrastrado);
+        actualizarListas()
     }
 }
-
 
 function creardragAndDrop() {
     let crearboton = document.getElementById("crear");
@@ -108,7 +105,20 @@ function recivirDevolverLista(tarea) {
     localStorage.removeItem(nombeLista);
     localStorage.setItem(nombeLista, JSON.stringify(listaAux));
 }
+function actualizarListas(){
+    let x=0;
 
+    do{
+        localStorage.removeItem("tabla"+x)
+        let lista=document.getElementById("tabla"+x).children;
+        let listaAux=[];
+        Array.from(lista).forEach(e => {
+            listaAux.push(e.firstChild.textContent)
+        });
+        localStorage.setItem("lista"+x,JSON.stringify(listaAux))
+        x++;
+    }while(document.getElementById("tabla"+x)!=null);
+}
 window.addEventListener("load", () => {
 
     if (!(null == localStorage.getItem("nombres"))) {
