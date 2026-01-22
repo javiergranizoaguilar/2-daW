@@ -42,16 +42,9 @@ function crearTablas() {
 
         if (x == 0) {
             let boton = document.createElement("button");
-            boton.textContent = "+ Añadir una tarjeta"; // Texto un poco más bonito
+            boton.textContent = "+ Añadir una tarjeta";
             boton.id = "crear";
-            // --- CLASE AÑADIDA ---
-            // El ID 'crear' ya tiene estilos en CSS, pero podemos añadir clase si quieres
-            // boton.classList.add("btn-add-card"); 
-            // ---------------------
-            div.appendChild(boton); // Nota: En tu lógica el botón va DESPUÉS de la lista visualmente en el append, pero CSS flex order puede manejarlo o el flujo normal.
-            // Para que quede arriba estilo Trello, en tu código original lo añades al 'div' padre.
-            // Si quieres que el botón esté abajo o arriba depende del orden de appendChild.
-            // Tu código original: div.appendChild(boton) lo pone al final.
+            div.appendChild(boton);
         }
         
         lista.id = "tabla" + x;
@@ -81,18 +74,12 @@ function permitirSoltar(evento) {
 function soltar(evento) {
     evento.preventDefault();
     arrastrado.style.opacity = "1";
-    // Nota: this.id se refiere a la lista (ej: tabla0)
     let listaTamanio = JSON.parse(localStorage.getItem(this.id.replace("tabla", "lista"))).length ?? 0
     let tamanioMaximo = JSON.parse(localStorage.getItem("capacidad"))[this.id.replace("tabla", "")];
     
-    // Pequeña corrección de seguridad: asegúrate de que el localStorage no sea null
-    if (tamanioMaximo && listaTamanio < tamanioMaximo) {
+    if (listaTamanio < tamanioMaximo) {
         this.appendChild(arrastrado);
         actualizarListas()
-    } else if (!tamanioMaximo) {
-        // Fallback si no hay capacidad definida, permite soltar
-        this.appendChild(arrastrado);
-        actualizarListas();
     }
 }
 
@@ -100,7 +87,7 @@ function creardragAndDrop() {
     let crearboton = document.getElementById("crear");
     let tablaOriguinal = document.getElementById("tabla0");
 
-    if(crearboton){ // Check por si acaso no existe
+    if(crearboton){
         crearboton.addEventListener("click", () => {
             let listaData = JSON.parse(localStorage.getItem("lista0"));
             let listaTamanio = (listaData == null || listaData == 0) ? 0 : listaData.length;
@@ -110,7 +97,7 @@ function creardragAndDrop() {
 
             if (listaTamanio < tamanioMaximo) {
                 let tarea = prompt("Escribe la tarea");
-                if(tarea) { // Evitar tareas vacías
+                if(tarea) {
                     creaTarea(tarea, tablaOriguinal);
                     recivirDevolverLista(tarea);
                 }
@@ -142,18 +129,14 @@ function recivirDevolverLista(tarea) {
     listaAux.push(tarea);
     localStorage.removeItem(nombeLista);
     localStorage.setItem(nombeLista, JSON.stringify(listaAux));
+    actualizarListas()
 }
 
 function actualizarListas(){
     let x=0;
 
     do{
-        // Nota: es peligroso borrar localStorage dentro del loop si algo falla, pero mantengo tu lógica.
-        localStorage.removeItem("tabla"+x); 
-        // Tu lógica usa "tablaX" para guardar listas? En `recivirDevolverLista` usas "lista0".
-        // En `crearTablas` lees "listaX".
-        // Aquí parece que intentas guardar en "listaX".
-        
+        localStorage.removeItem("lista"+x);
         let elementoTabla = document.getElementById("tabla"+x);
         if(elementoTabla) {
             let lista = elementoTabla.children;
@@ -170,10 +153,12 @@ function actualizarListas(){
 }
 
 window.addEventListener("load", () => {
+    tablas.classList.toggle("desaparece");
     if (!(null == localStorage.getItem("nombres"))) {
         seccionFormulario.innerHTML = "";
         crearTablas();
-        // localStorage.getItem("numero"); // Esta línea no hacía nada, la dejo comentada o igual.
+        seccionFormulario.classList.toggle("desaparece");
+        tablas.classList.toggle("desaparece");
     }
 });
 
@@ -187,6 +172,8 @@ form.addEventListener("submit", (e) => {
 
     seccionFormulario.innerHTML = "";
     crearTablas();
+    seccionFormulario.classList.toggle("desaparece");
+        tablas.classList.toggle("desaparece");
 });
 
 
