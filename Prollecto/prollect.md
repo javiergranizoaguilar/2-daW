@@ -75,122 +75,84 @@ Para optimizar el rendimiento, se utiliza una estrategia mixta de almacenamiento
 ### 6.1 Modelo Relacional (SQL)
 ```mermaid
 erDiagram
-    %% =======================================================
-    %% 1. MÓDULO DE USUARIOS Y SEGURIDAD
-    %% =======================================================
-    User {
+    %% RELACIONES DEL SISTEMA VTT / RPG
+    USER ||--o{ GAME_SESSION : "juega/dirige"
+    USER ||--o{ CHARACTER_SHEET : "crea/posee"
+    GAME_SESSION ||--o{ SCENE : "tiene mapas"
+    GAME_SESSION ||--o{ CHARACTER_SHEET : "contiene personajes"
+    
+    %% RELACIONES DE LA FICHA DE PERSONAJE
+    CHARACTER_SHEET ||--o{ INVENTORY_ITEM : "tiene items"
+    CHARACTER_SHEET ||--o{ ATTACK : "conoce ataques"
+    CHARACTER_SHEET ||--o{ SPELL : "tiene hechizos"
+    CHARACTER_SHEET ||--o{ PROFICIENCY : "tiene competencias"
+    CHARACTER_SHEET ||--o{ ABILITY : "posee rasgos"
+
+    %% RELACIÓN DE MONSTRUOS
+    USER ||--o{ MONSTER : "crea monstruo homebrew"
+    SCENE ||--o{ MONSTER : "aparece en la escena (Tokens)"
+
+    %% ---------------- ENTIDADES DEL SISTEMA ----------------
+
+    USER {
         int id PK
         string email
-        string password_hash
         string username
-        json roles "['ROLE_USER', 'ROLE_DM']"
+        string password_hash
+        json roles
         string avatar_url
         datetime created_at
     }
 
-    %% =======================================================
-    %% 2. MÓDULO MARKETPLACE (TIENDA)
-    %% =======================================================
-    Product {
+    GAME_SESSION {
         int id PK
-        int seller_id FK
+        int gm_id FK
         string title
-        text description
-        decimal price
-        enum type "ASSET_PACK, MODULE"
-        string file_url "Ruta al ZIP descargable"
-        string thumbnail_url
-        boolean is_published
-        datetime created_at
-    }
-
-    Order {
-        int id PK
         int user_id FK
-        decimal total_amount
-        string status "PENDING, PAID, REFUNDED"
-        string payment_gateway_id
-        datetime created_at
-    }
-
-    OrderItem {
-        int id PK
-        int order_id FK
-        int product_id FK
-        decimal price_at_moment "Precio congelado"
-        int quantity
-    }
-
-    LibraryItem {
-        int id PK
-        int user_id FK
-        int product_id FK
-        datetime acquired_at
-        boolean is_active
-    }
-
-    %% =======================================================
-    %% 3. MÓDULO JUEGO (VIRTUAL TABLETOP)
-    %% =======================================================
-    GameSession {
-        int id PK
-        int gm_id FK "Director de Juego"
-        string title
-        string invite_code
         boolean is_active
         int current_scene_id FK
         datetime created_at
     }
 
-    SessionParticipant {
-        int id PK
-        int user_id FK
-        int session_id FK
-        json permissions "{can_move_tokens: true}"
-        string color_hex
-        datetime joined_at
-    }
-
-    Scene {
+    SCENE {
         int id PK
         int session_id FK
         string name
         int grid_width
         int grid_height
-        blob background_blob "Imagen Fondo (BLOB)"
-        json data_json "ESTADO KONVA: Tokens, Muros, Niebla"
+        blob background_blob
+        json data_json
     }
 
-    %% =======================================================
-    %% 4. MÓDULO HOJA DE PERSONAJE (COMPLETO)
-    %% =======================================================
-    CharacterSheet {
+    %% ---------------- ENTIDADES DE JUGADORES (PCs) ----------------
+
+    CHARACTER_SHEET {
         int id PK
         int user_id FK
         int session_id FK
         string character_name
+        string spellcasting_ability
+        blob token_image_data
+        blob portrait_image_data
+        double caster_level
+        json stats_json
+        json bonuses_json
         
-        %% -- Característica de Lanzamiento --
-        string spellcasting_ability "Ej: 'INT', 'WIS', 'CHA'"
-        
-        %% -- Imágenes Binarias --
-        blob token_image_data "Imagen Ficha (BLOB)"
-        blob portrait_image_data "Imagen Retrato (BLOB)"
-        
-        %% -- Estadísticas --
-        double caster_level "Nivel de Mago (Double)"
-        json stats_json "Fuerza, Des, Con, Int, Sab, Car"
-        json bonuses_json "Buffs temporales, Raciales"
-        
-        %% -- Lore y Textos Largos --
-        text appearance "Apariencia Física"
-        text backstory "Historia y Trasfondo"
-        text personality_traits "Rasgos, Ideales, Vínculos"
+        %% Trasfondo y Personalidad
+        text appearance
+        text backstory
+        text personality_traits
+        text ideals "Ideales del personaje"
+        text bonds "Vínculos del personaje"
+        text flaws "Defectos del personaje"
+
+        %% Estado y Recursos
+        int exhaustion_level "Nivel de fatiga (ej: 0 a 6)"
+        json currency_json "Array con monedas: [{name: 'Oro', count: 15}, ...]"
+        json custom_counters_json "Contadores genéricos: [{name: 'Antorchas', current: 3, max: 5}]"
     }
 
-    %% --- Tablas Satélite del Personaje ---
-
-    InventoryItem {
+    INVENTORY_ITEM {
         int id PK
         int character_id FK
         string name
@@ -198,20 +160,21 @@ erDiagram
         int quantity
         double weight
         boolean is_equipped
-        json metadata "Ej: {magic_bonus: +1}"
+        json metadata
     }
 
-    Attack {
+    ATTACK {
         int id PK
         int character_id FK
         string name
-        string damage_dice "Ej: 2d6 + 4"
-        string damage_type "Ej: Fuego, Cortante"
-        string range "Ej: 5ft / 60ft"
+        string damage_dice
+        string damage_type
+        string range
         boolean is_saving_throw
+        text description
     }
 
-    Spell {
+    SPELL {
         int id PK
         int character_id FK
         string name
@@ -219,49 +182,101 @@ erDiagram
         string school
         text description
         boolean is_prepared
-        
-        %% -- Lógica de Usos Limitados --
-        boolean has_limited_uses "True si no usa slots genéricos"
-        int max_charges "Máximo de usos diarios"
-        int current_charges "Usos restantes hoy"
-        enum recharge_type "LONG_REST, SHORT_REST, DAWN"
+        boolean has_limited_uses
+        int max_charges
+        int current_charges
+        enum recharge_type
+        string casting_time
+        string spell_range
+        text components
+        string duration
+        text higher_level_description
     }
 
-    Proficiency {
+    PROFICIENCY {
         int id PK
         int character_id FK
-        string name "Ej: Sigilo, Espada Larga"
-        enum type "SKILL, TOOL, LANGUAGE, WEAPON"
-        int value_modifier "Ej: +2, +5"
+        string name
+        enum type "SKILL, TOOL, WEAPON"
+        int value_modifier
     }
 
-    %% =======================================================
-    %% RELACIONES
-    %% =======================================================
-    
-    %% Usuarios y Tienda
-    User ||--o{ Product : "vende"
-    User ||--o{ Order : "compra"
-    User ||--o{ LibraryItem : "posee"
-    User ||--o{ GameSession : "dirige (DM)"
-    User ||--o{ SessionParticipant : "juega"
-    User ||--o{ CharacterSheet : "crea/posee"
+    ABILITY {
+        int id PK
+        int character_id FK
+        string name
+        text description
+        string source_type
+        boolean is_active
+        boolean has_limited_uses
+        int max_uses
+        int current_uses
+        enum recharge_type
+    }
 
-    %% Detalle Tienda
-    Product ||--o{ OrderItem : "referenciado en"
-    Product ||--o{ LibraryItem : "referenciado en"
-    Order ||--o{ OrderItem : "contiene"
+    %% ---------------- TABLA DE BESTIARIO (MONSTRUOS Y NPCs) ----------------
 
-    %% Detalle VTT
-    GameSession ||--o{ Scene : "tiene mapas"
-    GameSession ||--o{ SessionParticipant : "tiene jugadores"
-    GameSession ||--o{ CharacterSheet : "contiene personajes"
+    MONSTER {
+        int id PK
+        int created_by_user_id FK "NULL si es del SRD oficial"
+        
+        %% IDENTIFICACIÓN Y FUENTE (NUEVO)
+        string name "Ej: Aarakocra Aeromancer"
+        string source_book "Ej: XMM"
+        int page_number "Ej: 10"
+        
+        %% ESTADÍSTICAS BÁSICAS
+        string size "Ej: M, L, G"
+        string type "Ej: elemental, beast"
+        string alignment "Ej: N, CE"
+        int armor_class
+        string ac_description "NULLABLE"
+        int hit_points_average
+        string hp_formula "Ej: 12d8 + 12"
+        json speed "NUEVO: { walk: 20, fly: 50 }"
+        
+        %% ATRIBUTOS
+        int str
+        int dex
+        int con
+        int int_stat
+        int wis
+        int cha
+        
+        %% COMPETENCIAS Y PASIVAS (NUEVO)
+        json saving_throws "Ej: { dex: 5, wis: 5 }"
+        json skills "Ej: { arcana: 3, perception: 7 }"
+        int passive_perception "Ej: 17"
+        
+        string challenge_rating "Ej: 4"
+        text senses "Ej: Darkvision 60 ft."
+        text languages "Ej: Aarakocra, Primordial"
 
-    %% Detalle Personaje (1 a Muchos)
-    CharacterSheet ||--o{ InventoryItem : "tiene items"
-    CharacterSheet ||--o{ Attack : "conoce ataques"
-    CharacterSheet ||--o{ Spell : "tiene hechizos"
-    CharacterSheet ||--o{ Proficiency : "tiene competencias"
+        %% CAPACIDADES Y RASGOS (JSON)
+        json traits "Habilidades pasivas (Undead Fortitude, etc.)"
+        json spellcasting "Hechizos del monstruo"
+
+        %% ECONOMÍA DE ACCIONES (JSON)
+        json actions "Acciones normales (Multiataque, Slam)"
+        json bonus_actions "Acciones Bonus"
+        json reactions "Reacciones"
+        
+        %% ACCIONES LEGENDARIAS Y MÍTICAS
+        int legendary_resistances_count "Ej: 3"
+        int legendary_actions_count "Ej: 3"
+        json legendary_actions "Lista de acciones legendarias"
+        json mythic_actions "Acciones míticas"
+        
+        %% ENTORNO Y BOTÍN (NUEVO)
+        json lair_actions "Acciones de Guarida"
+        json regional_effects "Efectos Regionales"
+        json environment "Ej: ['mountain', 'planar, air']"
+        json treasure "Ej: ['implements', 'individual']"
+        
+        %% METADATOS Y ETIQUETAS DE FILTRADO (NUEVO)
+        json tags "actionTags, damageTags, spellcastingTags..."
+        json vtt_metadata "hasToken, hasFluff, otherSources..."
+    }
 ```
 
 ### 6.2 Modelo NoSQL / JSON (Estado del Juego)
