@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Golden - HUNTR/X</title>
+</head>
+<body class="bg-black text-white font-sans">
+
+    <section class="flex flex-col items-center justify-center pt-20 pb-16 px-4 bg-gradient-to-t from-black from-5% via-black via-30% to-purple-900 to-90%">
+        <span class="bg-indigo-900 text-indigo-400 text-[10px] font-bold px-3 py-1 rounded-full mb-4 border border-indigo-500/30">
+            Disponible Ahora
+        </span>
+        <h1 class="text-6xl md:text-8xl font-black tracking-tighter mb-2">
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-white to-purple-900">Golden</span>
+        </h1>
+        <p class="text-gray-400 text-sm mb-12">HUNTR/X</p>
+        
+        <div class="relative group max-w-2xl w-full">
+          <!--Gitanada de manual lo ideal seria hacer un shadow con color-->  
+          <div class="absolute -inset-1 bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 rounded-lg blur"></div>
+            <div class="relative rounded-lg overflow-hidden border border-white/10">
+                <img src="./img/k-pop.jpg" alt="K-Pop Group" class="w-full object-cover">
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-black py-20 px-6">
+        <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+            
+            <div class="space-y-6">
+                <div class="flex items-center gap-4">
+                    <div class="w-1 h-8 bg-yellow-500"></div>
+                    <h2 class="text-2xl font-bold">La Historia</h2>
+                </div>
+                <p class="text-gray-400 text-sm ">
+                    "Golden" no es solo una canción, es un estado mental. Una fusión agresiva de bajos distorsionados y melodías brillantes que narran el ascenso hacia la cima, donde todo lo que tocas brilla pero quema.
+                </p>
+                <div class="bg-black p-6 rounded-sm border-l-2 border-yellow-500/50 italic text-yellow-500 text-sm">
+                    "Eyes on the prize, watching it shine, <br>
+                    Running through the fire just to make it mine..."
+                </div>
+            </div>
+
+            <div class="bg-gray-800 p-6 rounded-2xl shadow-2xl border border-white/5">
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="w-16 h-16 bg-gray-800 rounded shadow-inner">
+                      <img class="h-full object-fill"src="./img/k-pop.jpg" alt=""></div> 
+                    <div>
+                        <h3 class="font-bold text-sm tracking-widest uppercase">Golden</h3>
+                        <p class="text-xs text-gray-500">KPOP DEMONS</p>
+                    </div>
+                </div>
+                <div class="bg-white h-10 rounded-full flex items-center px-4 gap-4">
+                    <button class="text-white hover:text-indigo-400">▶</button>
+                    <div class="flex-1 h-1 bg-gray-300 rounded-full">
+                        <div class="w-1 h-full bg-gray-400 rounded-full"></div>
+                    </div>
+                    <span class="text-[10px] text-gray-400">0:00 / 3:20</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="py-20 px-4 text-center">
+        <h2 class="text-3xl font-bold mb-2">Escúchala completa</h2>
+        <p class="text-gray-500 text-sm mb-10">Elige tu plataforma de streaming favorita</p>
+        
+        <div class="flex flex-wrap justify-center gap-4">
+            <button class="flex items-center gap-3 bg-green-600 text-black font-bold py-3 px-8 rounded-full text-sm">
+                <span>Spotify</span>
+            </button>
+            <button class="flex items-center gap-3 bg-white text-black font-bold py-3 px-8 rounded-full text-sm">
+                <span>YouTube Music</span>
+            </button>
+            <button class="flex items-center gap-3 bg-gray-400 text-white font-bold py-3 px-8 rounded-full text-sm">
+                <span>Apple Music</span>
+            </button>
+        </div>
+    </section>
+
+    <footer class="py-10 border-t border-white/5 text-center">
+        <p class="text-[10px] text-gray-600 uppercase tracking-widest">
+            © 2026 Golden. Management by EagRecord.
+        </p>
+    </footer>
+
+</body>
+</html>
