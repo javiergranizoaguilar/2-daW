@@ -4,11 +4,14 @@ package calculadora;
   Importamos las clases necesarias de la API de Jakarta Servlet:
   - WebServlet: para mapear la URL del servlet
   - HttpServlet, HttpServletRequest, HttpServletResponse: para manejar peticiones HTTP
-*/
-import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.*;
+ */
 import java.io.IOException;
 import java.io.PrintWriter;
+
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 /*
   @WebServlet("/calcular")
@@ -19,7 +22,7 @@ import java.io.PrintWriter;
   Es decir, cuando el navegador o el JavaScript haga una petición a
   http://localhost:8080/calculadora/calcular
   se ejecutará esta clase.
-*/
+ */
 @WebServlet("/calcular")
 public class CalculadoraServlet extends HttpServlet {
 
@@ -29,7 +32,7 @@ public class CalculadoraServlet extends HttpServlet {
       POST se usa porque:
       - Se envían datos (num1, num2, operacion)
       - No queremos que la operación vaya en la URL
-    */
+     */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         // La respuesta será JSON y en UTF-8 importante para que el navegador interprete bien el texto.
@@ -41,7 +44,7 @@ public class CalculadoraServlet extends HttpServlet {
           Comprobación de sesión:
           getRemoteUser() devuelve el usuario autenticado.
           Si es null, significa que NO hay sesión activa.
-        */
+         */
         String user = request.getRemoteUser();
         if (user == null) {
             out.print("{\"ok\":false,\"message\":\"Sesión expirada.\"}");
@@ -69,13 +72,13 @@ public class CalculadoraServlet extends HttpServlet {
 
         //Comprobamos los roles del usuario:
         boolean basica = request.isUserInRole("calc_basic");
-        boolean full   = request.isUserInRole("calc_full");
+        boolean full = request.isUserInRole("calc_full");
 
         /*
           Reglas de autorización:
           - Los usuarios "full" pueden hacer cualquier operación
           - Los usuarios "basic" SOLO pueden hacer "suma"
-        */
+         */
         if (!(full || (basica && "suma".equals(op)))) {
             out.print("{\"ok\":false,\"message\":\"Acceso denegado.\"}");
             return;
@@ -84,11 +87,14 @@ public class CalculadoraServlet extends HttpServlet {
         //Realizamos la operación solicitada.
         double r;
         switch (op) {
-            case "suma": r = a + b; break;
-            case "resta": r = a - b; break;
-            default:
+            case "suma" -> r = a + b;
+            case "resta" -> r = a - b;
+            case "multiplicacion" -> r = a * b;
+            case "division" -> r = a / b;
+            default -> {
                 out.print("{\"ok\":false,\"message\":\"Operación no válida.\"}");
                 return;
+            }
         }
 
         /*Devolvemos el resultado en formato JSON.

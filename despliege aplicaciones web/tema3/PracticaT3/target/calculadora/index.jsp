@@ -39,9 +39,11 @@
     <label>Operación</label>
     <select name="operacion" required>
       <option value="suma">Suma</option>
+      <option value="resta">Resta</option>
       <!--Solo mostramos la opción "resta" si el usuario tiene el rol calc_full-->
       <% if (full) { %>
-        <option value="resta">Resta</option>
+        <option value="multiplicacion">Multiplicacion</option>
+        <option value="division">Division</option>
       <% } %>
     </select>
 

@@ -8,7 +8,7 @@
 
 ## 1. Introducción
 
-El presente documento establece las especificaciones técnicas para el desarrollo de una plataforma web integral orientada a la gestión y simulación de juegos de rol de mesa (RPG) en línea. El sistema, denominado **[Nombre de tu Proyecto]**, combina un Tablero Virtual (VTT - *Virtual Tabletop*) en tiempo real con un Marketplace de contenidos digitales.
+El presente documento establece las especificaciones técnicas para el desarrollo de una plataforma web integral orientada a la gestión y simulación de juegos de rol de mesa (RPG) en línea. El sistema, denominado **Djinni**, un Tablero Virtual (VTT - *Virtual Tabletop*) en tiempo real.
 
 El propósito principal es centralizar el ecosistema de juego, permitiendo a los usuarios adquirir módulos de aventura y activos gráficos (mapas, tokens) y utilizarlos inmediatamente dentro de una interfaz de juego interactiva y sincronizada.
 
@@ -17,7 +17,6 @@ El propósito principal es centralizar el ecosistema de juego, permitiendo a los
 1.  **Sincronización en Tiempo Real:** Implementar una comunicación bidireccional de baja latencia para reflejar el movimiento de fichas y tiradas de dados instantáneamente entre todos los participantes.
 2.  **Renderizado Gráfico Avanzado:** Desarrollar un motor gráfico web capaz de gestionar múltiples capas, iluminación dinámica (niebla de guerra) y manipulación de objetos mediante Canvas.
 3.  **Persistencia Híbrida:** Diseñar un modelo de datos que combine la integridad referencial para transacciones comerciales con la flexibilidad de estructuras NoSQL (JSON) para el estado del tablero.
-4.  **Ecosistema de Contenidos:** Facilitar la integración automática de productos comprados (aventuras pre-diseñadas) directamente en las sesiones de juego del usuario.
 
 ## 3. Arquitectura del Sistema
 
@@ -34,14 +33,14 @@ El sistema sigue un patrón de arquitectura **Headless** y orientada a servicios
 
 La selección de tecnologías responde a criterios de rendimiento, escalabilidad y modernidad en el desarrollo web.
 
-| Capa | Tecnología Seleccionada | Justificación Técnica |
-| :--- | :--- | :--- |
-| **Frontend** | **React.js** | Librería líder para interfaces reactivas. Facilita la gestión del estado complejo de la UI del juego. |
-| **Motor Gráfico** | **Konva.js** | Abstracción de alto rendimiento para **HTML5 Canvas**. Permite manejo de eventos en objetos gráficos, drag-and-drop y capas, esencial para un VTT. |
-| **Backend** | **Symfony 6/7 (PHP 8)** | Framework robusto que garantiza buenas prácticas (Inyección de Dependencias, SOLID). Uso de **API Platform** para agilizar el desarrollo REST. |
+| Capa | Tecnología Seleccionada | Justificación Técnica                                                                                                                                                                         |
+| :--- | :--- |:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Frontend** | **React.js** | Librería líder para interfaces reactivas. Facilita la gestión del estado complejo de la UI del juego.                                                                                         |
+| **Motor Gráfico** | **Konva.js** | Abstracción de alto rendimiento para **HTML5 Canvas**. Permite manejo de eventos en objetos gráficos, drag-and-drop y capas, esencial para un VTT.                                            |
+| **Backend** | **Symfony 6/7 (PHP 8)** | Framework robusto que garantiza buenas prácticas (Inyección de Dependencias, SOLID). Uso de **API Platform** para agilizar el desarrollo REST.                                                |
 | **Tiempo Real** | **Mercure Hub** | Protocolo basado en **Server-Sent Events (SSE)**. A diferencia de WebSockets tradicionales, es nativo en el ecosistema Symfony, gestiona la reconexión automática y es compatible con HTTP/2. |
-| **Base de Datos** | **MySQL / MariaDB** | Soporte sólido para transacciones ACID (necesarias para el Marketplace) y excelente manejo de tipos de datos JSON nativos. |
-| **Infraestructura** | **Docker** | Contenerización de servicios (PHP, Nginx, Database, Mercure) para garantizar paridad entre desarrollo y producción. |
+| **Base de Datos** | **MySQL / MariaDB** | Excelente manejo de tipos de datos JSON nativos.                                                                                                                                              |
+| **Infraestructura** | **Docker** | Contenerización de servicios (PHP, Nginx, Database, Mercure) para garantizar paridad entre desarrollo y producción.                                                                           |
 
 ## 5. Funcionalidades por Rol de Usuario
 
@@ -57,16 +56,9 @@ El sistema implementa un control de acceso basado en roles (RBAC) diferenciados:
 * **Gestión de Salas:** Creación, pausado y guardado de sesiones.
 * **Editor de Mapas:** Carga de imágenes de fondo, definición de grid y barreras de visión.
 * **Control Total:** Capacidad para mover cualquier ficha y gestionar la visibilidad de las capas.
-* **Importación:** Carga automática de "Módulos Integrados" comprados en la tienda.
 
-### C. Creador de Contenido (Seller)
-* Subida de activos digitales (Packs de imágenes, Módulos de aventura).
-* Gestión de precios y descripción de productos.
-* Dashboard de ventas.
-
-### D. Administrador
+### C. Administrador
 * Gestión de usuarios y resolución de incidencias.
-* Moderación de contenidos en el Marketplace.
 
 ## 6. Modelo de Datos (Enfoque Híbrido)
 
@@ -278,6 +270,7 @@ erDiagram
         json vtt_metadata "hasToken, hasFluff, otherSources..."
     }
 ```
+![Diagrama de Arquitectura](Prollecto.svg)
 
 ### 6.2 Modelo NoSQL / JSON (Estado del Juego)
 Debido a la complejidad y variabilidad de un tablero de juego (cientos de coordenadas, estados de niebla, notas), el estado de la partida se almacena como un documento JSON dentro de la tabla `GameSession` o una tabla satélite `MapState`.
@@ -309,10 +302,10 @@ El ciclo de vida de una interacción en el tablero sigue el siguiente flujo secu
 
 **Fase 1: Configuración (Semanas 1-2):** Setup de Docker, Symfony y diseño de DB.
 
-**Fase 2: Core VTT (Semanas 3-7):** Implementación de Konva.js, lógica de tablero y sincronización Mercure.
-
-**Fase 3: Marketplace (Semanas 8-10):** CRUD de productos, carrito y asociación de compras a usuarios.
-
-**Fase 4: Integración (Semanas 11-12):** Conexión entre items comprados y su aparición en el VTT.
+**Fase 2: Core VTT (Semanas 3-10):** Implementación de Konva.js, lógica de tablero y sincronización Mercure.
 
 **Fase 5: Finalización:** Testing, corrección de bugs y documentación.
+
+## 9. Implementaciones  a futuro
+
+1. Creacion de un market place el cual permita cargar aventuras pre creadas
