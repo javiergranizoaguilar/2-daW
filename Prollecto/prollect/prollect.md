@@ -68,7 +68,7 @@ Para optimizar el rendimiento, se utiliza una estrategia mixta de almacenamiento
 ![Diagrama de Arquitectura](er.svg)
 
 ### 6.2 Modelo NoSQL / JSON (Estado del Juego)
-Debido a la complejidad y variabilidad de un tablero de juego (cientos de coordenadas, estados de niebla, notas), el estado de la partida se almacena como un documento JSON dentro de la tabla `GameSession` o una tabla satélite `MapState`.
+Debido a la complejidad y variabilidad de un tablero de juego (cientos de coordenadas, estados de niebla, notas), el estado de la partida se almacena como un documento JSON dentro de la tabla `Scene` o una tabla satélite `MapState`.
 
 **Ejemplo de estructura JSON almacenada:**
 ```json
