@@ -81,19 +81,7 @@ Debido a la complejidad y variabilidad de un tablero de juego (cientos de coorde
   ]
 }
 ```
-## 7. Flujo de Comunicación (Tiempo Real)
-
-El ciclo de vida de una interacción en el tablero sigue el siguiente flujo secuencial:
-
-1.  **Acción:** El Usuario A mueve una ficha en el Canvas (**Frontend**).
-2.  **Petición:** React envía una petición `POST /api/game/move` a **Symfony** con las nuevas coordenadas.
-3.  **Validación:** Symfony valida que el movimiento es legal (comprobación de colisiones y permisos de usuario).
-4.  **Persistencia:** Symfony actualiza el estado `JSON` en la Base de Datos.
-5.  **Publicación:** Symfony envía una notificación asíncrona al **Mercure Hub** (topic: `/game/{id}`).
-6.  **Distribución:** Mercure envía el evento (Server-Sent Event) a todos los clientes suscritos (Usuario B, C, DM).
-7.  **Reacción:** El cliente React de los otros usuarios recibe el evento y **Konva.js** anima la ficha a la nueva posición sin recargar la página.
-
-## 8. Planificación del Desarrollo
+## 7. Planificación del Desarrollo
 
 **Fase 1: Configuración (Semanas 1-2):** Setup de Docker, Symfony y diseño de DB.
 
@@ -101,6 +89,6 @@ El ciclo de vida de una interacción en el tablero sigue el siguiente flujo secu
 
 **Fase 5: Finalización:** Testing, corrección de bugs y documentación.
 
-## 9. Implementaciones  a futuro
+## 8. Implementaciones  a futuro
 
 1. Creacion de un market place el cual permita cargar aventuras pre creadas
