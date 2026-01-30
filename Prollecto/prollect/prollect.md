@@ -65,7 +65,7 @@ El sistema implementa un control de acceso basado en roles (RBAC) diferenciados:
 Para optimizar el rendimiento, se utiliza una estrategia mixta de almacenamiento.
 
 ### 6.1 Modelo Relacional (SQL)
-![Diagrama de Arquitectura](er.svg)
+![Diagrama de Arquitectura](reecho.svg)
 
 ### 6.2 Modelo NoSQL / JSON (Estado del Juego)
 Debido a la complejidad y variabilidad de un tablero de juego (cientos de coordenadas, estados de niebla, notas), el estado de la partida se almacena como un documento JSON dentro de la tabla `Scene` o una tabla satélite `MapState`.
