@@ -270,7 +270,7 @@ erDiagram
         json vtt_metadata "hasToken, hasFluff, otherSources..."
     }
 ```
-![Diagrama de Arquitectura](app.png)
+![Diagrama de Arquitectura](er.svg)
 
 ### 6.2 Modelo NoSQL / JSON (Estado del Juego)
 Debido a la complejidad y variabilidad de un tablero de juego (cientos de coordenadas, estados de niebla, notas), el estado de la partida se almacena como un documento JSON dentro de la tabla `GameSession` o una tabla satélite `MapState`.
