@@ -1,13 +1,100 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="/src/style.css" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 </head>
-<body class="bg-amber-600">
-  <h1 class="text-3xl font-bold underline ">
-    Hello world!
-  </h1>
+<body class="bg-slate-50 text-slate-800 font-sans">
+
+  <nav class="bg-white border-b border-slate-200 sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <span class="material-symbols-outlined text-indigo-600 font-bold">sports_esports</span>
+        <span class="text-xl font-black tracking-tight uppercase">Indie World</span>
+      </div>
+
+      <div class="hidden md:flex space-x-6 font-medium text-slate-600">
+        <a href="#" class="hover:text-indigo-600 transition">Inicio</a>
+        <a href="#" class="hover:text-indigo-600 transition">Juegos</a>
+        <a href="#" class="hover:text-indigo-600 transition">Comunidad</a>
+      </div>
+
+      <button class="bg-indigo-600 text-white px-5 py-2 rounded-full font-semibold hover:bg-indigo-700 transition shadow-md">
+        Unirse
+      </button>
+    </div>
+  </nav>
+
+  <main class="max-w-6xl mx-auto px-4 py-12">
+    
+    <section class="text-center py-12">
+      <h1 class="text-4xl md:text-6xl font-extrabold mb-4 text-slate-900">Descubre la próxima joya <span class="text-indigo-600">indie</span></h1>
+      <p class="text-lg text-slate-600 max-w-2xl mx-auto">Explora miles de juegos creados por desarrolladores independientes de todo el mundo.</p>
+    </section>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="bg-white rounded-xl overflow-hidden shadow-sm border border-slate-200 hover:shadow-md transition">
+        <div class="h-48 bg-slate-200 flex items-center justify-center">
+           <span class="material-symbols-outlined text-4xl text-slate-400">image</span>
+        </div>
+        <div class="p-5">
+          <h3 class="font-bold text-lg">Neon Odyssey</h3>
+          <p class="text-slate-500 text-sm mb-4">Un viaje visual a través de mundos cibernéticos.</p>
+          <span class="text-xs font-bold bg-indigo-100 text-indigo-700 px-2 py-1 rounded">AVENTURA</span>
+        </div>
+      </div>
+      <div class="bg-white rounded-xl overflow-hidden shadow-sm border border-slate-200 hover:shadow-md transition">
+        <div class="h-48 bg-slate-200 flex items-center justify-center">
+           <span class="material-symbols-outlined text-4xl text-slate-400">image</span>
+        </div>
+        <div class="p-5">
+          <h3 class="font-bold text-lg">Pixel Knights</h3>
+          <p class="text-slate-500 text-sm mb-4">Combates clásicos con un toque moderno.</p>
+          <span class="text-xs font-bold bg-green-100 text-green-700 px-2 py-1 rounded">RPG</span>
+        </div>
+      </div>
+      <div class="bg-white rounded-xl overflow-hidden shadow-sm border border-slate-200 hover:shadow-md transition">
+        <div class="h-48 bg-slate-200 flex items-center justify-center">
+           <span class="material-symbols-outlined text-4xl text-slate-400">image</span>
+        </div>
+        <div class="p-5">
+          <h3 class="font-bold text-lg">Void Runner</h3>
+          <p class="text-slate-500 text-sm mb-4">Velocidad pura en el espacio profundo.</p>
+          <span class="text-xs font-bold bg-red-100 text-red-700 px-2 py-1 rounded">ACCIÓN</span>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="bg-slate-900 text-slate-300 py-12 mt-12">
+    <div class="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div>
+        <h4 class="text-white font-bold mb-4">Indie World</h4>
+        <p class="text-sm">Apoyando el talento independiente desde 2024.</p>
+      </div>
+      <div>
+        <h4 class="text-white font-bold mb-4">Enlaces</h4>
+        <ul class="text-sm space-y-2">
+          <li><a href="#" class="hover:text-white">Sobre nosotros</a></li>
+          <li><a href="#" class="hover:text-white">Términos de servicio</a></li>
+          <li><a href="#" class="hover:text-white">Contacto</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-white font-bold mb-4">Suscríbete</h4>
+        <div class="flex">
+          <input type="text" placeholder="Email" class="bg-slate-800 border-none rounded-l-md px-4 py-2 w-full text-sm">
+          <button class="bg-indigo-600 text-white px-4 py-2 rounded-r-md hover:bg-indigo-700">OK</button>
+        </div>
+      </div>
+    </div>
+    <div class="max-w-6xl mx-auto px-4 mt-8 pt-8 border-t border-slate-800 text-xs text-center">
+      © 2024 Indie World Inc. Creado con Tailwind CSS.
+    </div>
+  </footer>
+
 </body>
 </html>
