@@ -1,13 +1,135 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="/src/style.css" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IndieVault | Joyas Ocultas del Gaming</title>
+  <link rel="stylesheet" href="./src/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@700;900&display=swap" rel="stylesheet">
 </head>
-<body class="bg-amber-600">
-  <h1 class="text-3xl font-bold underline ">
-    Hello world!
-  </h1>
+<body class="bg-indie-dark text-gray-100 font-body">
+
+  <header class="fixed w-full z-50 bg-indie-dark/80 backdrop-blur-lg border-b border-white/10">
+    <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+      <div class="text-2xl font-display font-900 tracking-tighter text-indie-accent">INDIE<span class="text-white">VAULT</span></div>
+      <ul class="hidden md:flex space-x-8 font-semibold text-sm uppercase tracking-widest">
+        <li><a href="#estrenos" class="hover:text-indie-accent transition-colors">Estrenos</a></li>
+        <li><a href="#comunidad" class="hover:text-indie-accent transition-colors">Comunidad</a></li>
+        <li><a href="#devs" class="hover:text-indie-accent transition-colors">Devs</a></li>
+      </ul>
+      <button class="bg-indie-purple px-5 py-2 rounded-md font-bold hover:bg-white hover:text-indie-purple transition-all duration-300">Explorar</button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="relative pt-40 pb-24 px-6 overflow-hidden">
+      <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-indie-purple/20 blur-[120px] rounded-full"></div>
+      
+      <div class="container mx-auto text-center relative z-10">
+        <span class="inline-block bg-white/10 text-indie-accent px-4 py-1 rounded-full text-xs font-bold mb-6 border border-indie-accent/20">EDICIÓN 2026</span>
+        <h1 class="text-5xl md:text-8xl font-display font-900 mb-6 leading-none">JUEGA ALGO <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-indie-purple to-indie-accent">DIFERENTE.</span></h1>
+        <p class="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto mb-10">La plataforma definitiva para descubrir, jugar y apoyar a los creadores de juegos independientes más innovadores.</p>
+        <div class="flex flex-col sm:flex-row justify-center gap-4">
+          <button class="bg-indie-accent text-indie-dark font-black px-10 py-4 rounded-xl hover:shadow-[0_0_30px_rgba(34,197,94,0.4)] transition-all transform hover:-translate-y-1">DESCARGAR APP</button>
+          <button class="border border-white/20 px-10 py-4 rounded-xl hover:bg-white/5 transition-colors">VER TRAILER</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="estrenos" class="py-20 px-6">
+      <div class="container mx-auto">
+        <h2 class="text-3xl font-display font-bold mb-12 flex items-center gap-4">
+          <span class="w-8 h-[2px] bg-indie-accent"></span> TENDENCIAS DE LA SEMANA
+        </h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div class="bg-indie-card rounded-2xl overflow-hidden group border border-white/5 hover:border-indie-purple/50 transition-all">
+            <div class="h-48 bg-gradient-to-br from-gray-700 to-gray-800 relative">
+               <span class="absolute top-3 left-3 bg-indie-purple text-[10px] px-2 py-1 rounded font-bold">PLATAFORMAS</span>
+            </div>
+            <div class="p-5">
+              <h3 class="font-bold text-lg mb-1 group-hover:text-indie-accent transition-colors">Cyber Souls</h3>
+              <p class="text-gray-500 text-sm mb-4">Studio Ghibli meets Dark Souls.</p>
+              <div class="flex justify-between items-center">
+                <span class="font-bold text-indie-accent">$14.99</span>
+                <button class="text-sm bg-white/5 p-2 rounded-lg hover:bg-white/10">Lo quiero</button>
+              </div>
+            </div>
+          </div>
+          </div>
+      </div>
+    </section>
+
+    <section class="py-20 bg-indie-card/30 px-6 border-y border-white/5">
+      <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
+        <div>
+          <div class="text-4xl mb-4">🎮</div>
+          <h4 class="text-xl font-bold mb-2 uppercase tracking-tighter">Sin DRM</h4>
+          <p class="text-gray-400 text-sm">Tus juegos son tuyos para siempre. Sin conexiones obligatorias.</p>
+        </div>
+        <div>
+          <div class="text-4xl mb-4">🤝</div>
+          <h4 class="text-xl font-bold mb-2 uppercase tracking-tighter">100% para el Dev</h4>
+          <p class="text-gray-400 text-sm">El mayor porcentaje de ingresos va directo al artista.</p>
+        </div>
+        <div>
+          <div class="text-4xl mb-4">🌍</div>
+          <h4 class="text-xl font-bold mb-2 uppercase tracking-tighter">Multiplataforma</h4>
+          <p class="text-gray-400 text-sm">Juega en PC, Steam Deck o dispositivos móviles.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="comunidad" class="py-20 px-6">
+      <div class="container mx-auto bg-gradient-to-r from-indie-purple/20 to-transparent p-10 rounded-3xl border border-indie-purple/20">
+        <div class="flex flex-col md:flex-row items-center justify-between gap-10">
+          <div class="max-w-md">
+            <h2 class="text-4xl font-display font-black mb-4">ÚNETE AL DISCORD</h2>
+            <p class="text-gray-400 mb-8">Participa en playtests exclusivos y habla directamente con los desarrolladores de tus juegos favoritos.</p>
+            <button class="bg-[#5865F2] hover:bg-[#4752C4] text-white px-8 py-3 rounded-lg font-bold flex items-center gap-3 transition-colors">
+              ENTRAR A LA VILLA INDIE
+            </button>
+          </div>
+          <div class="text-6xl font-black text-white/5 select-none hidden md:block">
+            +50,000 GAMERS
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="devs" class="py-20 px-6 text-center">
+      <div class="container mx-auto max-w-3xl">
+        <h2 class="text-3xl font-display font-bold mb-6 italic">¿ERES DESARROLLADOR?</h2>
+        <p class="text-gray-400 mb-10">Publica tu prototipo hoy mismo y obtén feedback de una comunidad real. No pedimos exclusividad.</p>
+        <a href="#" class="text-indie-accent font-bold border-b-2 border-indie-accent hover:text-white hover:border-white transition-all pb-1">Sube tu juego ahora &rarr;</a>
+      </div>
+    </section>
+
+    <section class="py-24 px-6 relative overflow-hidden">
+        <div class="absolute bottom-0 right-0 w-64 h-64 bg-indie-accent/10 blur-[100px]"></div>
+        <div class="container mx-auto max-w-2xl text-center relative z-10">
+          <h3 class="text-2xl font-bold mb-8">No te pierdas ningún lanzamiento</h3>
+          <form class="flex flex-col sm:flex-row gap-3">
+            <input type="email" placeholder="tu@email.com" class="flex-1 bg-white/5 border border-white/10 p-4 rounded-xl focus:outline-none focus:ring-2 focus:ring-indie-purple transition-all placeholder:text-gray-600">
+            <button class="bg-white text-indie-dark font-black px-8 py-4 rounded-xl hover:bg-indie-accent transition-colors">SUSCRIBIRSE</button>
+          </form>
+          <p class="text-[10px] text-gray-500 mt-4 uppercase tracking-widest">Respetamos tu privacidad. Cero Spam.</p>
+        </div>
+    </section>
+  </main>
+
+  <footer class="bg-black py-12 px-6 border-t border-white/5 text-gray-500">
+    <div class="container mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+      <div class="text-xl font-display font-900 text-white">INDIE<span class="text-indie-accent">VAULT</span></div>
+      <div class="flex gap-8 text-sm">
+        <a href="#" class="hover:text-white transition-colors">Términos</a>
+        <a href="#" class="hover:text-white transition-colors">Privacidad</a>
+        <a href="#" class="hover:text-white transition-colors">Cookies</a>
+      </div>
+      <div class="text-xs uppercase tracking-tighter">
+        &copy; 2026 IndieVault Corp. Hecho por y para gamers.
+      </div>
+    </div>
+  </footer>
+
 </body>
 </html>
