@@ -9,8 +9,11 @@
 </head>
 <body class="bg-indie-dark text-gray-100 font-body">
 
+  <!--fixed=queda pegado al cielo aunque scrolles-->
   <header class="fixed w-full z-50 bg-indie-dark/80 backdrop-blur-lg border-b border-white/10">
+    <!--backdrop-blur-lg=hace blur el fondo, como cristal esmerilado-->
     <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+      <!--font-display=fuente custom para títulos, font-900=grosor máximo-->
       <div class="text-2xl font-display font-900 tracking-tighter text-indie-accent">INDIE<span class="text-white">VAULT</span></div>
       <ul class="hidden md:flex space-x-8 font-semibold text-sm uppercase tracking-widest">
         <li><a href="#estrenos" class="hover:text-indie-accent transition-colors">Estrenos</a></li>
@@ -23,13 +26,16 @@
 
   <main>
     <section class="relative pt-40 pb-24 px-6 overflow-hidden">
+      <!--left-1/2 -translate-x-1/2=centra horizontalmente con matemáticas CSS, blur-[120px]=blur tan fuerte que se ve como nube-->
       <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-indie-purple/20 blur-[120px] rounded-full"></div>
       
       <div class="container mx-auto text-center relative z-10">
+        <!--bg-white/10=blanco transparente al 10%, border-indie-accent/20=borde del color primario al 20% de opacidad-->
         <span class="inline-block bg-white/10 text-indie-accent px-4 py-1 rounded-full text-xs font-bold mb-6 border border-indie-accent/20">EDICIÓN 2026</span>
-        <h1 class="text-5xl md:text-8xl font-display font-900 mb-6 leading-none">JUEGA ALGO <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-indie-purple to-indie-accent">DIFERENTE.</span></h1>
+        <h1 class="text-5xl md:text-8xl font-display font-900 mb-6 leading-none">JUEGA ALGO <br><!--bg-clip-text=recorta el background al texto, text-transparent=deja ver el gradient detrás--><span class="text-transparent bg-clip-text bg-gradient-to-r from-indie-purple to-indie-accent">DIFERENTE.</span></h1>
         <p class="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto mb-10">La plataforma definitiva para descubrir, jugar y apoyar a los creadores de juegos independientes más innovadores.</p>
         <div class="flex flex-col sm:flex-row justify-center gap-4">
+          <!--hover:-translate-y-1=sube 1px al pasar el mouse, hace efecto de levantarse-->
           <button class="bg-indie-accent text-indie-dark font-black px-10 py-4 rounded-xl hover:shadow-[0_0_30px_rgba(34,197,94,0.4)] transition-all transform hover:-translate-y-1">DESCARGAR APP</button>
           <button class="border border-white/20 px-10 py-4 rounded-xl hover:bg-white/5 transition-colors">VER TRAILER</button>
         </div>
@@ -38,19 +44,22 @@
 
     <section id="estrenos" class="py-20 px-6">
       <div class="container mx-auto">
+        <!--h-[2px]=línea delgada decorativa, gap-4=espacio entre línea y texto-->
         <h2 class="text-3xl font-display font-bold mb-12 flex items-center gap-4">
           <span class="w-8 h-[2px] bg-indie-accent"></span> TENDENCIAS DE LA SEMANA
         </h2>
         
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          
+          <!--group=grupo para animar hijos al hover, overflow-hidden=no sale nada del borde-->
           <div class="bg-indie-card rounded-2xl overflow-hidden group border border-white/5 hover:border-indie-purple/50 transition-all hover:-translate-y-2 duration-300">
             <div class="h-48 bg-gradient-to-br from-purple-900 to-indigo-950 relative flex items-center justify-center">
                <span class="absolute top-3 left-3 bg-indie-purple text-[10px] px-2 py-1 rounded font-bold uppercase">Plataformas</span>
+               <!--group-hover:scale-110=cuando el padre hace hover, el emoji crece 10%, emoji como UI element-->
                <span class="text-4xl group-hover:scale-110 transition-transform duration-500">⚔️</span>
             </div>
             <div class="p-5">
               <h3 class="font-bold text-lg mb-1 group-hover:text-indie-accent transition-colors">Cyber Souls</h3>
+              <!--line-clamp-2=máximo 2 líneas de texto, se corta con puntos suspensivos-->
               <p class="text-gray-500 text-sm mb-4 line-clamp-2">Una mezcla épica entre el arte de Ghibli y la dificultad de Dark Souls.</p>
               <div class="flex justify-between items-center">
                 <span class="font-bold text-indie-accent">$14.99</span>
@@ -108,6 +117,7 @@
       </div>
     </section>
 
+    <!--bg-indie-card/30=fondo semi-transparente, border-y=borde arriba Y abajo-->
     <section class="py-20 bg-indie-card/30 px-6 border-y border-white/5">
       <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
         <div>
@@ -130,6 +140,7 @@
 
     <section id="comunidad" class="py-20 px-6">
       <div class="container mx-auto bg-gradient-to-r from-indie-purple/20 to-transparent p-10 rounded-3xl border border-indie-purple/20">
+        <!--gradient-to-r=gradiente izquierda a derecha desapareciendo en transparencia-->
         <div class="flex flex-col md:flex-row items-center justify-between gap-10">
           <div class="max-w-md">
             <h2 class="text-4xl font-display font-black mb-4">ÚNETE AL DISCORD</h2>
@@ -139,6 +150,7 @@
             </button>
           </div>
           <div class="text-6xl font-black text-white/5 select-none hidden md:block">
+            <!--text-white/5=texto casi invisible (5% opacidad), select-none=no se puede copiar, hidden md:block=invisible en móvil-->
             +50,000 GAMERS
           </div>
         </div>
@@ -153,11 +165,13 @@
       </div>
     </section>
 
+    <!--absolute bottom-0 right-0=pon el blob en la esquina inferior derecha, blur lo hace decorativo-->
     <section class="py-24 px-6 relative overflow-hidden">
         <div class="absolute bottom-0 right-0 w-64 h-64 bg-indie-accent/10 blur-[100px]"></div>
         <div class="container mx-auto max-w-2xl text-center relative z-10">
           <h3 class="text-2xl font-bold mb-8">No te pierdas ningún lanzamiento</h3>
           <form class="flex flex-col sm:flex-row gap-3">
+            <!--focus:ring-2=aura colorida al hacer click, placeholder:text-gray-600=color del placeholder-->
             <input type="email" placeholder="tu@email.com" class="flex-1 bg-white/5 border border-white/10 p-4 rounded-xl focus:outline-none focus:ring-2 focus:ring-indie-purple transition-all placeholder:text-gray-600">
             <button class="bg-white text-indie-dark font-black px-8 py-4 rounded-xl hover:bg-indie-accent transition-colors">SUSCRIBIRSE</button>
           </form>
@@ -166,6 +180,7 @@
     </section>
   </main>
 
+  <!--py-12=padding vertical masivo, md:flex-row=en móvil se apila, en pantalla ancha en línea-->
   <footer class="bg-black py-12 px-6 border-t border-white/5 text-gray-500">
     <div class="container mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
       <div class="text-xl font-display font-900 text-white">INDIE<span class="text-indie-accent">VAULT</span></div>
@@ -174,6 +189,7 @@
         <a href="#" class="hover:text-white transition-colors">Privacidad</a>
         <a href="#" class="hover:text-white transition-colors">Cookies</a>
       </div>
+      <!--tracking-tighter=espacios entre letras-->
       <div class="text-xs uppercase tracking-tighter">
         &copy; 2026 IndieVault Corp. Hecho por y para gamers.
       </div>
