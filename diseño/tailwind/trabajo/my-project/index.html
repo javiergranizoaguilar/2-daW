@@ -15,11 +15,14 @@
     <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
       <!--font-display=fuente custom para títulos, font-900=grosor máximo-->
       <div class="text-2xl font-display font-900 tracking-tighter text-indie-accent">INDIE<span class="text-white">VAULT</span></div>
+      <!--HOVERS: cuando pasas mouse cambia color/fondo. transition-colors/transition-all hace que sea suave-->
       <ul class="hidden md:flex space-x-8 font-semibold text-sm uppercase tracking-widest">
+        <!--hover:text-indie-accent=al pasar mouse, el texto se pone del color primario (verde/violeta)-->
         <li><a href="#estrenos" class="hover:text-indie-accent transition-colors">Estrenos</a></li>
         <li><a href="#comunidad" class="hover:text-indie-accent transition-colors">Comunidad</a></li>
         <li><a href="#devs" class="hover:text-indie-accent transition-colors">Devs</a></li>
       </ul>
+      <!--hover:bg-white hover:text-indie-purple=el botón invierte colores al pasar mouse, duration-300=tarda 300ms-->
       <button class="bg-indie-purple px-5 py-2 rounded-md font-bold hover:bg-white hover:text-indie-purple transition-all duration-300">Explorar</button>
     </nav>
   </header>
@@ -35,8 +38,9 @@
         <h1 class="text-5xl md:text-8xl font-display font-900 mb-6 leading-none">JUEGA ALGO <br><!--bg-clip-text=recorta el background al texto, text-transparent=deja ver el gradient detrás--><span class="text-transparent bg-clip-text bg-gradient-to-r from-indie-purple to-indie-accent">DIFERENTE.</span></h1>
         <p class="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto mb-10">La plataforma definitiva para descubrir, jugar y apoyar a los creadores de juegos independientes más innovadores.</p>
         <div class="flex flex-col sm:flex-row justify-center gap-4">
-          <!--hover:-translate-y-1=sube 1px al pasar el mouse, hace efecto de levantarse-->
+          <!--hover:shadow-[0_0_30px_rgba(34,197,94,0.4)]=SOMBRA personalizada verde al hover, hover:-translate-y-1=sube 1px-->
           <button class="bg-indie-accent text-indie-dark font-black px-10 py-4 rounded-xl hover:shadow-[0_0_30px_rgba(34,197,94,0.4)] transition-all transform hover:-translate-y-1">DESCARGAR APP</button>
+          <!--hover:bg-white/5=al pasar mouse, se pone un fondo blanco muy transparente (5% opacidad)-->
           <button class="border border-white/20 px-10 py-4 rounded-xl hover:bg-white/5 transition-colors">VER TRAILER</button>
         </div>
       </div>
@@ -50,24 +54,27 @@
         </h2>
         
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          <!--group=grupo para animar hijos al hover, overflow-hidden=no sale nada del borde-->
+          <!--group=grupo para animar hijos al hover, hover:border-indie-purple/50=borde cambia color, hover:-translate-y-2=sube 8px la tarjeta-->
           <div class="bg-indie-card rounded-2xl overflow-hidden group border border-white/5 hover:border-indie-purple/50 transition-all hover:-translate-y-2 duration-300">
             <div class="h-48 bg-gradient-to-br from-purple-900 to-indigo-950 relative flex items-center justify-center">
                <span class="absolute top-3 left-3 bg-indie-purple text-[10px] px-2 py-1 rounded font-bold uppercase">Plataformas</span>
-               <!--group-hover:scale-110=cuando el padre hace hover, el emoji crece 10%, emoji como UI element-->
+               <!--group-hover:scale-110=MAGIC: cuando la TARJETA hace hover, ESTE emoji crece 110% (1.1x)-->
                <span class="text-4xl group-hover:scale-110 transition-transform duration-500">⚔️</span>
             </div>
             <div class="p-5">
+              <!--group-hover:text-indie-accent=cuando la tarjeta está en hover, el título cambia de color a indie-accent-->
               <h3 class="font-bold text-lg mb-1 group-hover:text-indie-accent transition-colors">Cyber Souls</h3>
               <!--line-clamp-2=máximo 2 líneas de texto, se corta con puntos suspensivos-->
               <p class="text-gray-500 text-sm mb-4 line-clamp-2">Una mezcla épica entre el arte de Ghibli y la dificultad de Dark Souls.</p>
               <div class="flex justify-between items-center">
                 <span class="font-bold text-indie-accent">$14.99</span>
+                <!--hover:bg-indie-accent=botón cambia fondo a verde, hover:text-indie-dark=texto oscuro al pasar-->
                 <button class="text-sm bg-white/5 px-3 py-2 rounded-lg hover:bg-indie-accent hover:text-indie-dark font-bold transition-all">Detalles</button>
               </div>
             </div>
           </div>
 
+          <!--MISMO PATRÓN: grupo hover sube tarjeta, cambia borde a rojo, emoji crece, texto a rojo-->
           <div class="bg-indie-card rounded-2xl overflow-hidden group border border-white/5 hover:border-red-500/50 transition-all hover:-translate-y-2 duration-300">
             <div class="h-48 bg-gradient-to-br from-red-950 to-black relative flex items-center justify-center">
                <span class="absolute top-3 left-3 bg-red-600 text-[10px] px-2 py-1 rounded font-bold uppercase">Terror</span>
@@ -78,11 +85,13 @@
               <p class="text-gray-500 text-sm mb-4 line-clamp-2">Terror psicológico donde tu única arma es el sonido de tus pasos.</p>
               <div class="flex justify-between items-center">
                 <span class="font-bold text-indie-accent">GRATIS</span>
+                <!--hover:bg-red-600=botón rojo oscuro al hover, hover:text-white=texto blanco-->
                 <button class="text-sm bg-white/5 px-3 py-2 rounded-lg hover:bg-red-600 hover:text-white font-bold transition-all text-red-500">Jugar</button>
               </div>
             </div>
           </div>
 
+          <!--MISMO PATRÓN con amarillo: hover:border-yellow-500 y group-hover:text-yellow-500-->
           <div class="bg-indie-card rounded-2xl overflow-hidden group border border-white/5 hover:border-yellow-500/50 transition-all hover:-translate-y-2 duration-300">
             <div class="h-48 bg-gradient-to-br from-yellow-900 to-amber-950 relative flex items-center justify-center">
                <span class="absolute top-3 left-3 bg-yellow-600 text-[10px] px-2 py-1 rounded font-bold uppercase">Estrategia</span>
@@ -93,11 +102,13 @@
               <p class="text-gray-500 text-sm mb-4 line-clamp-2">Construye tu mazo de cartas ciberpunk y hackea la megacorporación.</p>
               <div class="flex justify-between items-center">
                 <span class="font-bold text-indie-accent">$9.99</span>
+                <!--hover:bg-yellow-600=botón amarillo al hover-->
                 <button class="text-sm bg-white/5 px-3 py-2 rounded-lg hover:bg-yellow-600 hover:text-white font-bold transition-all text-yellow-500">Comprar</button>
               </div>
             </div>
           </div>
 
+          <!--ÚLTIMO: cyan/azul, mismo patrón pero con colores cyan: hover:border-cyan-500/50, group-hover:text-cyan-400-->
           <div class="bg-indie-card rounded-2xl overflow-hidden group border border-white/5 hover:border-cyan-500/50 transition-all hover:-translate-y-2 duration-300">
             <div class="h-48 bg-gradient-to-br from-cyan-900 to-blue-950 relative flex items-center justify-center">
                <span class="absolute top-3 left-3 bg-cyan-600 text-[10px] px-2 py-1 rounded font-bold uppercase">Puzles</span>
@@ -108,6 +119,7 @@
               <p class="text-gray-500 text-sm mb-4 line-clamp-2">Relájate cultivando un jardín digital generado por procedimientos.</p>
               <div class="flex justify-between items-center">
                 <span class="font-bold text-indie-accent">$4.50</span>
+                <!--hover:bg-cyan-600=botón cyan al hover-->
                 <button class="text-sm bg-white/5 px-3 py-2 rounded-lg hover:bg-cyan-600 hover:text-white font-bold transition-all text-cyan-500">Ver más</button>
               </div>
             </div>
@@ -145,6 +157,7 @@
           <div class="max-w-md">
             <h2 class="text-4xl font-display font-black mb-4">ÚNETE AL DISCORD</h2>
             <p class="text-gray-400 mb-8">Participa en playtests exclusivos y habla directamente con los desarrolladores de tus juegos favoritos.</p>
+            <!--hover:bg-[#4752C4]=botón Discord cambia a azul más oscuro (#4752C4) al pasar mouse-->
             <button class="bg-[#5865F2] hover:bg-[#4752C4] text-white px-8 py-3 rounded-lg font-bold flex items-center gap-3 transition-colors">
               ENTRAR A LA VILLA INDIE
             </button>
@@ -161,6 +174,7 @@
       <div class="container mx-auto max-w-3xl">
         <h2 class="text-3xl font-display font-bold mb-6 italic">¿ERES DESARROLLADOR?</h2>
         <p class="text-gray-400 mb-10">Publica tu prototipo hoy mismo y obtén feedback de una comunidad real. No pedimos exclusividad.</p>
+        <!--hover:text-white hover:border-white=enlace cambia color de texto y subrayado al pasar mouse, transition-all=animación suave-->
         <a href="#" class="text-indie-accent font-bold border-b-2 border-indie-accent hover:text-white hover:border-white transition-all pb-1">Sube tu juego ahora &rarr;</a>
       </div>
     </section>
@@ -173,6 +187,7 @@
           <form class="flex flex-col sm:flex-row gap-3">
             <!--focus:ring-2=aura colorida al hacer click, placeholder:text-gray-600=color del placeholder-->
             <input type="email" placeholder="tu@email.com" class="flex-1 bg-white/5 border border-white/10 p-4 rounded-xl focus:outline-none focus:ring-2 focus:ring-indie-purple transition-all placeholder:text-gray-600">
+            <!--hover:bg-indie-accent=botón blanco cambia a verde/púrpura (color primario) al pasar-->
             <button class="bg-white text-indie-dark font-black px-8 py-4 rounded-xl hover:bg-indie-accent transition-colors">SUSCRIBIRSE</button>
           </form>
           <p class="text-[10px] text-gray-500 mt-4 uppercase tracking-widest">Respetamos tu privacidad. Cero Spam.</p>
