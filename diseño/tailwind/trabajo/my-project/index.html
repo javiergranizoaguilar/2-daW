@@ -1,98 +1,182 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IndieVault | Joyas Ocultas del Gaming</title>
+  <link rel="stylesheet" href="./src/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@700;900&display=swap" rel="stylesheet">
 </head>
-<body class="bg-slate-50 text-slate-800 font-sans">
+<body class="bg-indie-dark text-gray-100 font-body">
 
-  <nav class="bg-white border-b border-slate-200 sticky top-0 z-50">
-    <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
-      <div class="flex items-center gap-2">
-        <span class="material-symbols-outlined text-indigo-600 font-bold">sports_esports</span>
-        <span class="text-xl font-black tracking-tight uppercase">Indie World</span>
+  <header class="fixed w-full z-50 bg-indie-dark/80 backdrop-blur-lg border-b border-white/10">
+    <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+      <div class="text-2xl font-display font-900 tracking-tighter text-indie-accent">INDIE<span class="text-white">VAULT</span></div>
+      <ul class="hidden md:flex space-x-8 font-semibold text-sm uppercase tracking-widest">
+        <li><a href="#estrenos" class="hover:text-indie-accent transition-colors">Estrenos</a></li>
+        <li><a href="#comunidad" class="hover:text-indie-accent transition-colors">Comunidad</a></li>
+        <li><a href="#devs" class="hover:text-indie-accent transition-colors">Devs</a></li>
+      </ul>
+      <button class="bg-indie-purple px-5 py-2 rounded-md font-bold hover:bg-white hover:text-indie-purple transition-all duration-300">Explorar</button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="relative pt-40 pb-24 px-6 overflow-hidden">
+      <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-indie-purple/20 blur-[120px] rounded-full"></div>
+      
+      <div class="container mx-auto text-center relative z-10">
+        <span class="inline-block bg-white/10 text-indie-accent px-4 py-1 rounded-full text-xs font-bold mb-6 border border-indie-accent/20">EDICIÓN 2026</span>
+        <h1 class="text-5xl md:text-8xl font-display font-900 mb-6 leading-none">JUEGA ALGO <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-indie-purple to-indie-accent">DIFERENTE.</span></h1>
+        <p class="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto mb-10">La plataforma definitiva para descubrir, jugar y apoyar a los creadores de juegos independientes más innovadores.</p>
+        <div class="flex flex-col sm:flex-row justify-center gap-4">
+          <button class="bg-indie-accent text-indie-dark font-black px-10 py-4 rounded-xl hover:shadow-[0_0_30px_rgba(34,197,94,0.4)] transition-all transform hover:-translate-y-1">DESCARGAR APP</button>
+          <button class="border border-white/20 px-10 py-4 rounded-xl hover:bg-white/5 transition-colors">VER TRAILER</button>
+        </div>
       </div>
-
-      <div class="hidden md:flex space-x-6 font-medium text-slate-600">
-        <a href="#" class="hover:text-indigo-600 transition">Inicio</a>
-        <a href="#" class="hover:text-indigo-600 transition">Juegos</a>
-        <a href="#" class="hover:text-indigo-600 transition">Comunidad</a>
-      </div>
-
-      <button class="bg-indigo-600 text-white px-5 py-2 rounded-full font-semibold hover:bg-indigo-700 transition shadow-md">
-        Unirse
-      </button>
-    </div>
-  </nav>
-
-  <main class="max-w-6xl mx-auto px-4 py-12">
-    
-    <section class="text-center py-12">
-      <h1 class="text-4xl md:text-6xl font-extrabold mb-4 text-slate-900">Descubre la próxima joya <span class="text-indigo-600">indie</span></h1>
-      <p class="text-lg text-slate-600 max-w-2xl mx-auto">Explora miles de juegos creados por desarrolladores independientes de todo el mundo.</p>
     </section>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      <div class="bg-white rounded-xl overflow-hidden shadow-sm border border-slate-200 hover:shadow-md transition">
-        <div class="h-48 bg-slate-200 flex items-center justify-center">
-           <span class="material-symbols-outlined text-4xl text-slate-400">image</span>
-        </div>
-        <div class="p-5">
-          <h3 class="font-bold text-lg">Neon Odyssey</h3>
-          <p class="text-slate-500 text-sm mb-4">Un viaje visual a través de mundos cibernéticos.</p>
-          <span class="text-xs font-bold bg-indigo-100 text-indigo-700 px-2 py-1 rounded">AVENTURA</span>
-        </div>
-      </div>
-      <div class="bg-white rounded-xl overflow-hidden shadow-sm border border-slate-200 hover:shadow-md transition">
-        <div class="h-48 bg-slate-200 flex items-center justify-center">
-           <span class="material-symbols-outlined text-4xl text-slate-400">image</span>
-        </div>
-        <div class="p-5">
-          <h3 class="font-bold text-lg">Pixel Knights</h3>
-          <p class="text-slate-500 text-sm mb-4">Combates clásicos con un toque moderno.</p>
-          <span class="text-xs font-bold bg-green-100 text-green-700 px-2 py-1 rounded">RPG</span>
-        </div>
-      </div>
-      <div class="bg-white rounded-xl overflow-hidden shadow-sm border border-slate-200 hover:shadow-md transition">
-        <div class="h-48 bg-slate-200 flex items-center justify-center">
-           <span class="material-symbols-outlined text-4xl text-slate-400">image</span>
-        </div>
-        <div class="p-5">
-          <h3 class="font-bold text-lg">Void Runner</h3>
-          <p class="text-slate-500 text-sm mb-4">Velocidad pura en el espacio profundo.</p>
-          <span class="text-xs font-bold bg-red-100 text-red-700 px-2 py-1 rounded">ACCIÓN</span>
-        </div>
-      </div>
-    </div>
+    <section id="estrenos" class="py-20 px-6">
+      <div class="container mx-auto">
+        <h2 class="text-3xl font-display font-bold mb-12 flex items-center gap-4">
+          <span class="w-8 h-[2px] bg-indie-accent"></span> TENDENCIAS DE LA SEMANA
+        </h2>
+        
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          
+          <div class="bg-indie-card rounded-2xl overflow-hidden group border border-white/5 hover:border-indie-purple/50 transition-all hover:-translate-y-2 duration-300">
+            <div class="h-48 bg-gradient-to-br from-purple-900 to-indigo-950 relative flex items-center justify-center">
+               <span class="absolute top-3 left-3 bg-indie-purple text-[10px] px-2 py-1 rounded font-bold uppercase">Plataformas</span>
+               <span class="text-4xl group-hover:scale-110 transition-transform duration-500">⚔️</span>
+            </div>
+            <div class="p-5">
+              <h3 class="font-bold text-lg mb-1 group-hover:text-indie-accent transition-colors">Cyber Souls</h3>
+              <p class="text-gray-500 text-sm mb-4 line-clamp-2">Una mezcla épica entre el arte de Ghibli y la dificultad de Dark Souls.</p>
+              <div class="flex justify-between items-center">
+                <span class="font-bold text-indie-accent">$14.99</span>
+                <button class="text-sm bg-white/5 px-3 py-2 rounded-lg hover:bg-indie-accent hover:text-indie-dark font-bold transition-all">Detalles</button>
+              </div>
+            </div>
+          </div>
 
+          <div class="bg-indie-card rounded-2xl overflow-hidden group border border-white/5 hover:border-red-500/50 transition-all hover:-translate-y-2 duration-300">
+            <div class="h-48 bg-gradient-to-br from-red-950 to-black relative flex items-center justify-center">
+               <span class="absolute top-3 left-3 bg-red-600 text-[10px] px-2 py-1 rounded font-bold uppercase">Terror</span>
+               <span class="text-4xl group-hover:scale-110 transition-transform duration-500">🔦</span>
+            </div>
+            <div class="p-5">
+              <h3 class="font-bold text-lg mb-1 group-hover:text-red-500 transition-colors">Echoes of Void</h3>
+              <p class="text-gray-500 text-sm mb-4 line-clamp-2">Terror psicológico donde tu única arma es el sonido de tus pasos.</p>
+              <div class="flex justify-between items-center">
+                <span class="font-bold text-indie-accent">GRATIS</span>
+                <button class="text-sm bg-white/5 px-3 py-2 rounded-lg hover:bg-red-600 hover:text-white font-bold transition-all text-red-500">Jugar</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-indie-card rounded-2xl overflow-hidden group border border-white/5 hover:border-yellow-500/50 transition-all hover:-translate-y-2 duration-300">
+            <div class="h-48 bg-gradient-to-br from-yellow-900 to-amber-950 relative flex items-center justify-center">
+               <span class="absolute top-3 left-3 bg-yellow-600 text-[10px] px-2 py-1 rounded font-bold uppercase">Estrategia</span>
+               <span class="text-4xl group-hover:scale-110 transition-transform duration-500">🃏</span>
+            </div>
+            <div class="p-5">
+              <h3 class="font-bold text-lg mb-1 group-hover:text-yellow-500 transition-colors">Neon Deck</h3>
+              <p class="text-gray-500 text-sm mb-4 line-clamp-2">Construye tu mazo de cartas ciberpunk y hackea la megacorporación.</p>
+              <div class="flex justify-between items-center">
+                <span class="font-bold text-indie-accent">$9.99</span>
+                <button class="text-sm bg-white/5 px-3 py-2 rounded-lg hover:bg-yellow-600 hover:text-white font-bold transition-all text-yellow-500">Comprar</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-indie-card rounded-2xl overflow-hidden group border border-white/5 hover:border-cyan-500/50 transition-all hover:-translate-y-2 duration-300">
+            <div class="h-48 bg-gradient-to-br from-cyan-900 to-blue-950 relative flex items-center justify-center">
+               <span class="absolute top-3 left-3 bg-cyan-600 text-[10px] px-2 py-1 rounded font-bold uppercase">Puzles</span>
+               <span class="text-4xl group-hover:scale-110 transition-transform duration-500">🧩</span>
+            </div>
+            <div class="p-5">
+              <h3 class="font-bold text-lg mb-1 group-hover:text-cyan-400 transition-colors">Zen Garden AI</h3>
+              <p class="text-gray-500 text-sm mb-4 line-clamp-2">Relájate cultivando un jardín digital generado por procedimientos.</p>
+              <div class="flex justify-between items-center">
+                <span class="font-bold text-indie-accent">$4.50</span>
+                <button class="text-sm bg-white/5 px-3 py-2 rounded-lg hover:bg-cyan-600 hover:text-white font-bold transition-all text-cyan-500">Ver más</button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="py-20 bg-indie-card/30 px-6 border-y border-white/5">
+      <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
+        <div>
+          <div class="text-4xl mb-4">🎮</div>
+          <h4 class="text-xl font-bold mb-2 uppercase tracking-tighter">Sin DRM</h4>
+          <p class="text-gray-400 text-sm">Tus juegos son tuyos para siempre. Sin conexiones obligatorias.</p>
+        </div>
+        <div>
+          <div class="text-4xl mb-4">🤝</div>
+          <h4 class="text-xl font-bold mb-2 uppercase tracking-tighter">100% para el Dev</h4>
+          <p class="text-gray-400 text-sm">El mayor porcentaje de ingresos va directo al artista.</p>
+        </div>
+        <div>
+          <div class="text-4xl mb-4">🌍</div>
+          <h4 class="text-xl font-bold mb-2 uppercase tracking-tighter">Multiplataforma</h4>
+          <p class="text-gray-400 text-sm">Juega en PC, Steam Deck o dispositivos móviles.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="comunidad" class="py-20 px-6">
+      <div class="container mx-auto bg-gradient-to-r from-indie-purple/20 to-transparent p-10 rounded-3xl border border-indie-purple/20">
+        <div class="flex flex-col md:flex-row items-center justify-between gap-10">
+          <div class="max-w-md">
+            <h2 class="text-4xl font-display font-black mb-4">ÚNETE AL DISCORD</h2>
+            <p class="text-gray-400 mb-8">Participa en playtests exclusivos y habla directamente con los desarrolladores de tus juegos favoritos.</p>
+            <button class="bg-[#5865F2] hover:bg-[#4752C4] text-white px-8 py-3 rounded-lg font-bold flex items-center gap-3 transition-colors">
+              ENTRAR A LA VILLA INDIE
+            </button>
+          </div>
+          <div class="text-6xl font-black text-white/5 select-none hidden md:block">
+            +50,000 GAMERS
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="devs" class="py-20 px-6 text-center">
+      <div class="container mx-auto max-w-3xl">
+        <h2 class="text-3xl font-display font-bold mb-6 italic">¿ERES DESARROLLADOR?</h2>
+        <p class="text-gray-400 mb-10">Publica tu prototipo hoy mismo y obtén feedback de una comunidad real. No pedimos exclusividad.</p>
+        <a href="#" class="text-indie-accent font-bold border-b-2 border-indie-accent hover:text-white hover:border-white transition-all pb-1">Sube tu juego ahora &rarr;</a>
+      </div>
+    </section>
+
+    <section class="py-24 px-6 relative overflow-hidden">
+        <div class="absolute bottom-0 right-0 w-64 h-64 bg-indie-accent/10 blur-[100px]"></div>
+        <div class="container mx-auto max-w-2xl text-center relative z-10">
+          <h3 class="text-2xl font-bold mb-8">No te pierdas ningún lanzamiento</h3>
+          <form class="flex flex-col sm:flex-row gap-3">
+            <input type="email" placeholder="tu@email.com" class="flex-1 bg-white/5 border border-white/10 p-4 rounded-xl focus:outline-none focus:ring-2 focus:ring-indie-purple transition-all placeholder:text-gray-600">
+            <button class="bg-white text-indie-dark font-black px-8 py-4 rounded-xl hover:bg-indie-accent transition-colors">SUSCRIBIRSE</button>
+          </form>
+          <p class="text-[10px] text-gray-500 mt-4 uppercase tracking-widest">Respetamos tu privacidad. Cero Spam.</p>
+        </div>
+    </section>
   </main>
 
-  <footer class="bg-slate-900 text-slate-300 py-12 mt-12">
-    <div class="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8">
-      <div>
-        <h4 class="text-white font-bold mb-4">Indie World</h4>
-        <p class="text-sm">Apoyando el talento independiente desde 2024.</p>
+  <footer class="bg-black py-12 px-6 border-t border-white/5 text-gray-500">
+    <div class="container mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+      <div class="text-xl font-display font-900 text-white">INDIE<span class="text-indie-accent">VAULT</span></div>
+      <div class="flex gap-8 text-sm">
+        <a href="#" class="hover:text-white transition-colors">Términos</a>
+        <a href="#" class="hover:text-white transition-colors">Privacidad</a>
+        <a href="#" class="hover:text-white transition-colors">Cookies</a>
       </div>
-      <div>
-        <h4 class="text-white font-bold mb-4">Enlaces</h4>
-        <ul class="text-sm space-y-2">
-          <li><a href="#" class="hover:text-white">Sobre nosotros</a></li>
-          <li><a href="#" class="hover:text-white">Términos de servicio</a></li>
-          <li><a href="#" class="hover:text-white">Contacto</a></li>
-        </ul>
+      <div class="text-xs uppercase tracking-tighter">
+        &copy; 2026 IndieVault Corp. Hecho por y para gamers.
       </div>
-      <div>
-        <h4 class="text-white font-bold mb-4">Suscríbete</h4>
-        <div class="flex">
-          <input type="text" placeholder="Email" class="bg-slate-800 border-none rounded-l-md px-4 py-2 w-full text-sm">
-          <button class="bg-indigo-600 text-white px-4 py-2 rounded-r-md hover:bg-indigo-700">OK</button>
-        </div>
-      </div>
-    </div>
-    <div class="max-w-6xl mx-auto px-4 mt-8 pt-8 border-t border-slate-800 text-xs text-center">
-      © 2024 Indie World Inc. Creado con Tailwind CSS.
     </div>
   </footer>
 
